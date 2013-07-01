@@ -1,0 +1,5 @@
+# key: smooth
+# name: draw a smoother with ggplot2
+# group: Graphics
+# --
+ggplot(res,aes(hour,value)) + geom_smooth(aes(group=variable,colour=factor(variable)),alpha=0.3,size=2) + xlab('Hour') + ylab('Median') + scale_color_brewer(name='Day',palette="Set1")

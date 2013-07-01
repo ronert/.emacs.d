@@ -1,0 +1,5 @@
+# key: bar
+# name: draw a barchart with ggplot2
+# group: Graphics
+# --
+ggplot(timeline,aes(weekday,count,fill=weekday)) + geom_bar() + scale_fill_brewer(name='Weekday',palette="Set1") + xlab('') + ylab('Number of actions')

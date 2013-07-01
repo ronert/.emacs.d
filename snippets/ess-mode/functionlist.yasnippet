@@ -1,0 +1,12 @@
+# key: search
+# name: search for help
+# group: Help
+# --
+RSiteSearch("${1:searchString}"",
+            restrict = c("functions", "vignettes", "views"),
+            format = c("normal", "short"),
+            sortby = c("score", "date:late", "date:early",
+                       "subject", "subject:descending",
+                       "from", "from:descending",
+                       "size", "size:descending"),
+            matchesPerPage = 20)

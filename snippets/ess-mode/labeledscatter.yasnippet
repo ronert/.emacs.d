@@ -1,0 +1,6 @@
+# key: labeledscatter
+# name: draw a labeled scatterplot with ggplot2
+# group: Graphics
+# --
+exp <- ggplot(exp05, aes(x=number, y=length, label=country, size=receipt, colour = region))
+exp + geom_point() + geom_text(hjust=0.7, vjust=2) + labs(x = "Number of Tourist Arrivals", y = "Length of Stay (days)") + scale_area("Receipt (M. USD)") + scale_colour_hue("Region")

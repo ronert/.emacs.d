@@ -1,0 +1,11 @@
+# key: traincv
+# name: train using cv
+# group: caret
+# --
+fitControl <- trainControl(# 10-fold CV
+                            method = "repeatedcv",
+                            number = 10,
+                            # 5 mal 10-fold CV
+                            repeats = 5,
+                            # Alle resultate speichern
+                            returnResamp = "all")

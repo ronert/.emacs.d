@@ -1,0 +1,9 @@
+# key: tikz
+# name: create tikz plot
+# group: Graphics
+# --
+tikz(file = "${1:path}", width = 5, height
+       = 5, engine = "xetex")
+  ${2:plotName}
+  dev.off()
+  $0

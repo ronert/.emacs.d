@@ -1,0 +1,7 @@
+# key: trainoob
+# name: train using cv
+# group: caret
+# --
+fitControl <- trainControl(# OOB um mtry zu tunen
+                           method = "oob",
+                           returnResamp = "all")

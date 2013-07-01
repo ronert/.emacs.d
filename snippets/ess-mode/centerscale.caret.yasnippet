@@ -1,0 +1,8 @@
+# key: cs                               
+# name: center and scale variables
+# group: caret
+# --
+preProcValues <- preProcess(${1:trainingData}, method = c("center", "scale"))
+trainDescr <- predict(preProcValues, $1)
+testDescr <- predict(preProcValues, ${$2:testData})
+$0

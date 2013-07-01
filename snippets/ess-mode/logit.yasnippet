@@ -1,0 +1,5 @@
+# key: logit
+# name: fit a logit model       
+# group: Regression
+# --
+$1 <- glm($2 ~ $3, family=binomial(link=logit))$0

@@ -1,0 +1,6 @@
+# key: drawfunction
+# name: draw a function with ggplot2
+# group: Graphics
+# --
+qplot(1:10, stat = "function", geom = "line",
+      fun = function(x) dgamma(x, shape = 1))

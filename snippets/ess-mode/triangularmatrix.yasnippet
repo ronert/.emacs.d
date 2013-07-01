@@ -1,0 +1,27 @@
+# key: triangular
+# name: create Upper or Lower Triangular Matrix
+# group: Matrices
+# --
+# You want:
+# a^0  0    0
+# a^1  a^0  0
+# a^2  a^1  a^0
+
+# At least 4 ways:
+ma <- matrix(rep(c(a^(0:n), 0), n+1), nrow=n+1, ncol=n+1)
+ma[upper.tri(ma)] <- 0
+
+n <- 3
+a <- 2
+out <- diag(n+1)
+out[lower.tri(out)] <-
+a^apply(matrix(1:n,ncol=1),1,function(x)c(rep(0,x),1:(n-x+1)))[lower.tri(out)]
+out
+
+fun <- function(x,y) { ifelse(y>x, x+y, 0) } 
+fun(2,3) 
+outer(1:4, 1:4, fun) 
+
+a <- 0.2
+fun <- function(x, y) { ifelse(y<=x, a^(x+y-1), 0) }
+outer(1:4, 1:4, fun)

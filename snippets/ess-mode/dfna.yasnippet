@@ -1,0 +1,6 @@
+# key: dfna
+# name: remove rows with na´s from data frame
+# group: data frames
+# --
+${1:dataFrame}[rowSums(is.na(${2:dataFrame}))==0, ]
+$0
