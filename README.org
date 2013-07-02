@@ -1,0 +1,5 @@
+This is my personal Emacs configuration. I used a lot of code from:
+- [[Steve Purcell]]
+- [[http://kieranhealy.org/resources/emacs-starter-kit.html][Kieran Healy]]
+- [[https://github.com/bbatsov/prelude][Bozhidar Batsov]]
+- [[https://github.com/magnars/.emacs.d][Magnar Sveen]]
