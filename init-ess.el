@@ -1,6 +1,17 @@
 (require 'ess)
 (add-hook 'ess-mode-hook 'run-starter-kit-coding-hook)
+
+
+;; Make yank and smartparens work propperly on a German keyboard
+(defun ess-mode-is-intrusive ()
+  ;; Make something work in org-mode:
+  ;; (local-unset-key (kbd "something I use"))
+  (local-unset-key (kbd "C-y"))
+  (local-set-key (kbd "C-z") 'ess-yank)
+  )
+
 (add-hook 'ess-R-post-run-hook 'smartparens-mode)
+(add-hook 'ess-R-post-run-hook 'ess-mode-is-intrusive)
 
 (add-to-list 'auto-mode-alist '("\\.Rnw\\'" . Rnw-mode))
 (add-to-list 'auto-mode-alist '("\\.Snw\\'" . Rnw-mode))
@@ -83,13 +94,6 @@
 
 ;; set up r-process with correct minor modes
 (add-hook 'inferior-ess-mode-hook 'smartparens-mode)
-
-(defun ess-mode-is-intrusive ()
-  ;; Make something work in org-mode:
-  ;; (local-unset-key (kbd "something I use"))
-  (local-unset-key (kbd "C-y"))
-  (local-set-key (kbd "C-z") 'ess-yank)
-  )
 (add-hook 'ess-mode-hook 'ess-mode-is-intrusive)
 
 ;;; prefer auto-fill to visual line wrap in ESS mode
