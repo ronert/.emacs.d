@@ -4,3 +4,6 @@
 [submodule "src/magit"]
 	path = src/magit
 	url = git@github.com:thierryvolpiatto/magit.git
+[submodule "snippets/shnippet"]
+	path = snippets/shnippet
+	url = git@github.com:LukeHoersten/shnippet.git
