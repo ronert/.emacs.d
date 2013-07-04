@@ -1,4 +1,4 @@
-(require-package 'magit)
+(require 'magit)
 
 ;; Git Messenger
 (require-package 'git-messenger)
