@@ -1,6 +1,3 @@
 [submodule "org-mode"]
 	path = org-mode
 	url = ./src/org-mode
-[submodule "src/magit"]
-	path = src/magit
-	url = git@github.com:thierryvolpiatto/magit.git
