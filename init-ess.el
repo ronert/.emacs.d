@@ -16,7 +16,7 @@
 (add-to-list 'auto-mode-alist '("\\.Rnw\\'" . Rnw-mode))
 (add-to-list 'auto-mode-alist '("\\.Snw\\'" . Rnw-mode))
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . Rnw-mode))
-(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
+(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
 
 ;; Make TeX and RefTex aware of Snw and Rnw files
 (setq reftex-file-extensions
