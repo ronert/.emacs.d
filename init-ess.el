@@ -1,4 +1,4 @@
-(require 'ess)
+(require-package 'ess)
 (add-hook 'ess-mode-hook 'run-starter-kit-coding-hook)
 
 
@@ -12,11 +12,6 @@
 
 (add-hook 'ess-R-post-run-hook 'smartparens-mode)
 (add-hook 'ess-R-post-run-hook 'ess-mode-is-intrusive)
-
-(add-to-list 'auto-mode-alist '("\\.Rnw\\'" . Rnw-mode))
-(add-to-list 'auto-mode-alist '("\\.Snw\\'" . Rnw-mode))
-(add-to-list 'auto-mode-alist '("\\.Rmd\\'" . Rnw-mode))
-(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
 
 ;; Make TeX and RefTex aware of Snw and Rnw files
 (setq reftex-file-extensions

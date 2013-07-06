@@ -13,10 +13,4 @@
   (dolist (pattern patterns)
     (add-to-list 'auto-mode-alist (cons pattern mode))))
 
-;; Auto-compile
-(add-to-list 'load-path "./elpa/auto-compile-20130612.152/")
-(require 'auto-compile)
-(auto-compile-on-load-mode 1)
-(auto-compile-on-save-mode 1)
-
 (provide 'init-utils)

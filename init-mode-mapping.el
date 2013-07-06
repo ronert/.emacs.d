@@ -19,4 +19,9 @@
       (cons '("\\.md" . markdown-mode) auto-mode-alist)
       )
 
+(add-to-list 'auto-mode-alist '("\\.Rnw\\'" . Rnw-mode))
+(add-to-list 'auto-mode-alist '("\\.Snw\\'" . Rnw-mode))
+(add-to-list 'auto-mode-alist '("\\.Rmd\\'" . Rnw-mode))
+(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
+
 (provide 'init-mode-mapping)
