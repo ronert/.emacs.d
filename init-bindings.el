@@ -68,7 +68,7 @@
 (global-set-key (kbd "C-c m") 'mark-whole-buffer)
 
 ;; Browse the kill ring
-(global-set-key (kbd "C-x y") 'browse-kill-ring)
+(global-set-key (kbd "C-x z") 'browse-kill-ring)
 
 ;; cleanup-buffer
 (global-set-key (kbd "C-c ß") 'cleanup-buffer)
