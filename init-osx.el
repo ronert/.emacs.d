@@ -3,6 +3,9 @@
 (if (eq system-type 'darwin)
     (push "/usr/local/bin" exec-path))
 
+(if (eq system-type 'darwin)
+    (setq-default locate-command "mdfind"))
+
 ;; Move to trash when deleting stuff
 (setq delete-by-moving-to-trash t
       trash-directory "~/.Trash/emacs")
