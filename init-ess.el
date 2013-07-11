@@ -1,4 +1,5 @@
-(require 'ess-site)
+(require-package 'ess)
+(load "ess-site.el")
 (add-hook 'ess-mode-hook 'run-starter-kit-coding-hook)
 
 
