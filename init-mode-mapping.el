@@ -23,5 +23,6 @@
 (add-to-list 'auto-mode-alist '("\\.Snw\\'" . Rnw-mode))
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . Rnw-mode))
 (add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
+(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
 
 (provide 'init-mode-mapping)
