@@ -88,4 +88,10 @@
 (ido-ubiquitous-use-new-completing-read yas/expand 'yasnippet)
 (ido-ubiquitous-use-new-completing-read yas/visit-snippet-file 'yasnippet)
 
+;; enable flx
+(require 'flx-ido)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
+
 (provide 'init-ido)
