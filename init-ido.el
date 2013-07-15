@@ -93,5 +93,7 @@
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
+;; increase garbage collection threshold
+(setq gc-cons-threshold 20000000)
 
 (provide 'init-ido)
