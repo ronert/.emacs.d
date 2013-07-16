@@ -96,4 +96,8 @@
 ;; increase garbage collection threshold
 (setq gc-cons-threshold 20000000)
 
+;; use ido vertical mode
+(require-package 'ido-vertical-mode)
+(ido-vertical-mode t)
+
 (provide 'init-ido)
