@@ -99,5 +99,15 @@
 ;; use ido vertical mode
 (require-package 'ido-vertical-mode)
 (ido-vertical-mode t)
+;; up down arrows to navigate
+(define-key ido-completion-map (kbd "<down>") 'ido-next-match)
+(define-key ido-completion-map (kbd "<up>") 'ido-prev-match)
+
+(defun ido-define-keys () ;; C-n/p is more intuitive in vertical layout
+  (define-key ido-completion-map (kbd "<down>") 'ido-next-match)
+  (define-key ido-completion-map (kbd "<up>") 'ido-prev-match)
+  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
+(add-hook 'ido-setup-hook 'ido-define-keys)
 
 (provide 'init-ido)
