@@ -89,12 +89,12 @@
 (ido-ubiquitous-use-new-completing-read yas/visit-snippet-file 'yasnippet)
 
 ;; enable flx
-(require 'flx-ido)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
-;; increase garbage collection threshold
-(setq gc-cons-threshold 20000000)
+;; (require 'flx-ido)
+;; (flx-ido-mode 1)
+;; ;; disable ido faces to see flx highlights.
+;; (setq ido-use-faces nil)
+;; ;; increase garbage collection threshold
+;; (setq gc-cons-threshold 20000000)
 
 ;; use ido vertical mode
 (require-package 'ido-vertical-mode)

@@ -182,4 +182,7 @@ indent yanked text (with prefix arg don't indent)."
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
 
+;; activate pending-delete-mode
+(pending-delete-mode t)
+
 (provide 'init-misc)

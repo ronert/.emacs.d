@@ -190,6 +190,11 @@
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
 (global-set-key (kbd "C-x a") 'join-line)
+(global-set-key (kbd "M-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
+
 (global-set-key [remap backward-up-list] 'backward-up-sexp)
 
 (global-set-key (kbd "C-t") 'eshell)

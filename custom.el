@@ -29,7 +29,7 @@
  '(foreground-color "#52676f")
  '(haskell-mode-hook (quote (turn-on-haskell-indentation)))
  '(hippie-expand-try-functions-list (quote (try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-list try-expand-line try-complete-lisp-symbol-partially try-complete-lisp-symbol yas/hippie-try-expand)))
- '(line-number-mode nil)
+ '(line-number-mode t)
  '(magit-restore-window-configuration t)
  '(max-specpdl-size 10000)
  '(minimap-update-delay 0.8)
