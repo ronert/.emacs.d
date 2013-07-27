@@ -1,7 +1,8 @@
 (require-package 'ess)
 (load "ess-site.el")
 (add-hook 'ess-mode-hook 'run-starter-kit-coding-hook)
-
+;; TODO put this in own prog mode, use starter kit as templae
+(add-hook 'ess-mode-hook 'font-lock-comment-annotations)
 
 ;; Make yank and smartparens work propperly on a German keyboard
 (defun ess-mode-is-intrusive ()
