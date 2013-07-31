@@ -54,7 +54,7 @@
         (set-window-buffer w1 w1name))))
 (defun my-ess-eval ()
   (interactive)
-;;  (my-ess-start-R)
+  (my-ess-start-R)
   (if (and transient-mark-mode mark-active)
       (call-interactively 'ess-eval-region)
     (call-interactively 'ess-eval-line-and-step)))
@@ -71,12 +71,6 @@
 
 (require 'ess-tracebug)
 (add-hook 'ess-post-run-hook 'ess-tracebug t)
-(define-key ess-mode-map "\M-]" 'next-error)
-(define-key ess-mode-map "\M-[" 'previous-error)
-(define-key inferior-ess-mode-map "\M-]" 'next-error-no-select)
-(define-key inferior-ess-mode-map "\M-[" 'previous-error-no-select)
-(define-key compilation-minor-mode-map [(?n)] 'next-error-no-select)
-(define-key compilation-minor-mode-map [(?p)] 'previous-error-no-select)
 
 ;; turn off fancy comments in ess
 (setq ess-fancy-comments nil)
@@ -93,7 +87,7 @@
 (add-hook 'inferior-ess-mode-hook 'smartparens-mode)
 (add-hook 'ess-mode-hook 'ess-mode-is-intrusive)
 
-;;; prefer auto-fill to visual line wrap in ESS mode
+;; prefer auto-fill to visual line wrap in ESS mode
 (add-hook 'ess-mode-hook 'turn-on-auto-fill)
 (add-hook 'inferior-ess-mode-hook 'turn-on-auto-fill)
 
