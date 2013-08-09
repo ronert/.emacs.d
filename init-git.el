@@ -7,13 +7,6 @@
 (global-set-key (kbd "<f18>") 'git-gutter:toggle)
 (global-set-key (kbd "<f19>") 'git-gutter:popup-diff)
 
-;; full screen magit-status
-
-(defadvice magit-status (around magit-fullscreen activate)
-  (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
-  (delete-other-windows))
-
 
 (defun magit-toggle-whitespace ()
   (interactive)
@@ -34,9 +27,7 @@
 (global-set-key [f16] 'magit-status)
 (global-set-key [f17] 'magit-init)
 
-(add-hook 'magit-mode-hook 'turn-on-magit-push-remote)
-
-;; (require-package 'magithub)
+(require-package 'magithub)
 
 (require-package 'gist)
 (setq gist-view-gist t)
