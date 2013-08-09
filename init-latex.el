@@ -170,7 +170,7 @@ If there is still something left do do start the next latex-command."
 (autoload 'ebib "ebib" "Ebib, a BibTeX database manager." t)
 (setq ebib-preload-bib-files
       '("~/Dropbox/bib/library.bib"))
-(add-hook 'LaTeX-mode-hook #'(lambda ()
+(add-hook 'LaTeX-mode-hook '(lambda ()
                                (local-set-key "\C-cb" 'ebib-insert-bibtex-key)))
 
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
