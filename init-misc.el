@@ -164,10 +164,6 @@ indent yanked text (with prefix arg don't indent)."
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 
-;; Auto-indent
-(setq auto-indent-on-visit-file t) ;; If you want auto-indent on for files
-(require-package 'auto-indent-mode)
-(auto-indent-global-mode)
 
 ;; Kill lines
 (require 'kill-lines)
