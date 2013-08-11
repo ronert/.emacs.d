@@ -25,7 +25,7 @@
         (ghc-init)
         (flymake-mode))
     (flymake-haskell-multi-load)))
-(add-hook 'haskell-mode-hook #'sanityinc/haskell-enable-flymake)
+(add-hook 'haskell-mode-hook 'sanityinc/haskell-enable-flymake)
 
 ;; (require 'scion)
 
