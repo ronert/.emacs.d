@@ -3,6 +3,7 @@
 (add-to-list 'auto-mode-alist '("\\.ghci\\'" . haskell-mode))
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode);
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+
 (after-load 'haskell-mode
   (define-key haskell-mode-map (kbd "C-c h") 'hoogle))
 
@@ -19,13 +20,15 @@
 (add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion)
 
 (require 'flymake-haskell-multi)
-(defun sanityinc/haskell-enable-flymake ()
-  (if (package-installed-p 'ghc)
-      (progn
-        (ghc-init)
-        (flymake-mode))
-    (flymake-haskell-multi-load)))
-(add-hook 'haskell-mode-hook 'sanityinc/haskell-enable-flymake)
+(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
+
+;; (defun sanityinc/haskell-enable-flymake ()
+;;   (if (package-installed-p 'ghc)
+;;       (progn
+;;         (ghc-init)
+;;         (flymake-mode))
+;;     (flymake-haskell-multi-load)))
+;; (add-hook 'haskell-mode-hook 'sanityinc/haskell-enable-flymake)
 
 ;; (require 'scion)
 
