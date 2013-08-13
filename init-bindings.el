@@ -58,6 +58,7 @@
 
 ;; Query replace regex key binding
 (global-set-key (kbd "M-&") 'query-replace-regexp)
+(global-set-key (kbd "C-c q") 'query-replace)
 
 ;; Comment out block
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
