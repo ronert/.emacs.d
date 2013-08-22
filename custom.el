@@ -26,6 +26,7 @@
  '(ess-roxy-str "##'")
  '(ess-tracebug-prefix "\\M-p")
  '(fci-rule-color "#0a2832")
+ '(flymake-no-changes-timeout 120)
  '(foreground-color "#52676f")
  '(haskell-mode-hook (quote (turn-on-haskell-indentation)))
  '(hippie-expand-try-functions-list (quote (try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-list try-expand-line try-complete-lisp-symbol-partially try-complete-lisp-symbol yas/hippie-try-expand)))

@@ -96,6 +96,8 @@
   (local-unset-key (kbd "C-y"))
   (local-unset-key (kbd "C-#"))
   (local-unset-key (kbd "C-,"))
+  (local-unset-key (kbd "s-<left>"))
+  (local-unset-key (kbd "s-<right>"))
   (local-set-key (kbd "C-z") 'org-yank)
   (local-set-key (kbd "C-,") 'hippie-expand)
   )

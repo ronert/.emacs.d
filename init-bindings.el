@@ -119,7 +119,6 @@
 (key-chord-define-global "öö" 'iy-go-to-char)
 (key-chord-define-global ",," 'hippie-expand)
 (key-chord-define-global ",." 'auto-complete)
-(key-chord-define-global "++" 'er/expand-region)
 (key-chord-define-global "jj" 'ace-jump-line-mode)
 (key-chord-define-global "hh" 'ace-jump-word-mode)
 (key-chord-define-global "ii" 'smart-open-line-above)

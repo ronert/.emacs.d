@@ -1,6 +1,3 @@
-[submodule "org-mode"]
-	path = org-mode
-	url = ./src/org-mode
 [submodule "snippets/shnippet"]
 	path = snippets/shnippet
 	url = git@github.com:LukeHoersten/shnippet.git
