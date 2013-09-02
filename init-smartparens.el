@@ -1,5 +1,6 @@
 (require-package 'smartparens)
 (require 'smartparens-config)
+(require 'smartparens-latex)
 (smartparens-global-mode t)
 ;; highlights matching pairs
 (show-smartparens-global-mode t)
