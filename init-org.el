@@ -117,7 +117,7 @@
 
 
 
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+;; (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (defun org-linkify (label)
   "Turn a URL into an org-mode link."
