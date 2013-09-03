@@ -2,7 +2,7 @@
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete" dotfiles-dir))
-(add-to-list 'ac-dictionary-directories "/Users/ronert/Dropbox/.emacs.d/local-autocomplete")
+(add-to-list 'ac-dictionary-directories "/Users/ronert/Dropbox/dotfiles/.emacs.d/local-autocomplete")
 (setq ac-modes (append ac-modes '(org-mode)))
 (ac-config-default)
 (define-key ac-complete-mode-map [tab] 'ac-expand)

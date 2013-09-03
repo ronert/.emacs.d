@@ -3,7 +3,7 @@
 (global-unset-key (kbd "C-y"))
 (setq wg-prefix-key (kbd "C-y"))
 (workgroups-mode 1)
-(wg-load "/Users/ronert/Dropbox/.emacs.d/workgorups")
+(wg-load "/Users/ronert/Dropbox/dotfiles/.emacs.d/workgorups")
 
 ;; save a list of open files in ~/.emacs.d/.emacs.desktop
 ;; save the desktop file automatically if it already exists
@@ -19,7 +19,7 @@
 ;;----------------------------------------------------------------------------
 (require-package 'session)
 
-(setq session-save-file (expand-file-name "~/.emacs.d/.session"))
+(setq session-save-file (expand-file-name "/Users/ronert/Dropbox/dotfiles/.emacs.d/.session"))
 (add-hook 'after-init-hook 'session-initialize)
 
 ;; save a bunch of variables to the desktop file
