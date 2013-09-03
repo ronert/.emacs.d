@@ -36,3 +36,4 @@ eshell/history
 /var/
 src/org-mode/*
 /src/org-mode/
+/snippets/snippet-mode/.#snippet.yasnippet
