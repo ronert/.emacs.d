@@ -5,6 +5,7 @@
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.yasnippet" . snippet-mode))
+(add-to-list 'auto-mode-alist '("\\.zsh" . shell-script-mode))
 
 (setq auto-mode-alist
       (cons '("\\.Markdown" . markdown-mode) auto-mode-alist)
