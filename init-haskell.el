@@ -21,6 +21,7 @@
 
 (require 'flymake-haskell-multi)
 (add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
+(add-hook 'haskell-mode-hook 'highlight-indentation-mode)
 
 ;; (defun sanityinc/haskell-enable-flymake ()
 ;;   (if (package-installed-p 'ghc)
