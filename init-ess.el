@@ -89,6 +89,7 @@
 
 ;; prefer auto-fill to visual line wrap in ESS mode
 (add-hook 'ess-mode-hook 'turn-on-auto-fill)
+(add-hook 'ess-mode-hook 'highlight-indentation-mode)
 (add-hook 'inferior-ess-mode-hook 'turn-on-auto-fill)
 
 (provide 'init-ess)
