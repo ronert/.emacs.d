@@ -23,5 +23,9 @@
 
 (define-key global-map "\C-x\C-r" 'rgrep)
 
+;; anzu
+;; Show number of matches while searching
+(require-package 'anzu)
+(global-anzu-mode t)
 
 (provide 'init-search)
