@@ -60,8 +60,8 @@
 (setq reb-re-syntax 'string)
 
 ;; fasd in emacs
-(global-set-key (kbd "C-c f") 'fasd-find-file)
-(global-fasd-mode 1)
+;; (global-set-key (kbd "C-c f") 'fasd-find-file)
+;; (global-fasd-mode 1)
 
 (require 'thingatpt)
 (require 'imenu)

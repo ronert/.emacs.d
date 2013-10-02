@@ -27,7 +27,7 @@
 (global-set-key [f16] 'magit-status)
 (global-set-key [f17] 'magit-init)
 
-(require-package 'magithub)
+;; (require-package 'magithub)
 
 (require-package 'gist)
 (setq gist-view-gist t)

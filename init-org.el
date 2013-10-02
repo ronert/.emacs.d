@@ -52,7 +52,7 @@
    (expand-file-name
     "contrib"
     (expand-file-name
-     "org"
+     "org-mode"
      (expand-file-name "src" dotfiles-dir))))))
 
 (setq org-use-speed-commands t)
