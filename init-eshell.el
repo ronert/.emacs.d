@@ -31,7 +31,7 @@
 (global-set-key (kbd "C-x M") (lambda () (interactive) (eshell t)))
 
 ;; Control and up/down arrow keys to search history with matching what you've already typed:
-(define-key comint-mode-map [C-up] 'comint-previous-matching-input-from-input)
-(define-key comint-mode-map [C-down] 'comint-next-matching-input-from-input)
+;; (define-key comint-mode-map [C-up] 'comint-previous-matching-input-from-input)
+;; (define-key comint-mode-map [C-down] 'comint-next-matching-input-from-input)
 
 (provide 'init-eshell)
