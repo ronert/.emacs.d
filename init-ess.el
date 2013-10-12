@@ -1,6 +1,6 @@
 (require-package 'ess)
 (load "ess-site.el")
-(add-hook 'ess-mode-hook 'run-starter-kit-coding-hook)
+;;(add-hook 'ess-mode-hook 'run-starter-kit-coding-hook)
 ;; TODO put this in own prog mode, use starter kit as templae
 (add-hook 'ess-mode-hook 'font-lock-comment-annotations)
 
@@ -10,6 +10,8 @@
   ;; (local-unset-key (kbd "something I use"))
   (local-unset-key (kbd "C-y"))
   (local-set-key (kbd "C-z") 'ess-yank)
+  (local-unset-key (kbd "\\"))
+  (local-set-key (kbd "\\") 'self-insert-command)
   )
 
 (add-hook 'ess-R-post-run-hook 'smartparens-mode)
