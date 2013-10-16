@@ -94,4 +94,7 @@
 (add-hook 'ess-mode-hook 'highlight-indentation-mode)
 (add-hook 'inferior-ess-mode-hook 'turn-on-auto-fill)
 
+;; Dont save .Rhistory eveywhere
+(setq ess-history-file nil)
+
 (provide 'init-ess)
