@@ -1,0 +1,3 @@
+
+
+(provide 'init-prog-mode)
