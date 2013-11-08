@@ -48,6 +48,7 @@
 (require 'init-yasnippet)
 (require 'init-auto-complete)
 (require 'init-bookmarks)
+(require 'init-prog-mode)
 (require 'init-csv)
 (require 'init-dired)
 (require 'init-eshell)
