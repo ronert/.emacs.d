@@ -25,7 +25,7 @@
  '(electric-pair-skip-self nil)
  '(elpy-rpc-backend "jedi")
  '(ess-roxy-str "##'")
- '(ess-tracebug-prefix "\\M-p")
+ '(ess-tracebug-prefix "M-#")
  '(fci-rule-color "#0a2832")
  '(flymake-no-changes-timeout 120)
  '(foreground-color "#52676f")
@@ -67,6 +67,7 @@
  '(warning-suppress-types (quote ((undo discard-info))))
  '(weechat-color-list (quote (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
  '(wg-morph-on nil)
+ '(yas-snippet-dirs (quote ("/Users/ronert/Dropbox/dotfiles/.emacs.d/snippets" "/Users/ronert/Dropbox/dotfiles/.emacs.d/snippets/shnippets" "/Users/ronert/.emacs.d/elpa/elpy-20130809.1821/snippets/")) nil (yasnippet))
  '(yas-triggers-in-field t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

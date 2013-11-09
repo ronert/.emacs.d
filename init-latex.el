@@ -212,7 +212,7 @@ If there is still something left do do start the next latex-command."
       (quote
        ("/Users/ronert/Dropbox/bib/library.bib")))
 
-(require 'ob-latex)
+;; (require 'ob-latex)
 
 (provide 'init-latex)
 ;;; latex.el ends here

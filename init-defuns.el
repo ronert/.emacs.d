@@ -563,12 +563,6 @@ Position the cursor at it's beginning, according to the current mode."
    nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\):"
           1 font-lock-warning-face t))))
 
-(add-hook 'starter-kit-coding-hook 'font-lock-comment-annotations)
-
-(defun run-starter-kit-coding-hook ()
-  "Enable things that are convenient across all coding buffers."
-  (run-hooks 'starter-kit-coding-hook))
-
 (defun untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))

@@ -55,8 +55,8 @@
   ;; math modes, yay.  The :actions are provided automatically if
   ;; these pairs do not have global definition.
   (sp-local-pair "$" "$")
-  (sp-local-pair "\\[" "\\]")
-  (sp-local-pair "\\{" "\\}")
+  ;; (sp-local-pair "\\[" "\\]")
+  ;; (sp-local-pair "\\{" "\\}")
   (sp-local-pair "„" "“")
   (sp-local-pair "“" "”")
   (sp-local-tag "\\b" "\\begin{_}" "\\end{_}"))
