@@ -71,7 +71,7 @@
 (require 'init-stan)
 (require 'init-org)
 (require 'init-org-templates)
-(require 'init-scala-mode)
+(require 'init-scala)
 
 
 ;; Map Modes

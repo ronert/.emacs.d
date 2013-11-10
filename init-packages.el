@@ -73,5 +73,7 @@
 (require 'ansi-color)
 (require 'recentf)
 
+(require-package 'diminish)
+
 
 (provide 'init-packages)
