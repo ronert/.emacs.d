@@ -212,7 +212,14 @@ If there is still something left do do start the next latex-command."
       (quote
        ("/Users/ronert/Dropbox/bib/library.bib")))
 
-;; (require 'ob-latex)
+;; latex-extra
+
+
+;; auctex-latexmk
+(require-package 'auctex-latexmk)
+(auctex-latexmk-setup)
+
+
 
 (provide 'init-latex)
 ;;; latex.el ends here
