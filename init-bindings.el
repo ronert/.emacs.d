@@ -1,3 +1,6 @@
+;; set next error to '
+(global-set-key (kbd "M-'") 'next-error)
+
 ;; Move text
 (global-set-key (kbd "C-S-<right>") 'es-move-text-right)
 (global-set-key (kbd "C-S-<left>") 'es-move-text-left)
