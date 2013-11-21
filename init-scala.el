@@ -11,6 +11,6 @@
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ;; sbt-mode
-
+(require-package 'sbt-mode)
 
 (provide 'init-scala)
