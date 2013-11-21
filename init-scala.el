@@ -1,3 +1,4 @@
+;; scala-mode2
 (require-package 'scala-mode2)
 
 (add-hook 'scala-mode-hook 'run-prog-mode-hook)
@@ -8,5 +9,8 @@
 ;; ensime
 (require-package 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+;; sbt-mode
+
 
 (provide 'init-scala)
