@@ -19,4 +19,18 @@
 ;; auto-complete
 (global-set-key (kbd "C-.") 'hippie-expand)
 
+;; ac-ispell
+(require-package 'ac-ispell)
+(setq ac-ispell-requires 4)
+(eval-after-load "auto-complete"
+  '(progn
+     (ac-ispell-setup)))
+
+(defun my/enable-ac-ispell ()
+  (add-to-list 'ac-sources 'ac-source-ispell))
+
+(add-hook 'git-commit-mode-hook 'my/enable-ac-ispell)
+(add-hook 'latex-mode-hook 'my/enable-ac-ispell)
+(add-hook 'org-mode-hook 'my/enable-ac-ispell)
+
 (provide 'init-auto-complete)
