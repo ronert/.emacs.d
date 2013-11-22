@@ -75,5 +75,7 @@
 
 (require-package 'diminish)
 
+;; show free bindings in current buffer
+(require-package 'free-keys)
 
 (provide 'init-packages)
