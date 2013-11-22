@@ -193,4 +193,11 @@ indent yanked text (with prefix arg don't indent)."
         (set-marker m nil))
     ad-do-it))
 
+;; Automatically open root files as sudo
+(defadvice ido-find-file (after find-file-sudo activate)
+  "Find file as root if necessary."
+  (unless (and buffer-file-name
+               (file-writable-p buffer-file-name))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
 (provide 'init-misc)
