@@ -15,8 +15,8 @@
 ;;  (setq ein:use-smartrep t)
 (setq ein:connect-default-notebook "8888/ipythonNotebook")
 (add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
-(setq ein:use-auto-complete t)
-(add-hook 'python-mode-hook 'ein:connect-to-default-notebook)
+;;(setq ein:use-auto-complete t)
+;;(add-hook 'python-mode-hook 'ein:connect-to-default-notebook)
 ;;  (setq ein:notebook-modes '(ein:notebook-python-mode))
 
 ;;  (setq jedi:setup-keys t)
