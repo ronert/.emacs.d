@@ -106,6 +106,9 @@
                        ("tikz" "tikz(file = \"${1:path}\", width = 5, height\n       = 5, engine = \"xetex\")\n  ${2:plotName}\n  dev.off()\n  $0\n" "create tikz plot" nil
                         ("Graphics")
                         nil nil nil nil)
+                       ("todo" "### TODO: " "create todo in source" nil
+                        ("General")
+                        nil nil nil nil)
                        ("triangular" "# You want:\n# a^0  0    0\n# a^1  a^0  0\n# a^2  a^1  a^0\n\n# At least 4 ways:\nma <- matrix(rep(c(a^(0:n), 0), n+1), nrow=n+1, ncol=n+1)\nma[upper.tri(ma)] <- 0\n\nn <- 3\na <- 2\nout <- diag(n+1)\nout[lower.tri(out)] <-\na^apply(matrix(1:n,ncol=1),1,function(x)c(rep(0,x),1:(n-x+1)))[lower.tri(out)]\nout\n\nfun <- function(x,y) { ifelse(y>x, x+y, 0) } \nfun(2,3) \nouter(1:4, 1:4, fun) \n\na <- 0.2\nfun <- function(x, y) { ifelse(y<=x, a^(x+y-1), 0) }\nouter(1:4, 1:4, fun)\n" "create Upper or Lower Triangular Matrix" nil
                         ("Matrices")
                         nil nil nil nil)
@@ -114,4 +117,4 @@
                         nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Wed Apr  3 17:55:22 2013
+;;; Do not edit! File generated at Tue Nov 12 11:12:04 2013

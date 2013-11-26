@@ -68,7 +68,7 @@
                        ("eqs" "\\begin{${1:$$(yas/choose-value '(\"align\" \"align*\" \"multline\" \"gather\" \"subequations\"))}}\n\\label{${2:\"waiting for reftex-label call...\"$(unless yas/modified-p (reftex-label nil 'dont-insert))}}\n$0\n\\end{$1}\n" "\\begin{align} ... \\end{align}" nil
                         ("math")
                         nil nil nil nil)
-                       ("fig" "\\begin{figure}[!htb]\n\\centering{%\n\\input{${1:file}}\n\\caption{${2:caption}}\n\\label{${3:label}}}\n\\end{figure}\n$0" "insert figure" nil
+                       ("fig" "\\begin{figure}[!htb]\n\\centering{%\n\\input{${1:file}}\n\\caption{${2:caption} \\label{${3:label}}}}\n\\end{figure}\n$0" "insert figure" nil
                         ("Figures")
                         nil nil nil nil)
                        ("frac" "\\frac{${1:numerator}}{${2:denominator}}$0" "\\frac{numerator}{denominator}" nil
@@ -77,7 +77,9 @@
                        ("frame" "\\begin{frame}{${1:Frame Title}}\n\n\\end{frame}\n" "\\begin{frame} ... \\end{frame}" nil
                         ("environments")
                         nil nil nil nil)
-                       ("graphics" "\\includegraphics[width=${1:\\linewidth}]{${2:file}}" "\\includegraphics" nil nil nil nil nil nil)
+                       ("graphics" "\\begin{figure}[!htb]\n\\centering{%\n\\includegraphics[width=\\textwidth]{${1:file}}\n\\caption{${2:caption} \\label{${3:label}}}}\n\\end{figure}\n$0\n" "\\includegraphics" nil
+                        ("Figures")
+                        nil nil nil nil)
                        ("hat" "\\hat{${1:variable}}$0" "hat" nil
                         ("TeX")
                         nil nil nil nil)
@@ -129,7 +131,7 @@
                        ("prod" "\\Prod{$1}{$2}$0\n" "Product" nil
                         ("math")
                         nil nil nil nil)
-                       ("quote" "\\begin{quote}\\textit{%\n${1:text}}\n\\end{quote}\n$0" "quote" nil nil nil nil nil nil)
+                       ("quote" "\\begin{quote}\\textit{%\n${1:text}}\n\\flushright\\textnormal{-- ${2:citation}}\n\\end{quote}\n$0" "quote" nil nil nil nil nil nil)
                        ("ref" "\\ref{${1:label$(unless yas/modified-p (reftex-reference nil 'dont-insert))}}$0" "\\ref" nil
                         ("references")
                         nil nil nil nil)
@@ -182,4 +184,4 @@
                         nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Wed Apr  3 17:55:22 2013
+;;; Do not edit! File generated at Tue Nov 12 11:12:04 2013

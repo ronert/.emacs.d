@@ -72,6 +72,8 @@
 (require 'init-org)
 (require 'init-org-templates)
 (require 'init-scala)
+(require 'init-guidekey)
+(require 'init-diminish)
 
 
 ;; Map Modes

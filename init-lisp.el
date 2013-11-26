@@ -186,8 +186,8 @@ Kills existing SLIME session, if any."
 
      ;; Disable kill-sentence, which is easily confused with the kill-sexp
      ;; binding, but doesn't preserve sexp structure
-;;     (define-key paredit-mode-map [remap kill-sentence] nil)
-;;     (define-key paredit-mode-map [remap backward-kill-sentence] nil)
+     ;;     (define-key paredit-mode-map [remap kill-sentence] nil)
+     ;;     (define-key paredit-mode-map [remap backward-kill-sentence] nil)
      ))
 
 
@@ -344,5 +344,16 @@ Kills existing SLIME session, if any."
 
 (define-key paredit-mode-map (kbd "M-)")
   'paredit-wrap-round-from-behind)
+
+;; C-x C-e eval region if region is active
+(defun sanityinc/eval-last-sexp-or-region (beg end prefix)
+  "Eval region from BEG to END if active, otherwise the last sexp."
+  (interactive "r\nP")
+  (if (use-region-p)
+      (eval-region beg end)
+    (eval-last-sexp prefix)))
+(after-load 'lisp-mode
+  (define-key emacs-lisp-mode-map (kbd "C-x C-e") 'sanityinc/eval-last-sexp-or-region))
+
 
 (provide 'init-lisp)

@@ -30,6 +30,7 @@
                         nil nil nil nil)
                        ("inc.yasnippet" "#+INCLUDE: \"${1:file}\" ${2:src-example-quote} ${3:mode}\n\n" "Author" nil nil nil nil nil nil)
                        ("latex" "#+begin_latex\n$0\n#+end_latex\n" "LaTeX" nil nil nil nil nil nil)
+                       ("linkfest" "#+TITLE: Weekend Linkfest $1.$2.$3\n#+DATE: $3-$2-$1\n#+SETUPFILE: ~/Dropbox/octopress/setupfile.org\n#+JEKYLL_LAYOUT: post\n#+JEKYLL_CATEGORIES: Linkfest\n#+JEKYLL_PUBLISHED: true\n\n* Statistics and Machine Learning\n- $0\n* R Package of the Week\n* Paper of the Week\n* Programming\n* Elsewhere\n" "Linkfest" nil nil nil nil nil nil)
                        ("rfunc" "#+begin_src r :session :exports code :tangle ./library/${1:functionName}.R :mkdirp yes :cache yes\n$1 <- function($2) {\n$0\n}\n#+end_src\n" "r function definition" nil
                         ("R")
                         nil nil nil nil)
@@ -46,7 +47,8 @@
                         nil nil nil nil)
                        ("srcr" "#+begin_src r\n$0\n#+end_src\n" "Source Code Block" nil nil nil nil nil nil)
                        ("name" "#+srcname: $0" "srcname" nil nil nil nil nil nil)
+                       ("srcrs" "#+begin_src r :exports code\n$0\n#+end_src" "R source for slides     " nil nil nil nil nil nil)
                        ("title.yasnippet" "#+TITLE: ${1:title}\n" "Title Block" nil nil nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Wed Apr  3 17:55:22 2013
+;;; Do not edit! File generated at Tue Nov 12 11:12:04 2013
