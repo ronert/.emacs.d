@@ -27,4 +27,4 @@
   (guide-key/add-local-highlight-command-regexp "python-"))
 (add-hook 'python-mode-hook 'guide-key/my-hook-function-for-python-mode)
 
-(provide 'init-packages)
+(provide 'init-guidekey)
