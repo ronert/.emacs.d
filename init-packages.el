@@ -80,7 +80,7 @@
 
 ;; guide-key
 (require-package 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x v" "C-c"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x v" "C-c p"))
 (guide-key-mode 1)
 (setq guide-key/recursive-key-sequence-flag t)
 (setq guide-key/popup-window-position 'bottom)
