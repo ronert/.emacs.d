@@ -4,8 +4,8 @@
 (require-package 'git-messenger)
 (global-set-key (kbd "C-x v p") 'git-messenger:popup-message)
 
-(global-set-key (kbd "<f18>") 'git-gutter:toggle)
-(global-set-key (kbd "<f19>") 'git-gutter:popup-diff)
+(global-set-key (kbd "C-=") 'git-gutter:toggle)
+(global-set-key (kbd "C-M-=") 'git-gutter:popup-diff)
 
 
 (defun magit-toggle-whitespace ()
@@ -34,5 +34,8 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 (define-key global-map "\M-\C-g" 'magit-status)
+
+(require-package 'fullframe)
+(fullframe magit-status magit-mode-quit-window :magit-fullscreen nil)
 
 (provide 'init-git)
