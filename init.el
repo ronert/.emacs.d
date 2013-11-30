@@ -72,6 +72,7 @@
 (require 'init-org)
 (require 'init-org-templates)
 (require 'init-scala)
+(require 'init-sql)
 (require 'init-guidekey)
 (require 'init-diminish)
 
