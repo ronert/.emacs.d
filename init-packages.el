@@ -23,7 +23,6 @@
 
 ;; Theme changer
 (require 'theme-changer)
-(setq calendar-location-name "Dallas, TX")
 (setq calendar-latitude 52.49)
 (setq calendar-longitude 13.34)
 (require-package 'theme-changer)
