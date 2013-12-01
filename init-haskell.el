@@ -1,4 +1,3 @@
-
 (require 'haskell-mode)
 (add-to-list 'auto-mode-alist '("\\.ghci\\'" . haskell-mode))
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode);
@@ -22,6 +21,10 @@
 (require 'flymake-haskell-multi)
 (add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
 (add-hook 'haskell-mode-hook 'highlight-indentation-mode)
+
+(require-package 'flycheck-hdevtools)
+(after-load 'flycheck
+  (require 'flycheck-hdevtools))
 
 ;; (defun sanityinc/haskell-enable-flymake ()
 ;;   (if (package-installed-p 'ghc)
