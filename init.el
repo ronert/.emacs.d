@@ -73,6 +73,9 @@
 (require 'init-org-templates)
 (require 'init-scala)
 (require 'init-sql)
+(require 'init-css)
+(require 'init-javascript)
+(require 'init-html)
 (require 'init-guidekey)
 (require 'init-diminish)
 

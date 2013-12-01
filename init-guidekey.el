@@ -1,6 +1,6 @@
 ;; guide-key
 (require-package 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x v" "C-c p" "C-x 4"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x v" "C-c p" "C-x 4" "C-h"))
 (guide-key-mode 1)
 (setq guide-key/recursive-key-sequence-flag t)
 (setq guide-key/popup-window-position 'bottom)
@@ -26,5 +26,9 @@
   (guide-key/add-local-guide-key-sequence "C-c")
   (guide-key/add-local-highlight-command-regexp "python-"))
 (add-hook 'python-mode-hook 'guide-key/my-hook-function-for-python-mode)
+(defun guide-key/my-hook-function-for-sql-mode ()
+  (guide-key/add-local-guide-key-sequence "C-c")
+  (guide-key/add-local-highlight-command-regexp "sql-"))
+(add-hook 'sql-mode-hook 'guide-key/my-hook-function-for-sql-mode)
 
 (provide 'init-guidekey)
