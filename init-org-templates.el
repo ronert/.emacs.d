@@ -13,6 +13,18 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
 
 (add-to-list 'org-latex-classes
+             ;; beamer class, for presentations
+             '("pivotalbeamer"
+               "\\documentclass{pivotalbeamer}
+               [NO-DEFAULT-PACKAGES]
+               [NO-PACKAGES]
+               [EXTRA]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+
+
+(add-to-list 'org-latex-classes
              '("rcalibrionecolumn"
                "\\documentclass{rcalibrionecolumn}
  [NO-DEFAULT-PACKAGES]
