@@ -44,11 +44,6 @@
  scroll-up-aggressively 0.01
  scroll-down-aggressively 0.01)
 
-;; smart-mode-line
-(require-package 'smart-mode-line)
-(setq sml/theme 'respectful)
-(sml/setup)
-
 ;; Theme changer
 (require 'theme-changer)
 (setq calendar-latitude 52.49)
