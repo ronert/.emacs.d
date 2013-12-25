@@ -10,6 +10,8 @@
   (local-set-key (kbd "C-z") 'ess-yank)
   (local-unset-key (kbd "\\"))
   (local-set-key (kbd "\\") 'self-insert-command)
+  (local-unset-key (kbd "M"))
+  (local-set-key (kbd "M") 'self-insert-command)
   )
 
 (add-hook 'ess-R-post-run-hook 'smartparens-mode)
