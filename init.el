@@ -106,7 +106,4 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; Smart mode line
-(require 'init-mode-line)
-
 ;;; init.el ends here
