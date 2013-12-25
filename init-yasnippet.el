@@ -1,16 +1,13 @@
 (require-package 'yasnippet)
 (setq yas-snippet-dirs
-      '("~/Dropbox/dotfiles/.emacs.d/snippets"            ;; personal snippets
-        "~/Dropbox/dotfiles/.emacs.d/snippets/shnippets"  ;; haskell snippet repo
+      '("~/Dropbox/dotfiles/.emacs.d/yasnippet-snippets"            ;; yasnippet snippets
+        "~/Dropbox/dotfiles/.emacs.d/snippets" ;; personal snippets
         ))
-
-(setq yas-root-directory "~/Dropbox/dotfiles/.emacs.d/snippets")
-
 
 (yas-global-mode 1)
 (global-set-key (kbd "C--") 'yas-expand)
 
-;;(setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
+(setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
 
 ;; Jump to end of snippet definition
 (define-key yas-keymap (kbd "<return>") 'yas/exit-all-snippets)

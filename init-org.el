@@ -16,15 +16,15 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-(defun yas-org-very-safe-expand ()
-  (let ((yas-fallback-behavior 'return-nil))
-    (and (fboundp 'yas-expand) (yas-expand))))
+;; (defun yas-org-very-safe-expand ()
+;;   (let ((yas-fallback-behavior 'return-nil))
+;;     (and (fboundp 'yas-expand) (yas-expand))))
 
-(add-hook 'org-mode-hook
-          (lambda ()
-            (add-to-list 'org-tab-first-hook
-                         'yas-org-very-safe-expand)
-            ))
+;; (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             (add-to-list 'org-tab-first-hook
+;;                          'yas-org-very-safe-expand)
+;;             ))
 
 (add-hook 'org-mode-hook
           (lambda ()
