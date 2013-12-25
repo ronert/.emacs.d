@@ -21,13 +21,6 @@
 (require-package 'visual-regexp-steroids)
 (define-key global-map (kbd "M-&") 'vr/query-replace)
 
-;; Theme changer
-(require 'theme-changer)
-(setq calendar-latitude 52.49)
-(setq calendar-longitude 13.34)
-(require-package 'theme-changer)
-(change-theme 'solarized-light 'solarized-dark)
-
 ;; Window-Jump
 (require-package 'window-jump)
 (global-set-key (kbd "C-2") 'window-jump-down)

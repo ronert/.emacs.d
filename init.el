@@ -38,10 +38,11 @@
 (require 'init-utils) ;; Must come before elpa, as it may provide package.el
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
+;; Appearance
 (require 'init-appearance)
 
-
-;;----------------------------------------------------------------------------;; Load configs for specific features and modes
+;;----------------------------------------------------------------------------
+;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
 (require 'init-smartparens)
@@ -79,7 +80,6 @@
 (require 'init-guidekey)
 (require 'init-diminish)
 
-
 ;; Map Modes
 (require 'init-mode-mapping)
 
@@ -105,5 +105,8 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+;; Smart mode line
+(require 'init-mode-line)
 
 ;;; init.el ends here

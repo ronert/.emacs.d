@@ -44,11 +44,4 @@
  scroll-up-aggressively 0.01
  scroll-down-aggressively 0.01)
 
-;; Theme changer
-(require 'theme-changer)
-(setq calendar-latitude 52.49)
-(setq calendar-longitude 13.34)
-(require-package 'theme-changer)
-(change-theme 'solarized-light 'solarized-dark)
-
 (provide 'init-appearance)

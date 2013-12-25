@@ -3,7 +3,7 @@
 (global-unset-key (kbd "C-y"))
 (setq wg-prefix-key (kbd "C-y"))
 (workgroups-mode 1)
-(wg-load "~/workgorups")
+(wg-load "~/workgroups")
 
 ;; save a list of open files in ~/.emacs.d/.emacs.desktop
 ;; save the desktop file automatically if it already exists

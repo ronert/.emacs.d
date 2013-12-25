@@ -23,7 +23,6 @@
                ("\\subsection{%s}" . "\\subsection*{%s}")
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
 
-
 (add-to-list 'org-latex-classes
              '("rcalibrionecolumn"
                "\\documentclass{rcalibrionecolumn}

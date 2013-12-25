@@ -210,7 +210,7 @@ If there is still something left do do start the next latex-command."
 
 (setq reftex-default-bibliography
       (quote
-       ("/Users/ronert/Dropbox/bib/library.bib")))
+       ("~/Dropbox/bib/library.bib")))
 
 ;; latex-extra
 (require-package 'latex-extra)
