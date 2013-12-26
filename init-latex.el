@@ -171,7 +171,7 @@ If there is still something left do do start the next latex-command."
 (setq ebib-preload-bib-files
       '("~/Dropbox/bib/library.bib"))
 (add-hook 'LaTeX-mode-hook '(lambda ()
-                               (local-set-key "\C-cb" 'ebib-insert-bibtex-key)))
+                              (local-set-key "\C-cb" 'ebib-insert-bibtex-key)))
 
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
 
@@ -216,11 +216,45 @@ If there is still something left do do start the next latex-command."
 (require-package 'latex-extra)
 (eval-after-load 'latex '(latex/setup-keybinds))
 
-;; auctex-latexmk
-(require-package 'auctex-latexmk)
-(auctex-latexmk-setup)
+;; define latexmk command
+(defun run-latexmk ()
+  (interactive)
+  (save-buffer)
+  (TeX-command "Latexmk" 'TeX-master-file 0)
+  (if (plist-get TeX-error-report-switches (intern (TeX-master-file)))
+      (next-error))) ;; 0 -> suppress confirmation
 
+;; bind compile and open to some useful keybindings
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (local-unset-key (kbd "C-c C-o"))
+            (local-set-key (kbd "C-c C-o") 'TeX-view)
+            (local-unset-key (kbd "C-c C-c"))
+            (local-set-key (kbd "C-c C-c") 'run-latexmk)
+            )
+          )
 
+;; automagic detection of master file
+(defun guess-TeX-master (filename)
+  "Guess the master file for FILENAME from currently open .tex files."
+  (let ((candidate nil)
+        (filename (file-name-nondirectory filename)))
+    (save-excursion
+      (dolist (buffer (buffer-list))
+        (with-current-buffer buffer
+          (let ((name (buffer-name))
+                (file buffer-file-name))
+            (if (and file (string-match "\\.tex$" file))
+                (progn
+                  (goto-char (point-min))
+                  (if (re-search-forward (concat "\\\\input{" filename "}") nil t)
+                      (setq candidate file))
+                  (if (re-search-forward (concat "\\\\include{" (file-name-sans-extension filename) "}") nil t)
+                      (setq candidate file))))))))
+    (if candidate
+        (message "TeX master document: %s" (file-name-nondirectory candidate)))
+    candidate))
+(setq TeX-master-file (guess-TeX-master (buffer-file-name)))
 
 (provide 'init-latex)
 ;;; latex.el ends here

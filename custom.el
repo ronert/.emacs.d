@@ -4,10 +4,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(LaTeX-XeTeX-command "xelatex -synctex=1")
- '(TeX-command-list (quote (("Biber" "biber %s" TeX-run-Biber nil t :help "Run Biber") ("TeX" "%(PDF)%(tex) %`%S%(PDFout)%(mode)%' %t" TeX-run-TeX nil (plain-tex-mode texinfo-mode ams-tex-mode) :help "Run plain TeX") ("LaTeX" "%`%l%(mode)%' %t" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX") ("Makeinfo" "makeinfo %t" TeX-run-compile nil (texinfo-mode) :help "Run Makeinfo with Info output") ("Makeinfo HTML" "makeinfo --html %t" TeX-run-compile nil (texinfo-mode) :help "Run Makeinfo with HTML output") ("AmSTeX" "%(PDF)amstex %`%S%(PDFout)%(mode)%' %t" TeX-run-TeX nil (ams-tex-mode) :help "Run AMSTeX") ("ConTeXt" "texexec --once --texutil %(execopts)%t" TeX-run-TeX nil (context-mode) :help "Run ConTeXt once") ("ConTeXt Full" "texexec %(execopts)%t" TeX-run-TeX nil (context-mode) :help "Run ConTeXt until completion") ("BibTeX" "bibtex %s" TeX-run-BibTeX nil t :help "Run BibTeX") ("View" "%V" TeX-run-discard-or-function t t :help "Run Viewer") ("Print" "%p" TeX-run-command t t :help "Print the file") ("Queue" "%q" TeX-run-background nil t :help "View the printer queue" :visible TeX-queue-command) ("File" "%(o?)dvips %d -o %f " TeX-run-command t t :help "Generate PostScript file") ("Index" "makeindex %s" TeX-run-command nil t :help "Create index file") ("Check" "lacheck %s" TeX-run-compile nil (latex-mode) :help "Check LaTeX file for correctness") ("Spell" "(TeX-ispell-document \"\")" TeX-run-function nil t :help "Spell-check the document") ("Clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files") ("Clean All" "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files") ("Other" "" TeX-run-command t t :help "Run an arbitrary command"))))
- '(TeX-engine (quote xetex))
- '(TeX-view-program-list (quote (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b"))))
- '(TeX-view-program-selection (quote (((output-dvi style-pstricks) "dvips and gv") (output-dvi "xdvi") (output-pdf "Skim") (output-html "xdg-open"))))
+ '(TeX-command-list (quote (("Latexmk" "latexmk -pdflatex='lualatex --shell-escape' -pdf %t" TeX-run-TeX nil t :help "Run Latexmk on file") ("LaTeX" "%`%l%(mode)%' %t" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX") ("Makeinfo" "makeinfo %t" TeX-run-compile nil (texinfo-mode) :help "Run Makeinfo with Info output") ("Makeinfo HTML" "makeinfo --html %t" TeX-run-compile nil (texinfo-mode) :help "Run Makeinfo with HTML output") ("ConTeXt" "texexec --once --texutil %(execopts)%t" TeX-run-TeX nil (context-mode) :help "Run ConTeXt once") ("ConTeXt Full" "texexec %(execopts)%t" TeX-run-TeX nil (context-mode) :help "Run ConTeXt until completion") ("BibTeX" "bibtex %s" TeX-run-BibTeX nil t :help "Run BibTeX") ("View" "%V" TeX-run-discard-or-function t t :help "Run Viewer") ("Print" "%p" TeX-run-command t t :help "Print the file") ("Check" "lacheck %s" TeX-run-compile nil (latex-mode) :help "Check LaTeX file for correctness") ("Spell" "(TeX-ispell-document \"\")" TeX-run-function nil t :help "Spell-check the document") ("Clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files") ("Clean All" "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files"))))
+ '(TeX-engine (quote luatex))
+ '(TeX-view-program-list (quote (("Preview" "open %o"))))
+ '(TeX-view-program-selection (quote (((output-dvi style-pstricks) "dvips and gv") (output-dvi "xdvi") (output-pdf "Preview") (output-html "xdg-open"))))
  '(ac-auto-start 0)
  '(ansi-color-faces-vector [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector (vector "#708183" "#c60007" "#728a05" "#a57705" "#2075c7" "#c61b6e" "#259185" "#042028"))
@@ -35,11 +35,13 @@
  '(minimap-update-delay 0.8)
  '(minimap-width-fraction 0.1)
  '(org-agenda-files (quote ("~/Dropbox/Rasch/Projekt/rasch.org" "~/Dropbox/Statistik/Multivariate Verfahren/multi.org" "~/Dropbox/Statistik/Stochastische Prozesse/stochastische.org" "~/Dropbox/Statistik/Schätzen und Testen II/schaetzen.org" "~/Dropbox/Statistik/Computerintensive Methoden II/computer.org" "/Users/ronert/Dropbox/org/archive.org" "/Users/ronert/Dropbox/org/börse.org" "/Users/ronert/Dropbox/org/diary.org" "/Users/ronert/Dropbox/org/einkaufen.org" "/Users/ronert/Dropbox/org/from-mobile.org" "/Users/ronert/Dropbox/org/index.org" "/Users/ronert/Dropbox/org/it.org" "/Users/ronert/Dropbox/org/personal.org" "/Users/ronert/Dropbox/org/projekte.org" "/Users/ronert/Dropbox/org/refile.org" "/Users/ronert/Dropbox/org/uni.org")))
+ '(org-beamer-column-view-format "%45ITEM %10BEAMER_env(Env) %10BEAMER_envargs(Env Args) %4BEAMER_col(Col) %8BEAMER_extra(Extra)")
  '(org-beamer-frame-default-options "fragile")
  '(org-beamer-outline-frame-options "")
  '(org-export-run-in-background nil)
  '(org-export-with-todo-keywords nil)
  '(org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-irc org-mac-message org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mac-link-grabber)))
+ '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex")
  '(r-autoyas-auto-expand-with-paren t)
  '(reftex-cite-format (quote ((110 . "\\nocite{%l}") (99 . "\\cite[]{%l}") (116 . "\\textcite{%l}") (97 . "\\autocite[]{%l}") (112 . "\\parencite{%l}") (102 . "\\footcite[][]{%l}") (70 . "\\fullcite[]{%l}") (120 . "[]{%l}") (88 . "{%l}"))))
  '(reftex-default-bibliography (quote ("/Users/ronert/Dropbox/bib/library.bib" "/Users/ronert/Dropbox/bib/rpackages.bib" "/Users/ronert/Dropbox/bib/websites.bib")))
@@ -61,7 +63,7 @@
  '(weechat-color-list (quote (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
  '(wg-morph-on nil)
  '(yas-fallback-behavior (quote return-nil))
- '(yas-snippet-dirs "~/Dropbox/dotfiles/emacs.d/snippets" nil (yasnippet))
+ '(yas-snippet-dirs "~/Dropbox/dotfiles/.emacs.d/snippets" nil (yasnippet))
  '(yas-triggers-in-field t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
