@@ -16,15 +16,13 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-;; (defun yas-org-very-safe-expand ()
-;;   (let ((yas-fallback-behavior 'return-nil))
-;;     (and (fboundp 'yas-expand) (yas-expand))))
+(add-hook 'org-mode-hook
+          (let ((original-command (lookup-key org-mode-map [tab])))
+            `(lambda ()
+               (setq yas-fallback-behavior
+                     '(apply ,original-command))
+               (local-set-key [tab] 'yas-expand))))
 
-;; (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (add-to-list 'org-tab-first-hook
-;;                          'yas-org-very-safe-expand)
-;;             ))
 
 (add-hook 'org-mode-hook
           (lambda ()
@@ -37,11 +35,11 @@
             (local-set-key "\M-\C-l" 'org-table-sort-lines)
             ;; display images
             (local-set-key "\M-I" 'org-toggle-iimage-in-org)
-            ;; yasnippet (using the new org-cycle hooks)
-            ;;(make-variable-buffer-local 'yas/trigger-key)
-            ;;(setq yas/trigger-key [tab])
-            ;;(add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-            ;;(define-key yas/keymap [tab] 'yas/next-field)
+            yasnippet (using the new org-cycle hooks)
+            (make-variable-buffer-local 'yas/trigger-key)
+            (setq yas/trigger-key [tab])
+            (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+            (define-key yas/keymap [tab] 'yas/next-field)
             ))
 
 (org-babel-lob-ingest
