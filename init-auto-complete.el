@@ -82,4 +82,7 @@
 (add-hook 'latex-mode-hook 'my/enable-ac-ispell)
 (add-hook 'org-mode-hook 'my/enable-ac-ispell)
 
+(setq c-tab-always-indent nil
+      c-insert-tab-function 'indent-for-tab-command)
+
 (provide 'init-auto-complete)
