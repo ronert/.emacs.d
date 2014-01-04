@@ -351,9 +351,10 @@ Kills existing SLIME session, if any."
   (interactive "r\nP")
   (if (use-region-p)
       (eval-region beg end)
-    (eval-last-sexp prefix)))
+    (pp-eval-last-sexp prefix)))
 (after-load 'lisp-mode
-  (define-key emacs-lisp-mode-map (kbd "C-x C-e") 'sanityinc/eval-last-sexp-or-region))
+  (define-key emacs-lisp-mode-map (kbd "C-x C-e") 'sanityinc/eval-last-sexp-or-region)
+  (define-key emacs-lisp-mode-map (kbd "C-x C-a") 'pp-macroexpand-last-sexp))
 
 
 (provide 'init-lisp)
