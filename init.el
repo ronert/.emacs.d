@@ -80,6 +80,7 @@
 (require 'init-hadoop)
 (require 'init-guidekey)
 (require 'init-diminish)
+(require 'init-flycheck)
 
 ;; Map Modes
 (require 'init-mode-mapping)
