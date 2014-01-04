@@ -7,6 +7,18 @@
 
 ;; save a list of open files in ~/.emacs.d/.emacs.desktop
 ;; save the desktop file automatically if it already exists
+(require-package 'desktop)
+(desktop-save-mode 1)
+(defun my-desktop-save ()
+  (interactive)
+  ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
+  (if (eq (desktop-owner) (emacs-pid))
+      (desktop-save desktop-dirname)))
+(add-hook 'auto-save-hook 'my-desktop-save)
+
+(run-at-time 3600 3600 'my-desktop-save)
+(run-at-time 3600 3600 'wg-update-all-workgroups-and-save)
+
 (setq desktop-path '("~/"))
 (setq desktop-save 'if-exists)
 (desktop-save-mode 1)
@@ -48,5 +60,6 @@
 (require-package 'saveplace)
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "~/.places"))
+
 
 (provide 'init-sessions)
