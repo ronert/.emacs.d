@@ -1,10 +1,3 @@
-;; Workgroups
-(require 'workgroups)
-(global-unset-key (kbd "C-y"))
-(setq wg-prefix-key (kbd "C-y"))
-(workgroups-mode 1)
-(wg-load "~/workgroups")
-
 ;; save a list of open files in ~/.emacs.d/.emacs.desktop
 ;; save the desktop file automatically if it already exists
 (require-package 'desktop)
@@ -17,7 +10,6 @@
 (add-hook 'auto-save-hook 'my-desktop-save)
 
 (run-at-time 3600 3600 'my-desktop-save)
-(run-at-time 3600 3600 'wg-update-all-workgroups-and-save)
 
 (setq desktop-path '("~/"))
 (setq desktop-save 'if-exists)
@@ -60,6 +52,14 @@
 (require-package 'saveplace)
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "~/.places"))
+
+;; Workgroups
+(require 'workgroups)
+(global-unset-key (kbd "C-y"))
+(setq wg-prefix-key (kbd "C-y"))
+(workgroups-mode 1)
+(wg-load "~/workgroups")
+(run-at-time 3600 3600 'wg-update-all-workgroups-and-save)
 
 
 (provide 'init-sessions)
