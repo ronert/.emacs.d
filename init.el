@@ -77,6 +77,7 @@
 (require 'init-css)
 (require 'init-javascript)
 (require 'init-html)
+(require 'init-hadoop)
 (require 'init-guidekey)
 (require 'init-diminish)
 
