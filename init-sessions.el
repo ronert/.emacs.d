@@ -54,12 +54,11 @@
 (setq save-place-file (expand-file-name "~/.places"))
 
 ;; Workgroups
-(require 'workgroups)
+(require-package 'workgroups)
 (global-unset-key (kbd "C-y"))
 (setq wg-prefix-key (kbd "C-y"))
-(workgroups-mode 1)
+(workgrous-mode 1)
 (wg-load "~/workgroups")
 (run-at-time 3600 3600 'wg-update-all-workgroups-and-save)
-
 
 (provide 'init-sessions)

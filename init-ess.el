@@ -97,4 +97,10 @@
 ;; Dont save .Rhistory eveywhere
 (setq ess-history-file nil)
 
+;; smart underscore
+(require-package 'ess-smart-underscore)
+
+;; r-autoyas
+(require-package 'r-autoyas)
+
 (provide 'init-ess)

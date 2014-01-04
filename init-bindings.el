@@ -103,6 +103,9 @@
 (global-set-key (kbd "s-<left>") 'smart-backward)
 (global-set-key (kbd "s-<right>") 'smart-forward)
 
+(require-package 'ace-jump-buffer)
+(global-set-key [?\S- ] 'ace-jump-buffer)
+
 (require-package 'ace-jump-mode)
 
 (require-package 'jump-char)
