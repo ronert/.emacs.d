@@ -23,7 +23,7 @@
   (blink-cursor-mode -1))
 
 ;; Line-spacing
-(setq-default line-spacing 5)
+(setq-default line-spacing 1)
 
 ;; minimize fringe
 (setq-default indicate-empty-lines nil)
@@ -50,5 +50,10 @@
 (setq calendar-longitude 13.34)
 (require-package 'theme-changer)
 (change-theme 'solarized-light 'solarized-dark)
+
+;; Make mouse wheel / trackpad scrolling less jerky
+(setq mouse-wheel-scroll-amount '(1
+                                  ((shift) . 5)
+                                  ((control))))
 
 (provide 'init-appearance)
