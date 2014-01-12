@@ -55,5 +55,7 @@
 (setq mouse-wheel-scroll-amount '(1
                                   ((shift) . 5)
                                   ((control))))
+(require 'linum)
+(global-linum-mode 1)
 
 (provide 'init-appearance)
