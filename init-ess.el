@@ -1,7 +1,6 @@
 (require-package 'ess)
 (load "ess-site.el")
 (add-hook 'ess-mode-hook 'run-coding-hook)
-;; (remove-hook 'ess-mode-hook 'run-coding-hook)
 
 ;; Make yank and smartparens work propperly on a German keyboard
 (defun ess-mode-is-intrusive ()
@@ -85,6 +84,7 @@
 ;; set up r-process with correct minor modes
 (add-hook 'inferior-ess-mode-hook 'smartparens-mode +1)
 (add-hook 'inferior-ess-mode-hook 'ess-mode-is-intrusive)
+(add-hook 'ess-mode-hook 'ess-mode-is-intrusive)
 
 ;; Prefer auto-fill to visual line wrap in ESS mode
 (add-hook 'ess-mode-hook 'turn-on-auto-fill)
