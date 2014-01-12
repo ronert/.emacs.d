@@ -48,27 +48,34 @@
 (require 'init-smartparens)
 (require 'init-yasnippet)
 (require 'init-auto-complete)
-(require 'init-bookmarks)
-(require 'init-prog-mode)
-(require 'init-csv)
-(require 'init-dired)
-(require 'init-eshell)
-(require 'init-ess)
-(require 'init-git)
-(require 'init-haskell)
-(require 'init-helm)
 (require 'init-hippie-expand)
+(require 'init-bookmarks)
+(require 'init-helm)
+(require 'init-eshell)
+(require 'init-dired)
+(require 'init-git)
 (require 'init-ido)
+(require 'init-search)
+(require 'init-guidekey)
+(require 'init-flycheck)
+
+(require 'init-packages)
+
+(require 'init-defuns)
+(require 'init-coding)
+
+(require 'init-bindings)
+(require 'init-misc)
+
+;; specific programming modes modes
+(require 'init-csv)
+(require 'init-ess)
+(require 'init-haskell)
 (require 'init-latex)
+(require 'init-reftex)
 (require 'init-lisp)
 (require 'init-markdown)
-(require 'init-misc)
-(require 'init-osx)
-(require 'init-packages)
 (require 'init-python)
-(require 'init-reftex)
-(require 'init-search)
-(require 'init-sessions)
 (require 'init-stan)
 (require 'init-org)
 (require 'init-org-templates)
@@ -78,18 +85,15 @@
 (require 'init-javascript)
 (require 'init-html)
 (require 'init-hadoop)
-(require 'init-guidekey)
+
+;; diminish mode line
 (require 'init-diminish)
-(require 'init-flycheck)
 
-;; Map Modes
+;; Bindings
+(require 'init-bindings)
+
+;; Mode mappings
 (require 'init-mode-mapping)
-
-;; Load defuns and bindings
-(require 'init-defuns)
-
-(add-to-list 'load-path "~/.emacs.d/init-bindings.el") (require 'init-bindings)
-
 
 ;; Mac-specific stuff
 (when *is-a-mac*
@@ -108,4 +112,5 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(require 'init-sessions)
 ;;; init.el ends here

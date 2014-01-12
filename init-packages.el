@@ -64,6 +64,7 @@
 (require 'uniquify)
 (require 'ansi-color)
 (require 'recentf)
+(require-package 'highlight-symbol)
 
 ;; show free bindings in current buffer
 (require-package 'free-keys)

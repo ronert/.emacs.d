@@ -104,7 +104,7 @@
 (global-set-key (kbd "s-<right>") 'smart-forward)
 
 (require-package 'ace-jump-buffer)
-(global-set-key [?\S- ] 'ace-jump-buffer)
+;;(global-set-key [?\S- ] 'ace-jump-buffer)
 
 (require-package 'ace-jump-mode)
 

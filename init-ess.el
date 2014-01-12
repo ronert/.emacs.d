@@ -1,21 +1,18 @@
 (require-package 'ess)
 (load "ess-site.el")
-(add-hook 'ess-mode-hook 'run-prog-mode-hook)
+(add-hook 'ess-mode-hook 'run-coding-hook)
+;; (remove-hook 'ess-mode-hook 'run-coding-hook)
 
 ;; Make yank and smartparens work propperly on a German keyboard
 (defun ess-mode-is-intrusive ()
-  ;; Make something work in org-mode:
-  ;; (local-unset-key (kbd "something I use"))
   (local-unset-key (kbd "C-y"))
   (local-set-key (kbd "C-z") 'ess-yank)
   (local-unset-key (kbd "\\"))
   (local-set-key (kbd "\\") 'self-insert-command)
-  (local-unset-key (kbd "M"))
-  (local-set-key (kbd "M") 'self-insert-command)
   )
 
 (add-hook 'ess-R-post-run-hook 'smartparens-mode)
-;; (add-hook 'ess-R-post-run-hook 'ess-mode-is-intrusive)
+(add-hook 'ess-R-post-run-hook 'ess-mode-is-intrusive)
 
 ;; Make TeX and RefTex aware of Snw and Rnw files
 (setq reftex-file-extensions
@@ -86,10 +83,10 @@
           )
 
 ;; set up r-process with correct minor modes
-(add-hook 'inferior-ess-mode-hook 'smartparens-mode)
-(add-hook 'ess-mode-hook 'ess-mode-is-intrusive)
+(add-hook 'inferior-ess-mode-hook 'smartparens-mode +1)
+(add-hook 'inferior-ess-mode-hook 'ess-mode-is-intrusive)
 
-;; prefer auto-fill to visual line wrap in ESS mode
+;; Prefer auto-fill to visual line wrap in ESS mode
 (add-hook 'ess-mode-hook 'turn-on-auto-fill)
 (add-hook 'ess-mode-hook 'highlight-indentation-mode)
 (add-hook 'inferior-ess-mode-hook 'turn-on-auto-fill)

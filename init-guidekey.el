@@ -20,6 +20,7 @@
 (add-hook 'haskell-mode-hook 'guide-key/my-hook-function-for-haskell-mode)
 (defun guide-key/my-hook-function-for-ess-mode ()
   (guide-key/add-local-guide-key-sequence "C-c")
+  (guide-key/add-local-guide-key-sequence "M-#")
   (guide-key/add-local-highlight-command-regexp "ess-"))
 (add-hook 'ess-mode-hook 'guide-key/my-hook-function-for-ess-mode)
 (defun guide-key/my-hook-function-for-python-mode ()
