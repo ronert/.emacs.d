@@ -4,6 +4,7 @@
   (highlight-symbol-nav-mode +1)
   (smartparens-mode +1)
   (flycheck-mode +1)
+  (prelude-add-watchwords)
   )
 
 
