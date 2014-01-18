@@ -6,6 +6,8 @@
 (after-load 'haskell-mode
   (define-key haskell-mode-map (kbd "C-c h") 'hoogle))
 
+(add-hook 'haskell-mode-hook 'run-coding-hook)
+
 ;; Make compilation-mode understand "at blah.hs:11:34-50" lines output by GHC
 (after-load 'compile
   (let ((alias 'ghc-at-regexp))

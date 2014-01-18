@@ -321,12 +321,6 @@ and so on."
   (set (make-local-variable 'comment-auto-fill-only-comments) t)
   (auto-fill-mode t))
 
-(defun prelude-add-watchwords ()
-  (font-lock-add-keywords
-   nil '(("\\<\\(FIX\\|TODO\\|FIXME\\|HACK\\|REFACTOR\\):"
-          1 font-lock-warning-face t))))
-
-
 ;;----------------------------------------------------------------------------
 ;; When splitting window, show (other-buffer) in the new window
 ;;----------------------------------------------------------------------------
@@ -559,11 +553,6 @@ Position the cursor at it's beginning, according to the current mode."
 
 (add-hook 'starter-kit-coding-hook 'starter-kit-pretty-lambdas)
 
-(defun font-lock-comment-annotations ()
-  "Highlight a bunch of well known comment annotations. This functions should be added to the hooks of major modes for programming."
-  (font-lock-add-keywords
-   nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\):"
-          1 font-lock-warning-face t))))
 
 (defun untabify-buffer ()
   (interactive)
