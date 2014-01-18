@@ -43,32 +43,23 @@
 ))
 
 ;; Do not expand abbrevs in comments
-(if 1
-    (progn
-      (make-local-variable 'pre-abbrev-expand-hook)
-      (add-hook 'pre-abbrev-expand-hook 'sql-pre-abbrev-expand-hook)
-      (abbrev-mode 1)))
+(defun sql-mode-abbrev-expand-function (expand)
+  (if (not (save-excursion (forward-line 0) (eq (char-after) ?-)))
+      ;; Performs normal expansion.
+      (funcall expand)
+    ;; We're inside a comment: use the text-mode abbrevs.
+    (let ((local-abbrev-table text-mode-abbrev-table))
+      (funcall expand))))
 
-(defun sql-in-code-context-p ()
-  (if (fboundp 'buffer-syntactic-context) ; XEmacs function.
-      (null (buffer-syntactic-context))
-    ;; Attempt to simulate buffer-syntactic-context
-    ;; I don't know how reliable this is.
-    (let* ((beg (save-excursion
-                  (beginning-of-line)
-                  (point)))
-           (list
-            (parse-partial-sexp beg (point))))
-      (and (null (nth 3 list))          ; inside string.
-           (null (nth 4 list))))))      ; inside cocmment
-(defun sql-pre-abbrev-expand-hook ()
-  ;; Allow our abbrevs only in a code context.
-  (setq local-abbrev-table
-        (if (sql-in-code-context-p)
-            sql-mode-abbrev-table)))
+(add-hook 'sql-mode-hook
+          #'(lambda ()
+              (add-hook 'abbrev-expand-functions
+                        'sql-mode-abbrev-expand-function
+                        nil t)))
+
 
 ;; Special PSQL commands
-(require 'pgsql-mode)
+(require 'pgsql-minor-mode)
 
 (provide 'init-sql)
 ;;; init-sql ends here
