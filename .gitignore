@@ -56,3 +56,5 @@ src/org-mode/*
 /flycheck_init-sessions.el
 /flycheck_init-yasnippet.el
 /flycheck_init.el
+
+/.sqli_history
