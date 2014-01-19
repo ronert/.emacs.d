@@ -87,7 +87,7 @@
             Info-directory-list))
 
 
-                                        ; for org-mode
+;; for org-mode
 (defun org-mode-is-intrusive ()
   ;; Make something work in org-mode:
   ;; (local-unset-key (kbd "something I use"))
