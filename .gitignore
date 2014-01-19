@@ -58,3 +58,5 @@ src/org-mode/*
 /flycheck_init.el
 
 /.sqli_history
+
+/flycheck_init-javascript.el
