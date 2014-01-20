@@ -42,7 +42,7 @@
  '(org-export-run-in-background nil)
  '(org-export-with-todo-keywords nil)
  '(org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-irc org-mac-message org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mac-link-grabber)))
- '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex" t)
+ '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex")
  '(projectile-cache-file "/Users/ronert/.projectile.cache")
  '(projectile-known-projects-file "/Users/ronert/projectile-bookmarks.eld")
  '(projectile-remember-window-configs t)
