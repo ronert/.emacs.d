@@ -62,3 +62,5 @@ src/org-mode/*
 /flycheck_init-javascript.el
 
 /flycheck_init-ess.el
+
+/%backup%~
