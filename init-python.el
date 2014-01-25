@@ -33,4 +33,7 @@
   (kmacro-exec-ring-item `(,(kbd "C-r def C-n C-a C-m C-p C-i C-u 6 \" C-u 3 C-b") 0 "%d")
                          arg))
 
+
+(add-hook 'python-mode-hook 'run-coding-hook)
+
 (provide 'init-python)
