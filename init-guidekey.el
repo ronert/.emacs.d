@@ -35,10 +35,11 @@
   (guide-key/add-local-guide-key-sequence "C-c")
   (guide-key/add-local-highlight-command-regexp "python-"))
 (add-hook 'python-mode-hook 'guide-key/my-hook-function-for-python-mode)
-(defun guide-key/my-hook-function-for-ein:ipynb-mode ()
-(guide-key/add-local-guide-key-sequence "C-c")
-(guide-key/add-local-highlight-command-regexp "ein"))
-(add-hook 'ein:ipynb-mode-hook 'guide-key/my-hook-function-for-ein:ipynb)
+
+(defun guide-key/my-hook-function-for-ein ()
+  (guide-key/add-local-guide-key-sequence "C-c")
+  (guide-key/add-local-highlight-command-regexp "ein"))
+(add-hook 'ein:notebook-multilang-mode-hook- 'guide-key/my-hook-function-for-ein)
 
 (defun guide-key/my-hook-function-for-sql-mode ()
   (guide-key/add-local-guide-key-sequence "C-c")
