@@ -39,7 +39,7 @@
 (defun guide-key/my-hook-function-for-ein ()
   (guide-key/add-local-guide-key-sequence "C-c")
   (guide-key/add-local-highlight-command-regexp "ein"))
-(add-hook 'ein:notebook-multilang-mode-hook- 'guide-key/my-hook-function-for-ein)
+(add-hook 'ein:notebook-multilang-mode-hook 'guide-key/my-hook-function-for-ein)
 
 (defun guide-key/my-hook-function-for-sql-mode ()
   (guide-key/add-local-guide-key-sequence "C-c")
