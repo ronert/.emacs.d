@@ -64,3 +64,4 @@ src/org-mode/*
 /flycheck_init-ess.el
 /flycheck_init-bindings.el
 /flycheck_init-packages.el
+/%backup%~
