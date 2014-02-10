@@ -35,8 +35,8 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (define-key global-map "\M-\C-g" 'magit-status)
 
-;; (require-package 'fullframe)
-;; (after-load 'magit
-;; (fullframe magit-status magit-mode-quit-window))
+(require-package 'fullframe)
+(after-load 'magit
+  (fullframe magit-status magit-mode-quit-window))
 
 (provide 'init-git)
