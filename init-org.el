@@ -490,4 +490,9 @@
 
 (require 'ob-latex)
 
+;; org-trello
+(require 'org-trello)
+(add-hook 'org-mode-hook 'org-trello-mode)
+(add-hook 'org-trello-mode-hook (lambda () (org-trello/install-local-prefix-mode-keybinding! "C-c t")))
+
 (provide 'init-org)
