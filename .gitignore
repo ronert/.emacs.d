@@ -65,3 +65,6 @@ src/org-mode/*
 /flycheck_init-bindings.el
 /flycheck_init-packages.el
 /%backup%~
+/flycheck_init-sql.el
+
+/elnode/
