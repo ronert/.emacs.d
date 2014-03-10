@@ -16,12 +16,12 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-(add-hook 'org-mode-hook
-          (let ((original-command (lookup-key org-mode-map [tab])))
-            `(lambda ()
-               (setq yas-fallback-behavior
-                     '(apply ,original-command))
-               (local-set-key [tab] 'yas-expand))))
+;; (add-hook 'org-mode-hook
+;;           (let ((original-command (lookup-key org-mode-map [tab])))
+;;             `(lambda ()
+;;                (setq yas-fallback-behavior
+;;                      '(apply ,original-command))
+;;                (local-set-key [tab] 'yas-expand))))
 
 
 (add-hook 'org-mode-hook
@@ -491,8 +491,8 @@
 (require 'ob-latex)
 
 ;; org-trello
-(require 'org-trello)
-(add-hook 'org-mode-hook 'org-trello-mode)
-(add-hook 'org-trello-mode-hook (lambda () (org-trello/install-local-prefix-mode-keybinding! "C-c t")))
+;; (require 'org-trello)
+;; (add-hook 'org-mode-hook 'org-trello-mode)
+;; (add-hook 'org-trello-mode-hook (lambda () (org-trello/install-local-prefix-mode-keybinding! "C-c t")))
 
 (provide 'init-org)
