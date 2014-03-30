@@ -16,12 +16,21 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-;; (add-hook 'org-mode-hook
-;;           (let ((original-command (lookup-key org-mode-map [tab])))
-;;             `(lambda ()
-;;                (setq yas-fallback-behavior
-;;                      '(apply ,original-command))
-;;                (local-set-key [tab] 'yas-expand))))
+(add-hook 'org-mode-hook
+          (let ((original-command (lookup-key org-mode-map [tab])))
+            `(lambda ()
+               (setq yas-fallback-behavior
+                     '(apply ,original-command))
+               (local-set-key [tab] 'yas-expand))))
+
+(defun yas/org-very-safe-expand ()
+  (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (make-variable-buffer-local 'yas/trigger-key)
+            (setq yas/trigger-key [tab])
+            (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+            (define-key yas/keymap [tab] 'yas/next-field)))
 
 
 (add-hook 'org-mode-hook
@@ -137,7 +146,6 @@
              '("r" . R))
 (setq org-confirm-babel-evaluate nil)
 (setq org-src-fontify-natively t)
-(setq org-src-tab-acts-natively t)
 (setq org-confirm-babel-evaluate nil)
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
 (add-hook 'org-mode-hook 'org-display-inline-images)
