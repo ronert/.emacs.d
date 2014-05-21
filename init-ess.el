@@ -1,7 +1,7 @@
 (require-package 'ess)
 (load "ess-site.el")
 (add-hook 'ess-mode-hook 'run-coding-hook)
-(add-hook 'ess-mode-hook 'orgstruct-mode)
+(add-hook 'ess-mode-hook 'turn-on-orgstruct)
 
 ;; Make yank and smartparens work propperly on a German keyboard
 (defun ess-mode-is-intrusive ()
