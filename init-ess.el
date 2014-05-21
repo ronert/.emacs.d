@@ -107,8 +107,8 @@
   :group 'faces)
 
 (defface ess-jb-comment-face
-  '((t (:background "gray25"
-                    :foreground "DimGrey"
+  '((t ( ;;:background "gray25"
+        :foreground "#93a1a1"
                     :inherit font-lock-comment-face)))
   "Face used to highlight comments."
   :group 'ess-jb-faces)
@@ -122,7 +122,7 @@
 (defface ess-jb-h1-face
   '((t (:height 1.6
                 :weight bold
-                :foreground "#DFAF8F"
+                :foreground "#dc322f"
                 :inherit ess-jb-comment-face)))
   "Face used to highlight h1 headers."
   :group 'ess-jb-faces)
@@ -130,7 +130,7 @@
 (defface ess-jb-h2-face
   '((t (:height 1.2
                 :weight bold
-                :foreground "#BFEBBF"
+                :foreground "#859900"
                 :inherit ess-jb-comment-face)))
   "Face used to highlight h2 headers."
   :group 'ess-jb-faces)
@@ -138,17 +138,17 @@
 (defface ess-jb-h3-face
   '((t (:height 1.0
                 :weight bold
-                :foreground "#7CB8BB"
+                :foreground "#268bd2"
                 :inherit ess-jb-comment-face)))
   "Face used to highlight h3 headers."
   :group 'ess-jb-faces)
 
-(defface ess-jb-hide-face
-  '((t (:foreground "gray25"
-                    :background "gray25"
-                    :inherit ess-jb-comment-face)))
-  "Face used to hide characters."
-  :group 'ess-jb-faces)
+;; (defface ess-jb-hide-face
+;;   '((t (:foreground "gray25"
+;;                     :background "gray25"
+;;                     :inherit ess-jb-comment-face)))
+;;   "Face used to hide characters."
+;;   :group 'ess-jb-faces)
 
 (font-lock-add-keywords 'ess-mode
                         '(("^###\\( \\*\\)\\([^*].*\\)$" (1 'ess-jb-hide-face t)(2 'ess-jb-h1-face t))
@@ -157,5 +157,8 @@
                           ;; ("^###\\( .*\\|$\\)" 1 'ess-jb-comment-face t)
                           ("^###" "\\*.*?\\*" nil nil (0 'ess-jb-comment-bold-face append))
                           ))
+
+;; Add orgstruct headings
+(setq orgstruct-heading-prefix-regexp "^### ")
 
 (provide 'init-ess)
