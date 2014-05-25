@@ -39,4 +39,7 @@
 (after-load 'magit
   (fullframe magit-status magit-mode-quit-window))
 
+(require-package 'diff-hl)
+(add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+
 (provide 'init-git)
