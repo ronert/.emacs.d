@@ -8,6 +8,6 @@
 (diminish 'whole-line-or-region-mode)
 (diminish 'yas-minor-mode)
 (diminish 'abbrev-mode)
-(diminish 'global-visual-line-mode)
+;; (diminish 'global-visual-line-mode)
 
 (provide 'init-diminish)

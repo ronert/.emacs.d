@@ -479,7 +479,7 @@
 (setq org-src-window-setup 'current-window)
 
 ;; LaTeX settings
-(require 'org-latex)
+;; (require 'org-latex)
 ;; Choose either listings or minted for exporting source code blocks.
 ;; Using minted (as here) requires pygments be installed. To use the
 ;; default listings package instead, use
