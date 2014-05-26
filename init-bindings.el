@@ -251,6 +251,6 @@
   (move-end-of-line 1)
   (newline-and-indent))
 
-+(global-set-key (kbd "<S-return>") 'sanityinc/newline-at-end-of-line)
+(global-set-key (kbd "<M-return>") 'sanityinc/newline-at-end-of-line)
 
 (provide 'init-bindings)
