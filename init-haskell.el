@@ -63,9 +63,10 @@
                                     ,(make-char 'greek-iso8859-7 107))
                     nil))))))
 
-
 (when (window-system)
   (add-hook 'haskell-mode-hook 'pretty-lambdas-haskell))
+
+(setq-default haskell-stylish-on-save t)
 
 (provide 'init-haskell)
 ;;; init-haskell.el ends here
