@@ -58,4 +58,7 @@
 (require 'linum)
 (global-linum-mode 1)
 
+(when (fboundp 'global-prettify-symbols-mode)
+  (global-prettify-symbols-mode))
+
 (provide 'init-appearance)
