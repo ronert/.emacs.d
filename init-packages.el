@@ -57,7 +57,7 @@
 
 (require 'thingatpt)
 (require 'imenu)
-(require 'wc)
+;;(require 'wc)
 (require 'cl)
 (require 'saveplace)
 (require 'ffap)
@@ -69,5 +69,7 @@
 ;; show free bindings in current buffer
 (require-package 'free-keys)
 
+(require-package 'discover-my-major)
+(global-set-key (kbd "C-h C-m") 'discover-my-major)
 
 (provide 'init-packages)
