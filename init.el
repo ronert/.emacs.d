@@ -85,6 +85,7 @@
 (require 'init-javascript)
 (require 'init-html)
 (require 'init-hadoop)
+(require 'init-devops)
 
 ;; diminish mode line
 (require 'init-diminish)
