@@ -56,4 +56,7 @@
 (add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
 
+;; Devops
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
 (provide 'init-mode-mapping)
