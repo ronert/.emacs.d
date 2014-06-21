@@ -73,7 +73,7 @@
 (require-package 'discover-my-major)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 
-;; Ace-Link
+;; Ace-Link http://irreal.org/blog/?p=2594
 (require-package 'ace-link)
 (ace-link-setup-default)
 
