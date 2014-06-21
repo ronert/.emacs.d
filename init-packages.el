@@ -69,7 +69,12 @@
 ;; show free bindings in current buffer
 (require-package 'free-keys)
 
+;; Discover my major
 (require-package 'discover-my-major)
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
+
+;; Ace-Link
+(require-package 'ace-link)
+(ace-link-setup-default)
 
 (provide 'init-packages)
