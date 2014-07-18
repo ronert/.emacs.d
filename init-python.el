@@ -1,5 +1,3 @@
-
-(add-to-list 'load-path "~/Dropbox/dotfiles/.emacs.d/src/python")
 (require 'python)
 (require-package 'elpy)
 
