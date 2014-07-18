@@ -243,8 +243,7 @@
 (setq cua-enable-cua-keys nil)
 (cua-mode)
 
-
-(global-set-key (kbd "RET") 'newline-and-indent)
+;; (global-set-key (kbd "RET") 'newline-and-indent)
 (defun sanityinc/newline-at-end-of-line ()
   "Move to end of line, enter a newline, and reindent."
   (interactive)
