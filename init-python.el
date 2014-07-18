@@ -1,25 +1,25 @@
 (require 'python)
-(require-package 'elpy)
 
+;; elpy
+(require 'elpy)
 (elpy-enable)
 (elpy-use-ipython)
+(local-set-key (kbd "C-c <up>") 'winner-undo)
+(add-hook 'elpy-mode-hook
+          (lambda ()
+            (define-key elpy-mode-map (kbd "C-<left>") 'elpy-nav-backward-statement)
+            (define-key elpy-mode-map (kbd "C-<right>") 'elpy-nav-forward-statement)
+            )
+          )
 
+;; ein
 (require-package 'websocket)
 (require-package 'ein)
-;;(setq ein:use-auto-complete t)
-;; Or, to enable "superpack" (a little bit hacky improvements):
 (setq ein:use-auto-complete-superpack t)
-
-;;  (setq ein:use-smartrep t)
 (setq ein:connect-default-notebook "8888/ipythonNotebook")
 (add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
-;;(setq ein:use-auto-complete t)
-;;(add-hook 'python-mode-hook 'ein:connect-to-default-notebook)
-;;  (setq ein:notebook-modes '(ein:notebook-python-mode))
 
-;;  (setq jedi:setup-keys t)
-;;  (add-hook 'python-mode-hook 'jedi:setup)
-
+;; python mode
 (add-hook 'python-mode-hook 'my-python-customizations)
 (defun my-python-customizations ()
   "set up my personal customizations for python mode"
@@ -30,7 +30,6 @@
   (interactive "p")
   (kmacro-exec-ring-item `(,(kbd "C-r def C-n C-a C-m C-p C-i C-u 6 \" C-u 3 C-b") 0 "%d")
                          arg))
-
 
 (add-hook 'python-mode-hook 'run-coding-hook)
 
