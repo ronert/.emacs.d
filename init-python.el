@@ -7,8 +7,8 @@
 (local-set-key (kbd "C-c <up>") 'winner-undo)
 (add-hook 'elpy-mode-hook
           (lambda ()
-            (define-key elpy-mode-map (kbd "C-<left>") 'elpy-nav-backward-statement)
-            (define-key elpy-mode-map (kbd "C-<right>") 'elpy-nav-forward-statement)
+            (define-key elpy-mode-map (kbd "C-<left>") 'python-indent-shift-left)
+            (define-key elpy-mode-map (kbd "C-<right>") 'python-indent-shift-right)
             )
           )
 
