@@ -60,7 +60,7 @@
     "contrib"
     (expand-file-name
      "org-mode"
-     (expand-file-name "src" dotfiles-dir))))))
+     (expand-file-name "site-lisp" user-emacs-directory))))))
 
 (setq org-use-speed-commands t)
 
@@ -92,7 +92,7 @@
              "doc"
              (expand-file-name
               "org"
-              (expand-file-name "src" dotfiles-dir)))
+              (expand-file-name "site-lisp" user-emacs-directory)))
             Info-directory-list))
 
 
@@ -110,12 +110,12 @@
   )
 (add-hook 'org-mode-hook 'org-mode-is-intrusive)
 
-(require 'org-octopress)
-(setq org-octopress-directory-top       "~/Dropbox/octopress/source")
-(setq org-octopress-directory-posts     "~/Dropbox/octopress/source/_posts")
-(setq org-octopress-directory-org-top   "~/Dropbox/octopress/source")
-(setq org-octopress-directory-org-posts "~/Dropbox/octopress/source/blog")
-(setq org-octopress-setup-file          "~/Dropbox/octopress/setupfile.org")
+;; (require 'org-octopress)
+;; (setq org-octopress-directory-top       "~/Dropbox/octopress/source")
+;; (setq org-octopress-directory-posts     "~/Dropbox/octopress/source/_posts")
+;; (setq org-octopress-directory-org-top   "~/Dropbox/octopress/source")
+;; (setq org-octopress-directory-org-posts "~/Dropbox/octopress/source/blog")
+;; (setq org-octopress-setup-file          "~/Dropbox/octopress/setupfile.org")
 
 (setq org-latex-pdf-process '("latexmk -pdflatex='lualatex --shell-escape' -pdf %f"))
 

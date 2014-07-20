@@ -22,7 +22,7 @@
      (add-to-list 'eshell-command-completions-alist
                   '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))))
 
-(setq eshell-directory-name (expand-file-name "./" (expand-file-name "eshell" dotfiles-dir)))
+(setq eshell-directory-name (expand-file-name "./" (expand-file-name "eshell" user-emacs-directory)))
 
 ;; Start eshell or switch to it if it's active.
 (global-set-key (kbd "C-x m") 'eshell)
