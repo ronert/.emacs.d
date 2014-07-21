@@ -51,7 +51,7 @@
 
 (setq dabbrev-friend-buffer-function 'sanityinc/dabbrev-friend-buffer)
 
-(add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete" dotfiles-dir))
+(add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete" user-emacs-directory))
 (add-to-list 'ac-dictionary-directories "~/Dropbox/dotfiles/.emacs.d/local-autocomplete")
 ;; (setq ac-modes (append ac-modes '(org-mode)))
 ;; (ac-config-default)

@@ -137,9 +137,9 @@ indent yanked text (with prefix arg don't indent)."
       whitespace-line-column 100
       ediff-window-setup-function 'ediff-setup-windows-plain
       ediff-split-window-function 'split-window-horizontally
-      oddmuse-directory (concat dotfiles-dir "oddmuse")
+      oddmuse-directory (concat user-emacs-directory "oddmuse")
       xterm-mouse-mode t
-      save-place-file (concat dotfiles-dir "places"))
+      save-place-file (concat user-emacs-directory "places"))
 
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
@@ -162,7 +162,7 @@ indent yanked text (with prefix arg don't indent)."
 
 
 (setq backup-directory-alist `(("." . ,(expand-file-name
-                                        (concat dotfiles-dir "backups")))))
+                                        (concat user-emacs-directory "backups")))))
 
 
 ;; Kill lines

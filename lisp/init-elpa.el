@@ -38,8 +38,8 @@ re-downloaded in order to locate PACKAGE."
 ;; Load packages
 (package-initialize)
 
-;; Load src/
-(setq elisp-source-dir (concat dotfiles-dir "src"))
+;; Load site-lisp/
+(setq elisp-source-dir (concat user-emacs-directory "site-lisp"))
 (add-to-list 'load-path elisp-source-dir)
 (if (file-exists-p elisp-source-dir)
     (let ((default-directory elisp-source-dir))
