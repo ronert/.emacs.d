@@ -16,7 +16,7 @@
 ;; Don't open files from the workspace in a new frame
 (setq ns-pop-up-frames nil)
 
-(setq mac-option-modifier nil
+(setq mac-option-modifier 'none
       mac-command-modifier 'meta
       x-select-enable-clipboard t)
 
