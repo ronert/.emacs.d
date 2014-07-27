@@ -43,8 +43,6 @@
  '(ac-auto-start 0)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#708183" "#c60007" "#728a05" "#a57705" "#2075c7" "#c61b6e" "#259185" "#042028"))
  '(auto-indent-disabled-modes-list
    (quote
     (compilation-mode conf-windows-mode diff-mode inferior-ess-mode dired-mode eshell-mode fundamental-mode log-edit-mode makefile-gmake-mode org-mode snippet-mode texinfo-mode text-mode wl-summary-mode yaml-mode nil haskell-mode)))
@@ -52,7 +50,6 @@
  '(background-color "#fcf4dc")
  '(background-mode light)
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
- '(compilation-message-face (quote default))
  '(cursor-color "#52676f")
  '(custom-safe-themes
    (quote
@@ -60,28 +57,17 @@
  '(electric-pair-skip-self nil)
  '(elpy-rpc-backend "rope")
  '(ess-roxy-str "##'")
+ '(ess-smart-S-assign-key "–")
  '(ess-tracebug-prefix "")
- '(fci-rule-color "#0a2832")
  '(flymake-no-changes-timeout 120)
  '(foreground-color "#52676f")
  '(free-keys-modifiers (quote ("C" "M" "C-M")))
  '(haskell-mode-hook (quote (turn-on-haskell-indentation)))
- '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
- '(highlight-tail-colors
-   (quote
-    (("#073642" . 0)
-     ("#546E00" . 20)
-     ("#00736F" . 30)
-     ("#00629D" . 50)
-     ("#7B6000" . 60)
-     ("#8B2C02" . 70)
-     ("#93115C" . 85)
-     ("#073642" . 100))))
  '(hippie-expand-try-functions-list
    (quote
     (try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-list try-expand-line try-complete-lisp-symbol-partially try-complete-lisp-symbol yas/hippie-try-expand)))
- '(magit-diff-use-overlays nil)
  '(magit-restore-window-configuration t)
+ '(magit-use-overlays nil)
  '(max-specpdl-size 10000)
  '(minimap-update-delay 0.8)
  '(minimap-width-fraction 0.1)
@@ -97,7 +83,7 @@
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-irc org-mac-message org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mac-link-grabber)))
- '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex" t)
+ '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex")
  '(projectile-cache-file "/Users/ronert/.projectile.cache")
  '(projectile-known-projects-file "/Users/ronert/projectile-bookmarks.eld")
  '(projectile-remember-window-configs t)
@@ -160,9 +146,6 @@
  '(text-mode-hook (quote (text-mode-hook-identify)))
  '(vr/default-regexp-modifiers (quote (:I t :M t :S nil :U nil)))
  '(warning-suppress-types (quote ((undo discard-info))))
- '(weechat-color-list
-   (quote
-    (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
  '(wg-morph-on nil)
  '(yas-fallback-behavior (quote return-nil))
  '(yas-snippet-dirs "~/Dropbox/dotfiles/.emacs.d/snippets" nil (yasnippet))

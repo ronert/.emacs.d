@@ -143,13 +143,6 @@
   "Face used to highlight h3 headers."
   :group 'ess-jb-faces)
 
-;; (defface ess-jb-hide-face
-;;   '((t (:foreground "gray25"
-;;                     :background "gray25"
-;;                     :inherit ess-jb-comment-face)))
-;;   "Face used to hide characters."
-;;   :group 'ess-jb-faces)
-
 (font-lock-add-keywords 'ess-mode
                         '(("^###\\( \\*\\)\\([^*].*\\)$" (1 'ess-jb-hide-face t)(2 'ess-jb-h1-face t))
                           ("^###\\( \\*\\*\\)\\([^*].*\\)$" (1 'ess-jb-hide-face t)(2 'ess-jb-h2-face t))
