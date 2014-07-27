@@ -42,4 +42,7 @@
 (require-package 'diff-hl)
 (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
 
+;; git-timemachine
+(require-package 'git-timemachine)
+
 (provide 'init-git)
