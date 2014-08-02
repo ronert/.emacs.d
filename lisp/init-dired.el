@@ -28,22 +28,22 @@
        (let* ((fn-list (dired-get-marked-files nil arg)))
          (mapc 'find-file fn-list)))))
 
-(require 'stripe-buffer)
+(require-package 'stripe-buffer)
 (add-hook 'org-mode-hook 'org-table-stripes-enable)
 (add-hook 'dired-mode-hook 'stripe-listify-buffer)
 
 ;; enable direx
-(require 'popwin)
+(require-package 'popwin)
 (popwin-mode 1)
 
-(require 'direx)
+(require-package 'direx)
                                         ;(global-set-key (kbd "C-c C-j") 'direx-project:jump-to-project-root-other-window)
 
 (push '(direx:direx-mode :position left :width 50 :dedicated t)
       popwin:special-display-config)
 (global-set-key (kbd "C-c C-j") 'direx-project:jump-to-project-root-other-window)
 
-(require 'direx-grep)
+(require-package 'direx-grep)
 (define-key direx:direx-mode-map (kbd "s") 'direx-grep:grep-item)
 (define-key direx:direx-mode-map (kbd "S") 'direx-grep:grep-item-from-root)
 (define-key direx:direx-mode-map (kbd "a") 'direx-grep:show-all-item-at-point)
