@@ -76,5 +76,8 @@
 
 (setq-default haskell-stylish-on-save t)
 
+(dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook)))
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
 (provide 'init-haskell)
 ;;; init-haskell.el ends here
