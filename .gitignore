@@ -68,3 +68,4 @@ src/org-mode/*
 /flycheck_init-sql.el
 
 /elnode/
+/project-explorer-cache/
