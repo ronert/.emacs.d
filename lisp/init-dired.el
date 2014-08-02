@@ -28,19 +28,16 @@
        (let* ((fn-list (dired-get-marked-files nil arg)))
          (mapc 'find-file fn-list)))))
 
-(require-package 'stripe-buffer)
+(require 'stripe-buffer)
 (add-hook 'org-mode-hook 'org-table-stripes-enable)
 (add-hook 'dired-mode-hook 'stripe-listify-buffer)
 
 ;; enable direx
-(require-package 'popwin)
+(require 'popwin)
 (popwin-mode 1)
 
-(require-package 'direx)
-                                        ;(global-set-key (kbd "C-c C-j") 'direx-project:jump-to-project-root-other-window)
-
-(push '(direx:direx-mode :position left :width 50 :dedicated t)
-      popwin:special-display-config)
-(global-set-key (kbd "C-c C-j") 'direx-project:jump-to-project-root-other-window)
+(require 'project-explorer)
+(global-set-key (kbd "C-c C-j") 'project-explorer-open)
+(global-set-key (kbd "C-c j") 'project-explorer-helm)
 
 (provide 'init-dired)
