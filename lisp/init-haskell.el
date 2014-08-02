@@ -79,5 +79,7 @@
 (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook)))
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
+(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+
 (provide 'init-haskell)
 ;;; init-haskell.el ends here
