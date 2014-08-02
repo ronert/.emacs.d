@@ -32,4 +32,15 @@
 (add-hook 'org-mode-hook 'org-table-stripes-enable)
 (add-hook 'dired-mode-hook 'stripe-listify-buffer)
 
+;; enable direx
+(require 'popwin)
+(popwin-mode 1)
+
+(require 'direx)
+                                        ;(global-set-key (kbd "C-c C-j") 'direx-project:jump-to-project-root-other-window)
+
+(push '(direx:direx-mode :position left :width 50 :dedicated t)
+      popwin:special-display-config)
+(global-set-key (kbd "C-c C-j") 'direx-project:jump-to-project-root-other-window)
+
 (provide 'init-dired)
