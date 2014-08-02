@@ -75,6 +75,8 @@
    (js . t)
    (haskell . t)
    (clojure . t)
+   (sql . t)
+   (haskell . t)
    (ditaa . t)))
 
 (add-to-list 'org-src-lang-modes
