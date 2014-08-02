@@ -43,10 +43,4 @@
       popwin:special-display-config)
 (global-set-key (kbd "C-c C-j") 'direx-project:jump-to-project-root-other-window)
 
-(require-package 'direx-grep)
-(define-key direx:direx-mode-map (kbd "s") 'direx-grep:grep-item)
-(define-key direx:direx-mode-map (kbd "S") 'direx-grep:grep-item-from-root)
-(define-key direx:direx-mode-map (kbd "a") 'direx-grep:show-all-item-at-point)
-(define-key direx:direx-mode-map (kbd "A") 'direx-grep:show-all-item)
-
 (provide 'init-dired)
