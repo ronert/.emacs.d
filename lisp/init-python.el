@@ -5,14 +5,6 @@
 (elpy-enable)
 (elpy-use-ipython)
 
-(defun indent-elpy ()
-  (define-key elpy-mode-map (kbd "C-<left>") 'python-indent-shift-left)
-  (define-key elpy-mode-map (kbd "C-<right>") 'python-indent-shift-right)
-  )
-
-(add-hook 'elpy-mode-hook 'indent-elpy)
-
-
 ;; ein
 (require-package 'websocket)
 (require-package 'ein)
