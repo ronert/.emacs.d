@@ -4,8 +4,6 @@
 (require-package 'company-auctex)
 (company-auctex-init)
 
-(slime-setup '(slime-company))
-
 (add-to-list 'company-backends 'company-ghc)
 (add-to-list 'company-backends 'company-anaconda)
 
