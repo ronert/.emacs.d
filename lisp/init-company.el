@@ -7,4 +7,6 @@
 (add-to-list 'company-backends 'company-ghc)
 (add-to-list 'company-backends 'company-anaconda)
 
+(global-set-key (kbd "C-.") 'company-complete)
+
 (provide 'init-company)
