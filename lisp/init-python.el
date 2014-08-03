@@ -8,7 +8,6 @@
 ;; ein
 (require-package 'websocket)
 (require-package 'ein)
-(setq ein:use-auto-complete-superpack t)
 (setq ein:connect-default-notebook "8888/ipythonNotebook")
 (add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
 
