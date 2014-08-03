@@ -24,7 +24,8 @@
 
 (require 'init-smartparens)
 (require 'init-yasnippet)
-(require 'init-auto-complete)
+;;(require 'init-auto-complete)
+(require 'init-company)
 (require 'init-hippie-expand)
 (require 'init-bookmarks)
 (require 'init-helm)
