@@ -24,8 +24,6 @@
 
 (require 'init-smartparens)
 (require 'init-yasnippet)
-;;(require 'init-auto-complete)
-(require 'init-company)
 (require 'init-hippie-expand)
 (require 'init-bookmarks)
 (require 'init-helm)
@@ -64,6 +62,10 @@
 (require 'init-html)
 (require 'init-hadoop)
 (require 'init-devops)
+
+;; company mode
+(require 'init-company)
+
 
 ;; diminish mode line
 (require 'init-diminish)
