@@ -1,4 +1,4 @@
-(require 'haskell-mode)
+(require-package 'haskell-mode)
 (add-to-list 'auto-mode-alist '("\\.ghci\\'" . haskell-mode))
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode);
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
@@ -29,40 +29,26 @@
   (require-package 'flycheck-hdevtools)
   (require-package 'flycheck-haskell)
   (after-load 'flycheck
-         (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)
+    (add-hook 'haskell-mode-hook #'flycheck-haskell-setup)
 
-         (defadvice haskell-mode-stylish-buffer (around skip-if-flycheck-errors activate)
-                  "Don't run stylish-buffer if the buffer appears to have a syntax error."
-                  (unless (flycheck-has-current-errors-p 'error)
-                             ad-do-it))))
+    (defun sanityinc/flycheck-haskell-reconfigure ()
+      "Reconfigure flycheck haskell settings, e.g. after changing cabal file."
+      (interactive)
+      (unless (eq major-mode 'haskell-mode)
+        (error "Expected to be in haskell-mode"))
+      (flycheck-haskell-clear-config-cache)
+      (flycheck-haskell-configure)
+      (flycheck-mode -1)
+      (flycheck-mode))
 
-;; (defun sanityinc/haskell-enable-flymake ()
-;;   (if (package-installed-p 'ghc)
-;;       (progn
-;;         (ghc-init)
-;;         (flymake-mode))
-;;     (flymake-haskell-multi-load)))
-;; (add-hook 'haskell-mode-hook 'sanityinc/haskell-enable-flymake)
+    (defadvice haskell-mode-stylish-buffer (around skip-if-flycheck-errors activate)
+      "Don't run stylish-buffer if the buffer appears to have a syntax error.
+This isn't a hard guarantee, since flycheck might sometimes not run until the file has
+been saved."
+      (unless (flycheck-has-current-errors-p 'error)
+        ad-do-it))
 
-;; (require 'scion)
-
-;; ;; if ./cabal/bin is not in your $PATH
-;; (setq scion-program "~/.cabal/bin/scion-server")
-
-;; (defun my-haskell-hook ()
-;;   ;; Whenever we open a file in Haskell mode, also activate Scion
-;;   (scion-mode 1)
-;;   ;; Whenever a file is saved, immediately type check it and
-;;   ;; highlight errors/warnings in the source.
-;;   (scion-flycheck-on-save 1))
-
-;; (add-hook 'haskell-mode-hook 'my-haskell-hook)
-
-;; ;; Use ido-mode completion (matches anywhere, not just beginning)
-;; ;;
-;; ;; WARNING: This causes some versions of Emacs to fail so badly
-;; ;; that Emacs needs to be restarted.
-;; (setq scion-completing-read-function 'ido-completing-read)
+    (require 'flycheck-hdevtools)))
 
 (defun pretty-lambdas-haskell ()
   (font-lock-add-keywords
@@ -78,7 +64,7 @@
 
 (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook)))
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-
+(add-hook 'haskell-interactive-mode-hook 'sanityinc/no-trailing-whitespace)
 (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
 (provide 'init-haskell)
