@@ -9,6 +9,9 @@
 (after-load 'js2-mode
   (define-key js2-mode-map (kbd "TAB") 'indent-for-tab-command))
 
+(dolist (hook '(js2-mode-hook js-mode-hook json-mode-hook))
+   (add-hook hook 'rainbow-delimiters-mode))
+
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
   "Javascript mode to use for .js files."
