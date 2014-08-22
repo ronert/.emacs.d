@@ -95,9 +95,6 @@
 ;; Dont save .Rhistory eveywhere
 (setq ess-history-file nil)
 
-;; smart underscore
-(require-package 'ess-smart-underscore)
-
 ;; r-autoyas
 (require-package 'r-autoyas)
 
@@ -153,5 +150,10 @@
 
 ;; Add orgstruct headings
 (setq orgstruct-heading-prefix-regexp "^### ")
+
+(setq ess-S-assign-key (kbd "C-="))
+(ess-toggle-S-assign-key t) ; enable above key definition
+;; leave my underscore key alone!
+(ess-toggle-underscore nil)
 
 (provide 'init-ess)
