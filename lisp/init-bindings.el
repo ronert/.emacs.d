@@ -30,8 +30,7 @@
 (global-set-key "\C-x_" 'split-window-vertically-instead)
 
 ;; remap C-a to `smarter-move-beginning-of-line'
-(global-set-key [remap move-beginning-of-line]
-                'smarter-move-beginning-of-line)
+(global-set-key (kbd "C-a") 'smarter-move-beginning-of-line)
 
 (global-set-key (kbd "C-z") 'yank)
 (global-set-key (kbd "M-z") 'yank-pop)
