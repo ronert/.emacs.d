@@ -24,5 +24,6 @@
                          arg))
 
 (add-hook 'python-mode-hook 'run-coding-hook)
+(add-hook 'python-mode-hook 'anaconda-mode)
 
 (provide 'init-python)
