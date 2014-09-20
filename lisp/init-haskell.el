@@ -8,6 +8,9 @@
 
 (add-hook 'haskell-mode-hook 'run-coding-hook)
 
+(when (> emacs-major-version 23)
+     (require-package 'hayoo))
+
 ;; Make compilation-mode understand "at blah.hs:11:34-50" lines output by GHC
 (after-load 'compile
   (let ((alias 'ghc-at-regexp))
