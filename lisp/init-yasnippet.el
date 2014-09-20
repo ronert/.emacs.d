@@ -1,7 +1,7 @@
 (require-package 'yasnippet)
 (setq yas-snippet-dirs
       '("/Users/ronert/Dropbox/dotfiles/.emacs.d/snippets"
-        "/Users/ronert/Dropbox/dotfiles/.emacs.d/elpa/yasnippet-20140821.38/snippets"
+        "/Users/ronert/Dropbox/dotfiles/.emacs.d/elpa/yasnippet-20140911.312/snippets"
         "/Users/ronert/Dropbox/dotfiles/.emacs.d/elpa/elpy-20140810.7/snippets"
         ))
 
