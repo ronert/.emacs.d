@@ -251,4 +251,18 @@
 
 (global-set-key (kbd "<M-return>") 'sanityinc/newline-at-end-of-line)
 
+;; add some neat keychords
+(key-chord-define-global "0o" "=")
+(key-chord-define-global "1q" "!")
+(key-chord-define-global "2w" "\"")
+(key-chord-define-global "3e" "#")
+(key-chord-define-global "4r" "$")
+(key-chord-define-global "5t" "%")
+(key-chord-define-global "6z" "^")
+(key-chord-define-global "6t" "&")
+(key-chord-define-global "7z" "/")
+(key-chord-define-global "8u" "(")
+(key-chord-define-global "9i" ")")
+(key-chord-define-global "ßp" "?")
+
 (provide 'init-bindings)
