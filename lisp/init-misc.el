@@ -203,6 +203,13 @@ indent yanked text (with prefix arg don't indent)."
 ;; DEL during isearch should edit the search string, not jump back to the previous result
 (define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
 
+;; electric indent massively messes up other modes
 (electric-indent-mode -1)
+
+;; exclude elpa from grep dirs
+(eval-after-load 'grep
+  '(progn
+     (add-to-list 'grep-find-ignored-directories "elpa")))
+(add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
 
 (provide 'init-misc)
