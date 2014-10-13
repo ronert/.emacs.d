@@ -171,7 +171,7 @@ indent yanked text (with prefix arg don't indent)."
 
 ;; Rainbow delimiters
 (require-package 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
+(rainbow-delimiters-mode)
 
 (require-package 'rainbow-mode)
 
