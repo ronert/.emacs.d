@@ -626,4 +626,7 @@ Position the cursor at it's beginning, according to the current mode."
   (interactive)
   (byte-recompile-directory user-emacs-directory 0))
 
+(defun sanityinc/never-indent ()
+        (set (make-local-variable 'indent-line-function) (lambda () 'noindent)))
+
 (provide 'init-defuns)

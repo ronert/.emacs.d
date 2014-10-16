@@ -43,20 +43,6 @@
 ;; ))
 
 ;; Do not expand abbrevs in comments
-(defun sql-mode-abbrev-expand-function (expand)
-  (if (not (save-excursion (forward-line 0) (eq (char-after) ?-)))
-      ;; Performs normal expansion.
-      (funcall expand)
-    ;; We're inside a comment: use the text-mode abbrevs.
-    (let ((local-abbrev-table text-mode-abbrev-table))
-      (funcall expand))))
-
-(add-hook 'sql-mode-hook
-          #'(lambda ()
-              (add-hook 'abbrev-expand-functions
-                        'sql-mode-abbrev-expand-function
-                        nil t)))
-
 (defun sql-mode-abbrev-expand-function-bp (expand)
   (if (not (save-excursion (forward-line 0) (eq (char-after) ?*)))
       ;; Performs normal expansion.
@@ -66,7 +52,7 @@
       (funcall expand))))
 
 (add-hook 'sql-mode-hook
-          #'(lambda ()
+          '(lambda ()
               (add-hook 'abbrev-expand-functions
                         'sql-mode-abbrev-expand-function-bp
                         nil t)))
