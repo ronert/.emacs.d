@@ -78,7 +78,7 @@
 (ace-link-setup-default)
 
 ;; activate hungry delete
-(unless (Fboundp 'hungry-delete-mode)
+(unless (fboundp 'hungry-delete-mode)
   (package-install 'hungry-delete))
 
 (require 'hungry-delete)

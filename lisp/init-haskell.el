@@ -43,20 +43,27 @@ been saved."
 
 (add-hook 'haskell-interactive-mode-hook 'sanityinc/no-trailing-whitespace)
 
-(after-load 'haskell-process
-  (diminish 'interactive-haskell-mode " IntHS"))
+;; (after-load 'haskell-process
+;;   (diminish 'interactive-haskell-mode " IntHS"))
 
 (add-auto-mode 'haskell-mode "\\.ghci\\'")
+
+(custom-set-variables
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type 'ghci)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t))
 
 ;;(require-package 'hi2)
 ;;(add-hook 'haskell-mode-hook 'turn-on-hi2)
 
-(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+;;(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
 (setq-default haskell-stylish-on-save t)
 
 (after-load 'haskell-mode
   (define-key haskell-mode-map (kbd "C-c h") 'hoogle)
+  (define-key haskell-mode-map (kbd "C-c b") 'haskell-interactive-bring)
   (define-key haskell-mode-map (kbd "C-o") 'open-line))
 
 (when (eval-when-compile (>= emacs-major-version 24))
@@ -74,6 +81,5 @@ been saved."
      (list alias " at \\(.*\\.\\(?:l?[gh]hs\\|hi\\)\\):\\([0-9]+\\):\\([0-9]+\\)-[0-9]+$" 1 2 3 0 1))
     (add-to-list
      'compilation-error-regexp-alist alias)))
-
 
 (provide 'init-haskell)
