@@ -78,10 +78,13 @@
 (ace-link-setup-default)
 
 ;; activate hungry delete
-(unless (fboundp 'hungry-delete-mode)
+(unless (Fboundp 'hungry-delete-mode)
   (package-install 'hungry-delete))
 
 (require 'hungry-delete)
 (global-hungry-delete-mode)
+
+;; Dash
+(require-package 'dash)
 
 (provide 'init-packages)

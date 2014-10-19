@@ -1,7 +1,3 @@
-;; Dash
-(require-package 'dash)
-(global-set-key (kbd "C-c d") 'dash-at-point)
-
 ;; Google this
 (require-package 'google-this)
 (google-this-mode 1)

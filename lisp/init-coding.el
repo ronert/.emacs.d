@@ -16,6 +16,7 @@
 
 (defun coding-keys ()
   (local-set-key (kbd "C-c C-n") 'flycheck-tip-cycle)
+  (local-set-key (kbd "C-c d") 'dash-at-point)
   )
 
 (add-hook 'coding-hook 'coding-settings)
