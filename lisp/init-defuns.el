@@ -629,4 +629,8 @@ Position the cursor at it's beginning, according to the current mode."
 (defun sanityinc/never-indent ()
         (set (make-local-variable 'indent-line-function) (lambda () 'noindent)))
 
+(defun sanityinc/no-trailing-whitespace ()
+    "Turn off display of trailing whitespace in this buffer."
+    (setq show-trailing-whitespace nil))
+
 (provide 'init-defuns)

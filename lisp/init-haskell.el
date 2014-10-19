@@ -1,33 +1,15 @@
 (require-package 'haskell-mode)
-(add-to-list 'auto-mode-alist '("\\.ghci\\'" . haskell-mode))
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode);
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(when (> emacs-major-version 23)
+  (require-package 'hayoo))
+
+(add-to-list 'completion-ignored-extensions ".hi")
 
 (after-load 'haskell-mode
   (define-key haskell-mode-map (kbd "C-c h") 'hoogle))
 
 (add-hook 'haskell-mode-hook 'run-coding-hook)
 
-(when (> emacs-major-version 23)
-     (require-package 'hayoo))
-
-;; Make compilation-mode understand "at blah.hs:11:34-50" lines output by GHC
-(after-load 'compile
-  (let ((alias 'ghc-at-regexp))
-    (add-to-list
-     'compilation-error-regexp-alist-alist
-     (list alias " at \\(.*\\.\\(?:l?[gh]hs\\|hi\\)\\):\\([0-9]+\\):\\([0-9]+\\)-[0-9]+$" 1 2 3 0 1))
-    (add-to-list
-     'compilation-error-regexp-alist alias)))
-
-(require 'ghci-completion)
-(add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion)
-
-(require 'flymake-haskell-multi)
-(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
-(add-hook 'haskell-mode-hook 'highlight-indentation-mode)
-
-
+;;; Flycheck specifics
 (when (> emacs-major-version 23)
   (require-package 'flycheck-hdevtools)
   (require-package 'flycheck-haskell)
@@ -53,22 +35,45 @@ been saved."
 
     (require 'flycheck-hdevtools)))
 
-(defun pretty-lambdas-haskell ()
-  (font-lock-add-keywords
-   nil `((,(concat "(?\\(" (regexp-quote "\\") "\\)")
-          (0 (progn (compose-region (match-beginning 1) (match-end 1)
-                                    ,(make-char 'greek-iso8859-7 107))
-                    nil))))))
 
-(when (window-system)
-  (add-hook 'haskell-mode-hook 'pretty-lambdas-haskell))
+(dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook))
+  (add-hook hook 'turn-on-haskell-doc-mode)
+  (add-hook hook (lambda () (subword-mode +1))))
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+(add-hook 'haskell-interactive-mode-hook 'sanityinc/no-trailing-whitespace)
+
+(after-load 'haskell-process
+  (diminish 'interactive-haskell-mode " IntHS"))
+
+(add-auto-mode 'haskell-mode "\\.ghci\\'")
+
+;;(require-package 'hi2)
+;;(add-hook 'haskell-mode-hook 'turn-on-hi2)
+
+(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
 (setq-default haskell-stylish-on-save t)
 
-(dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook)))
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-interactive-mode-hook 'sanityinc/no-trailing-whitespace)
-(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+(after-load 'haskell-mode
+  (define-key haskell-mode-map (kbd "C-c h") 'hoogle)
+  (define-key haskell-mode-map (kbd "C-o") 'open-line))
+
+(when (eval-when-compile (>= emacs-major-version 24))
+  (require-package 'ghci-completion)
+  (add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion))
+
+(eval-after-load 'page-break-lines
+  '(push 'haskell-mode page-break-lines-modes))
+
+;; Make compilation-mode understand "at blah.hs:11:34-50" lines output by GHC
+(after-load 'compile
+  (let ((alias 'ghc-at-regexp))
+    (add-to-list
+     'compilation-error-regexp-alist-alist
+     (list alias " at \\(.*\\.\\(?:l?[gh]hs\\|hi\\)\\):\\([0-9]+\\):\\([0-9]+\\)-[0-9]+$" 1 2 3 0 1))
+    (add-to-list
+     'compilation-error-regexp-alist alias)))
+
 
 (provide 'init-haskell)
-;;; init-haskell.el ends here
