@@ -5,7 +5,7 @@
         ("org"         . "http://orgmode.org/elpa/")
         ("gnu"         . "http://elpa.gnu.org/packages/")
         ("elpy" . "http://jorgenschaefer.github.io/packages/")
-        ("melpa"   . "http://melpa.milkbox.net/packages/")))
+        ("melpa"   . "http://melpa.org/packages/")))
 ;;        ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;; On-demand installation of packages
