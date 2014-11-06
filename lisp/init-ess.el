@@ -74,11 +74,12 @@
 ;; turn off fancy comments in ess
 (setq ess-fancy-comments nil)
 
-;; shortcuts for setting break points
+;; shortcuts for setting break points and dplyr
 (add-hook 'R-mode-hook
           (lambda ()
             (local-set-key (kbd "<f5>") 'ess-bp-set)
             (local-set-key (kbd "<f6>") 'ess-bp-kill)
+            (local-set-key (kbd "C-?") " %>% ")
             )
           )
 
