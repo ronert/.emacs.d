@@ -157,4 +157,9 @@
 ;; leave my underscore key alone!
 (ess-toggle-underscore nil)
 
+;; enable lintr
+(add-hook 'ess-mode-hook
+          (lambda () (flycheck-mode t)))
+(load "~/Dropbox/dotfiles/.emacs.d/src/flycheck-lintr.el")
+
 (provide 'init-ess)
