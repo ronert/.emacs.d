@@ -160,6 +160,6 @@
 ;; enable lintr
 (add-hook 'ess-mode-hook
           (lambda () (flycheck-mode t)))
-(load "~/Dropbox/dotfiles/.emacs.d/src/flycheck-lintr.el")
+(load "/Users/ronert/Dropbox/dotfiles/.emacs.d/src/flycheck-lintr.el")
 
 (provide 'init-ess)
