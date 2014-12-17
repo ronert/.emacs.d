@@ -37,7 +37,6 @@ eshell/history
 src/org-mode/*
 /src/org-mode/
 /snippets/snippet-mode/.#snippet.yasnippet
-
 /flycheck_custom.el
 /flycheck_init-auto-complete.el
 /flycheck_init-bookmarks.el
@@ -56,16 +55,13 @@ src/org-mode/*
 /flycheck_init-sessions.el
 /flycheck_init-yasnippet.el
 /flycheck_init.el
-
 /.sqli_history
-
 /flycheck_init-javascript.el
-
 /flycheck_init-ess.el
 /flycheck_init-bindings.el
 /flycheck_init-packages.el
 /%backup%~
 /flycheck_init-sql.el
-
 /elnode/
 /project-explorer-cache/
+lisp/flycheck_init-misc.el
