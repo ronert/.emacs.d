@@ -11,7 +11,7 @@
 
 ;;; Flycheck specifics
 (when (> emacs-major-version 23)
-  (require-package 'flycheck-hdevtools)
+  ;;(require-package 'flycheck-hdevtools)
   (require-package 'flycheck-haskell)
   (after-load 'flycheck
     (add-hook 'haskell-mode-hook #'flycheck-haskell-setup)
@@ -33,7 +33,8 @@ been saved."
       (unless (flycheck-has-current-errors-p 'error)
         ad-do-it))
 
-    (require 'flycheck-hdevtools)))
+    ;;(require 'flycheck-hdevtools)
+))
 
 
 (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook))
