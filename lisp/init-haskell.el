@@ -61,7 +61,7 @@ been saved."
 ;;(require-package 'hi2)
 ;;(add-hook 'haskell-mode-hook 'turn-on-hi2)
 
-;;(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
 (setq-default haskell-stylish-on-save t)
 
