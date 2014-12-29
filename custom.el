@@ -64,6 +64,10 @@
  '(foreground-color "#52676f")
  '(free-keys-modifiers (quote ("C" "M" "C-M")))
  '(haskell-mode-hook (quote (turn-on-haskell-indentation)))
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote ghci))
  '(hippie-expand-try-functions-list
    (quote
     (try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-list try-expand-line try-complete-lisp-symbol-partially try-complete-lisp-symbol yas/hippie-try-expand)))
@@ -148,7 +152,7 @@
  '(vr/default-regexp-modifiers (quote (:I t :M t :S nil :U nil)))
  '(warning-suppress-types (quote ((undo discard-info))))
  '(wg-morph-on nil)
- '(yas-fallback-behavior (quote return-nil))
+ '(yas-fallback-behavior (quote call-other-command))
  '(yas-snippet-dirs "~/Dropbox/dotfiles/.emacs.d/snippets" nil (yasnippet))
  '(yas-triggers-in-field t))
 (custom-set-faces
