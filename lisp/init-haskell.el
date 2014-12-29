@@ -86,4 +86,10 @@ been saved."
     (add-to-list
      'compilation-error-regexp-alist alias)))
 
+;; Move nested block
+(eval-after-load "haskell-mode"
+  '(progn
+     (define-key haskell-mode-map (kbd "M-left") 'haskell-move-nested-left)
+     (define-key haskell-mode-map (kbd "M-right") 'haskell-move-nested-right)))
+
 (provide 'init-haskell)
