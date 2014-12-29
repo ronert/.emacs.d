@@ -17,13 +17,15 @@
 (require-package 'company-anaconda)
 (add-to-list 'company-backends 'company-anaconda)
 
-;; scql completion
+;; sql completion
 (require-package 'company-edbi)
 (add-to-list 'company-backends 'company-edbi)
 
 ;; r completion
 (require 'company-ess)
+(add-to-list 'company-backends 'company-ess-backend)
 
+;; Set a global completion hotkey
 (global-set-key (kbd "C-.") 'company-complete)
 
 (provide 'init-company)
