@@ -92,4 +92,27 @@ been saved."
      (define-key haskell-mode-map (kbd "M-<left>") 'haskell-move-nested-left)
      (define-key haskell-mode-map (kbd "M-<right>") 'haskell-move-nested-right)))
 
+;; ghc-mod http://www.mew.org/~kazu/proj/ghc-mod/en/preparation.html
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
+;; add align rules
+(add-to-list 'align-rules-list
+             '(haskell-types
+               (regexp . "\\(\\s-+\\)\\(::\\|∷\\)\\s-+")
+               (modes quote (haskell-mode literate-haskell-mode))))
+(add-to-list 'align-rules-list
+             '(haskell-assignment
+               (regexp . "\\(\\s-+\\)=\\s-+")
+               (modes quote (haskell-mode literate-haskell-mode))))
+(add-to-list 'align-rules-list
+             '(haskell-arrows
+               (regexp . "\\(\\s-+\\)\\(->\\|→\\)\\s-+")
+               (modes quote (haskell-mode literate-haskell-mode))))
+(add-to-list 'align-rules-list
+             '(haskell-left-arrows
+               (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
+               (modes quote (haskell-mode literate-haskell-mode))))
+
 (provide 'init-haskell)
