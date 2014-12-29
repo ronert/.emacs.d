@@ -10,7 +10,7 @@
 (add-hook 'haskell-mode-hook 'run-coding-hook)
 
 ;; identation setup
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 ;;; Flycheck specifics
 (when (> emacs-major-version 23)
