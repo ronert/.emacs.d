@@ -9,6 +9,9 @@
 
 (add-hook 'haskell-mode-hook 'run-coding-hook)
 
+;; identation setup
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+
 ;;; Flycheck specifics
 (when (> emacs-major-version 23)
 ;;  (require-package 'flycheck-hdevtools)
