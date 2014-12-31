@@ -1,7 +1,7 @@
 (use-package company
   :ensure t
   :pin melpa-stable
-  :init (add-hook 'after-init-hook 'global-company-mode)
+  :idle (add-hook 'after-init-hook 'global-company-mode)
   :config (progn
             ;; latex completion
             (use-package company-auctex
