@@ -1,12 +1,13 @@
 (require 'package)
 
 (setq package-archives
-      '("org"         . "http://orgmode.org/elpa/")
-      ("gnu"         . "http://elpa.gnu.org/packages/")
-      ("elpy" . "http://jorgenschaefer.github.io/packages/")
-      ("melpa"   . "http://melpa.org/packages/")
+      '(
+      ("org"         . "http://orgmode.org/elpa/")
+      ("gnu"          . "http://elpa.gnu.org/packages/")
+      ("elpy"         . "http://jorgenschaefer.github.io/packages/")
+      ("melpa"        . "http://melpa.org/packages/")
       ("melpa-stable" . "http://stable.melpa.org/packages/")
-      )
+      ))
 
 (when (boundp 'package-pinned-packages)
   (setq package-pinned-packages
