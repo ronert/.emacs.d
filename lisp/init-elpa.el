@@ -54,6 +54,9 @@ re-downloaded in order to locate PACKAGE."
 ;; Load packages
 (package-initialize)
 
+;; Load use-package
+(require-package 'use-package)
+
 ;; Load site-lisp/
 (setq elisp-source-dir (concat user-emacs-directory "site-lisp"))
 (add-to-list 'load-path elisp-source-dir)
