@@ -357,4 +357,12 @@ Kills existing SLIME session, if any."
   (define-key emacs-lisp-mode-map (kbd "C-x C-e") 'sanityinc/eval-last-sexp-or-region)
   (define-key emacs-lisp-mode-map (kbd "C-x C-a") 'pp-macroexpand-last-sexp))
 
+;; Start or visit ielm
+(defun visit-ielm ()
+  "Switch to default `ielm' buffer.
+Start `ielm' if it's not already running."
+  (interactive)
+  (prelude-start-or-switch-to 'ielm "*ielm*"))
+(define-key emacs-lisp-mode-map (kbd "C-c C-z") 'visit-ielm)
+
 (provide 'init-lisp)
