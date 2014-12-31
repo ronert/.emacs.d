@@ -2,7 +2,7 @@
              :ensure t
              :pin melpa-stable
              :bind ("C--" . yas-expand)
-             :init
+             :idle
              (yas-global-mode 1)
              :config
              (progn
