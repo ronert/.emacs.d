@@ -79,7 +79,6 @@
           (stripe-buffer        . "melpa-stable")
           (tagedit              . "melpa-stable")
           (theme-changer        . "melpa-stable")
-          (use-package          . "melpa-stable")
           (vagrant              . "melpa-stable")
           (whole-line-or-region . "melpa-stable")
           (writegood-mode       . "melpa-stable")
@@ -120,7 +119,7 @@ re-downloaded in order to locate PACKAGE."
 (package-initialize)
 
 ;; Load use-package
-(require-package 'use-package)
+(require 'use-package)
 
 ;; Load site-lisp/
 (setq elisp-source-dir (concat user-emacs-directory "site-lisp"))
