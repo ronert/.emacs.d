@@ -37,4 +37,8 @@
 ;; Wrap around region
 (setq yas-wrap-around-region t)
 
+;; Unbind yas from tab
+(define-key yas-minor-mode-map [(tab)] nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+
 (provide 'init-yasnippet)
