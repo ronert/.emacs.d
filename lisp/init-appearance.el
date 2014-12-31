@@ -1,5 +1,4 @@
 ;; Set default font. First one found is selected.
-
 (defun font-existsp (font)
   "Check to see if the named FONT is available."
   (if (null (x-list-fonts font))
@@ -36,7 +35,9 @@
 (global-visual-line-mode t)
 
 ;; smooth-scrolling
-(require 'smooth-scrolling)
+(use-package smooth-scrolling
+  :ensure t
+  :pin melpa-stable)
 
 ;; more smooth efforts.
 (setq-default
@@ -45,18 +46,25 @@
  scroll-down-aggressively 0.01)
 
 ;;change theme according to time of day
-(require 'theme-changer)
-(setq calendar-latitude 52.49)
-(setq calendar-longitude 13.34)
-(require-package 'theme-changer)
-(change-theme 'solarized-light 'solarized-dark)
+(use-package theme-changer
+  :ensure t
+  :pin melpa-stable
+  :init (progn
+               (setq calendar-latitude 52.49)
+               (setq calendar-longitude 13.34)
+               (require-package 'theme-changer)
+               (change-theme 'solarized-light 'solarized-dark)
+               ))
+
 
 ;; Make mouse wheel / trackpad scrolling less jerky
 (setq mouse-wheel-scroll-amount '(1
                                   ((shift) . 5)
                                   ((control))))
-(require 'linum)
-(global-linum-mode 1)
+
+(use-package linum
+  :init
+  global-linum-mode 1)
 
 (when (fboundp 'global-prettify-symbols-mode)
   (global-prettify-symbols-mode))
