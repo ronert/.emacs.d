@@ -627,11 +627,11 @@ Position the cursor at it's beginning, according to the current mode."
   (byte-recompile-directory user-emacs-directory 0))
 
 (defun sanityinc/never-indent ()
-        (set (make-local-variable 'indent-line-function) (lambda () 'noindent)))
+  (set (make-local-variable 'indent-line-function) (lambda () 'noindent)))
 
 (defun sanityinc/no-trailing-whitespace ()
-    "Turn off display of trailing whitespace in this buffer."
-    (setq show-trailing-whitespace nil))
+  "Turn off display of trailing whitespace in this buffer."
+  (setq show-trailing-whitespace nil))
 
 ;; Start or witch to process
 (defun start-or-switch-to (function buffer-name)
