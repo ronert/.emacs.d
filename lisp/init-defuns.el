@@ -633,4 +633,24 @@ Position the cursor at it's beginning, according to the current mode."
     "Turn off display of trailing whitespace in this buffer."
     (setq show-trailing-whitespace nil))
 
+;; Start or witch to process
+(defun start-or-switch-to (function buffer-name)
+  "Invoke FUNCTION if there is no buffer with BUFFER-NAME.
+Otherwise switch to the buffer named BUFFER-NAME.  Don't clobber
+the current buffer."
+  (if (not (get-buffer buffer-name))
+      (progn
+        (split-window-sensibly (selected-window))
+        (other-window 1)
+        (funcall function))
+    (switch-to-buffer-other-window buffer-name)))
+
+(defun visit-term-buffer ()
+  "Create or visit a terminal buffer."
+  (interactive)
+  (start-or-switch-to (lambda ()
+                        (ansi-term (getenv "SHELL")))
+                      "*ansi-term*"))
+
+
 (provide 'init-defuns)
