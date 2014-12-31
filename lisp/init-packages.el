@@ -87,4 +87,8 @@
 ;; Dash
 (require-package 'dash)
 
+;; Template
+(add-to-list 'load-path "~/.emacs.d/src/template/")
+(require 'template)
+
 (provide 'init-packages)
