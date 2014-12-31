@@ -2,7 +2,7 @@
 
 (require-package 'guide-key)
 
-(setq guide-key/guide-key-sequence '("C-x r" "C-x v" "C-c p" "C-x 4" "C-h" "C-y" "C-x 5"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x v" "C-c p" "C-x 4" "C-h" "C-y" "C-x 5" "C-c" "C-x" "C-x n"))
 
 (guide-key-mode 1)
 (setq guide-key/recursive-key-sequence-flag t)
