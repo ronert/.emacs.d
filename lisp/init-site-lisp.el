@@ -15,7 +15,7 @@
 (sanityinc/add-subdirs-to-load-path
  (expand-file-name "site-lisp/" user-emacs-directory))
 
-;;; Utilities for grabbing upstream libs
+;; Utilities for grabbing upstream libs
 
 (defun site-lisp-dir-for (name)
   (expand-file-name (format "site-lisp/%s" name) user-emacs-directory))
