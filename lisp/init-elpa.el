@@ -6,9 +6,23 @@
         ("gnu"         . "http://elpa.gnu.org/packages/")
         ("elpy" . "http://jorgenschaefer.github.io/packages/")
         ("melpa"   . "http://melpa.org/packages/")
-        "melpa-stable" . "http://stable.melpa.org/packages/"
+        ("melpa-stable" . "http://stable.melpa.org/packages/")
+        ("marmalade" . "http://marmalade-repo.org/packages/")
         ))
 
+(when (boundp 'package-pinned-packages)
+  (setq package-pinned-packages
+        '((bm                 . "marmalade")
+          (smex               . "melpa-stable")
+          (zenburn-theme      . "melpa-stable")
+          (anti-zenburn-theme . "melpa-stable")
+          (zen-and-art-theme  . "marmalade")
+          (cider              . "melpa-stable")
+          (clojure-mode       . "melpa-stable")
+          (htmlize            . "marmalade")
+          (rainbow-delimiters . "melpa-stable")
+          ;; "unstable" package
+          (icicles            . "melpa"))))
 
 ;;; On-demand installation of packages
 (defun require-package (package &optional min-version no-refresh)
