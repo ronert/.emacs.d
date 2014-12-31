@@ -1,5 +1,6 @@
-#contributor: Xah Lee (XahLee.org)
-#name: when
-#key: when
+# -*- mode: snippet -*-
+#name : when
 # --
-(when $0)
+(when ${1:condition}
+  $0
+  )

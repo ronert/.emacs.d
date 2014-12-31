@@ -1,5 +1,4 @@
-#contributor: Xah Lee (XahLee.org)
-#name: set
-#key: set
+# -*- mode: snippet -*-
+#name : setq
 # --
-(set $0 )
+(setq ${1:name} ${2:value})

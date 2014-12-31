@@ -1,8 +1,6 @@
-#contributor: Xah Lee (XahLee.org)
-#name: let
-#key: let
-#key: l
+# -*- mode: snippet -*-
+#name : let
 # --
-(let ($1 )
- $0
-)
+(let ((${1:name})$3)
+  $0
+  )
