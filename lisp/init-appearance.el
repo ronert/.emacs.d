@@ -44,12 +44,12 @@
  scroll-up-aggressively 0.01
  scroll-down-aggressively 0.01)
 
-;; change theme according to time of day
-;; (require 'theme-changer)
-;; (setq calendar-latitude 52.49)
-;; (setq calendar-longitude 13.34)
-;; (require-package 'theme-changer)
-;; (change-theme 'solarized-light 'solarized-dark)
+;;change theme according to time of day
+(require 'theme-changer)
+(setq calendar-latitude 52.49)
+(setq calendar-longitude 13.34)
+(require-package 'theme-changer)
+(change-theme 'solarized-light 'solarized-dark)
 
 ;; Make mouse wheel / trackpad scrolling less jerky
 (setq mouse-wheel-scroll-amount '(1
