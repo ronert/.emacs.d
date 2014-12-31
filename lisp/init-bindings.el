@@ -265,4 +265,7 @@
 (key-chord-define-global "9i" ")")
 (key-chord-define-global "ßp" "?")
 
+;; Bind info-display manual-entry
+(define-key 'help-command (kbd "C-i") 'info-display-manual)
+
 (provide 'init-bindings)
