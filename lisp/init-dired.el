@@ -1,4 +1,6 @@
-(require-package 'dired+)
+(use-package dired+
+  :ensure t)
+
 ;; Also auto refresh dired
 (setq global-auto-revert-non-file-buffers t)
 
@@ -28,16 +30,28 @@
        (let* ((fn-list (dired-get-marked-files nil arg)))
          (mapc 'find-file fn-list)))))
 
-(require 'stripe-buffer)
-(add-hook 'org-mode-hook 'org-table-stripes-enable)
-(add-hook 'dired-mode-hook 'stripe-listify-buffer)
+(use-package stripe-buffer
+  :ensure t
+  :pin melpa-stable
+  :init
+  (progn
+    (add-hook 'org-mode-hook 'org-table-stripes-enable)
+    (add-hook 'dired-mode-hook 'stripe-listify-buffer))
+)
 
 ;; enable direx
-(require 'popwin)
-(popwin-mode 1)
+(use-package popwin
+  :ensure t
+  :pin melpa-stable
+  :init
+  (popwin-mode 1))
 
-(require 'project-explorer)
-(global-set-key (kbd "C-c C-j") 'project-explorer-open)
-(global-set-key (kbd "C-c j") 'project-explorer-helm)
+(use-package project-explorer
+  :ensure t
+  :pin melpa-stable
+  :bind
+  ("C-c C-j" . project-explorer-open)
+  ("C-c j" . project-explorer-helm)
+  )
 
 (provide 'init-dired)
