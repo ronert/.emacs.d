@@ -1,6 +1,7 @@
 (use-package yasnippet
              :ensure t
              :pin melpa-stable
+             :mode ("\\.yasnippet" . snippet-mode)
              :bind ("C--" . yas-expand)
              :idle
              (yas-global-mode 1)
