@@ -1,5 +1,15 @@
 (use-package dired+
-  :ensure t)
+  :ensure t
+  :config
+  (use-package stripe-buffer
+    :ensure t
+    :pin melpa-stable
+    :init
+    (progn
+      (add-hook 'org-mode-hook 'org-table-stripes-enable)
+      (add-hook 'dired-mode-hook 'stripe-listify-buffer))
+    )
+)
 
 ;; Also auto refresh dired
 (setq global-auto-revert-non-file-buffers t)
@@ -30,14 +40,6 @@
        (let* ((fn-list (dired-get-marked-files nil arg)))
          (mapc 'find-file fn-list)))))
 
-(use-package stripe-buffer
-  :ensure t
-  :pin melpa-stable
-  :init
-  (progn
-    (add-hook 'org-mode-hook 'org-table-stripes-enable)
-    (add-hook 'dired-mode-hook 'stripe-listify-buffer))
-)
 
 ;; enable direx
 (use-package popwin
