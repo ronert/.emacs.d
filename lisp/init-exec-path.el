@@ -8,7 +8,6 @@
   (progn
     (setenv "PATH" (concat "/usr/texbin:/usr/local/bin:" (getenv "PATH")))
     (setenv "PATH" (concat "~/anaconda/bin:" (getenv "PATH")))
-
     (setq-default ispell-program-name "/usr/local/bin/aspell"))
   )
 
