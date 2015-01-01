@@ -25,8 +25,8 @@
   :init
   (progn
     (elpy-enable)
-    (elpy-use-ipython)
-    ))
+    (elpy-use-ipython))
+  )
 
 ;; ein
 (use-package websocket
