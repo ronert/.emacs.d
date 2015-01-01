@@ -70,6 +70,8 @@
   (move-end-of-line 1)
   (newline-and-indent))
 (global-set-key (kbd "<M-return>") 'sanityinc/newline-at-end-of-line)
+;; iy-goto-char
+(global-set-key (kbd "M-m") 'iy-go-to-char)
 
 
 ;; Search
