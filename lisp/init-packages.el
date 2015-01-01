@@ -226,6 +226,6 @@
 
 ;; Template
 (use-package template
-  :load-path "~/.emacs.d/src/template/")
+  :load-path "~/.emacs.d/site-lisp/template/")
 
 (provide 'init-packages)
