@@ -3,17 +3,17 @@
   :ensure t
   :pin melpa-stable
   :init (google-this-mode 1)
-  :bind (kbd "C-c /" . google-this-mode-submap))
+  :bind ("C-c /" . google-this-mode-submap))
 
 ;; Silver searcher
 (use-package ag
   :ensure t
   :pin melpa-stable
   :config (setq ag-highlight-search t)
-  :bind ((global-set-key (kbd "C-c 5") 'ag-regexp)
-         (global-set-key (kbd "C-c 6") 'ag-project)
-         (global-set-key (kbd "C-c 7") 'ag-project-at-point)
-         (global-set-key (kbd "C-c 8") 'ag-regexp-project-at-point)
+  :bind (("C-c 5" . ag-regexp)
+         ("C-c 6" . ag-project)
+         ("C-c 7" . ag-project-at-point)
+         ("C-c 8" . ag-regexp-project-at-point)
          ))
 
 ;; Ack
@@ -21,10 +21,10 @@
   :ensure t
   :pin melpa-stable
   :bind
-  ((global-set-key (kbd "C-c 1") 'ack-and-a-half)
-   (global-set-key (kbd "C-c 2") 'ack-and-a-half-same)
-   (global-set-key (kbd "C-c 3") 'ack-and-a-half-find-file)
-   (global-set-key (kbd "C-c 4") 'ack-and-a-half-find-file-same)))
+  (("C-c 1" . ack-and-a-half)
+   ("C-c 2" . ack-and-a-half-same)
+   ("C-c 3" . ack-and-a-half-find-file)
+   ("C-c 4" . ack-and-a-half-find-file-same)))
 
 ;; rgrep
 (define-key global-map "\C-x\C-r" 'rgrep)
