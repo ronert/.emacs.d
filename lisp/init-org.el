@@ -53,16 +53,16 @@
                 ;; (define-key yas/keymap [tab] 'yas/next-field)
                 ))
 
-    (org-babel-lob-ingest
-     (expand-file-name
-      "library-of-babel.org"
-      (expand-file-name
-       "babel"
-       (expand-file-name
-        "contrib"
-        (expand-file-name
-         "org-mode"
-         (expand-file-name "site-lisp" user-emacs-directory))))))
+    ;; (org-babel-lob-ingest
+    ;;  (expand-file-name
+    ;;   "library-of-babel.org"
+    ;;   (expand-file-name
+    ;;    "babel"
+    ;;    (expand-file-name
+    ;;     "contrib"
+    ;;     (expand-file-name
+    ;;      "org-mode"
+    ;;      (expand-file-name "site-lisp" user-emacs-directory))))))
 
     (setq org-use-speed-commands t)
 
