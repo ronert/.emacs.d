@@ -26,11 +26,12 @@
 (add-to-list 'auto-mode-alist '("access\\.conf\\'" . apache-mode))
 (add-to-list 'auto-mode-alist '("sites-\\(available\\|enabled\\)/" . apache-mode))
 
-(require-package 'yaml-mode)
+(use-package yaml-mode
+  :ensure t)
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
+
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.yasnippet" . snippet-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh" . shell-script-mode))
 
 (setq auto-mode-alist
@@ -54,7 +55,6 @@
 
 ;; Snippets
 (add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
-(add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
 
 ;; Devops
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
