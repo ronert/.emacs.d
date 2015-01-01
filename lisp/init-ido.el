@@ -1,30 +1,41 @@
-(require-package 'ido)
-(require-package 'ido-sort-mtime)
-(ido-sort-mtime-mode 1)
+;; ido
+(use-package ido
+  :ensure t
+  :init
+  :config
+  (progn
+    (use-package ido-sort-mtime
+      :ensure t
+      :init (ido-sort-mtime-mode 1))
+    ;; filecache
+    (use-package filecache
+      :ensure t
+      :config
+      (progn
+        (defun file-cache-ido-find-file (file)
+          (interactive (list (file-cache-ido-read "File: "
+                                                  (mapcar
+                                                   (lambda (x)
+                                                     (car x))
+                                                   file-cache-alist))))
+          (let* ((record (assoc file file-cache-alist)))
+            (find-file
+             (expand-file-name
+              file
+              (if (= (length record) 2)
+                  (car (cdr record))
+                (file-cache-ido-read
+                 (format "Find %s in dir: " file) (cdr record)))))))
 
-(require-package 'filecache)
-(defun file-cache-ido-find-file (file)
-  (interactive (list (file-cache-ido-read "File: "
-                                          (mapcar
-                                           (lambda (x)
-                                             (car x))
-                                           file-cache-alist))))
-  (let* ((record (assoc file file-cache-alist)))
-    (find-file
-     (expand-file-name
-      file
-      (if (= (length record) 2)
-          (car (cdr record))
-        (file-cache-ido-read
-         (format "Find %s in dir: " file) (cdr record)))))))
+        (defun file-cache-ido-read (prompt choices)
+          (let ((ido-make-buffer-list-hook
+                 (lambda ()
+                   (setq ido-temp-list choices))))
+            (ido-read-buffer prompt))))
+      :bind (("C-c f" . file-cache-ido-find-file)
+             ("C-c a" . file-cache-add-directory-using-find)))
+    ))
 
-(defun file-cache-ido-read (prompt choices)
-  (let ((ido-make-buffer-list-hook
-         (lambda ()
-           (setq ido-temp-list choices))))
-    (ido-read-buffer prompt)))
-(global-set-key (kbd "C-c f") 'file-cache-ido-find-file)
-(global-set-key (kbd "C-c a") 'file-cache-add-directory-using-find)
 
 ;; Ibuffer
 (add-hook 'ibuffer-hook
@@ -37,7 +48,7 @@
 ;; Ido find recent file
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
 
-(require 'imenu)
+(use-package imenu)
 
 (setq ibuffer-saved-filter-groups
       '(("home"
@@ -97,8 +108,11 @@
 ;; (setq gc-cons-threshold 20000000)
 
 ;; use ido vertical mode
-(require-package 'ido-vertical-mode)
-(ido-vertical-mode t)
+(use-package ido-vertical-mode
+  :ensure t
+  :pin melpa-stable
+  :init (ido-vertical-mode t))
+
 ;; up down arrows to navigate
 ;;(define-key ido-completion-map (kbd "<down>") 'ido-next-match)
 ;;(define-key ido-completion-map (kbd "<up>") 'ido-prev-match)
