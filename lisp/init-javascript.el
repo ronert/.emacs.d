@@ -5,6 +5,7 @@
   (use-package js2-mode
     :ensure t
     :pin melpa-stable
+    :mode "\\.js$"
     :init
     (progn
       (defcustom preferred-javascript-mode
