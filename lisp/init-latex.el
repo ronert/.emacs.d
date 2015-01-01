@@ -89,7 +89,8 @@ If there is still something left do do start the next latex-command."
 ;;                                         ; mode
 
 
-(require 'latex-pretty-symbols)
+(use-package latex-pretty-symbols
+  :ensure t)
 
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
 (autoload 'reftex-mode     "reftex" "RefTeX Minor Mode" t)
@@ -193,7 +194,9 @@ If there is still something left do do start the next latex-command."
        ("~/Dropbox/bib/library.bib")))
 
 ;; latex-extra
-(require-package 'latex-extra)
+(use-package latex-extra
+  :ensure t
+  :pin melpa-stable)
 (eval-after-load 'latex '(latex/setup-keybinds))
 
 ;; define latexmk command
@@ -213,6 +216,7 @@ If there is still something left do do start the next latex-command."
             (local-set-key (kbd "C-c C-c") 'run-latexmk)
             )
           )
+
 
 (provide 'init-latex)
 ;;; latex.el ends here
