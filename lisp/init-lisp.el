@@ -150,68 +150,76 @@ Kills existing SLIME session, if any."
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav")
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
 
-(require 'elisp-slime-nav)
-(require 'lively)
+(use-package elisp-slime-nav
+  :ensure t
+  :pin melpa-stable)
+(use-package lively
+  :ensure t)
 
-(require 'pretty-mode)
-(autoload 'turn-on-pretty-mode "pretty-mode")
+(use-package pretty-mode
+  :ensure
+  :pin melpa-stable
+  :init (autoload 'turn-on-pretty-mode "pretty-mode"))
+
 
 ;; ----------------------------------------------------------------------------
 ;; Paredit
 ;; ----------------------------------------------------------------------------
-(require 'paredit)
-(autoload 'enable-paredit-mode "paredit")
+(use-package paredit
+  :ensure t
+  :pin melpa-stable
+  :init (autoload 'enable-paredit-mode "paredit")
+  :config
+  (progn
+    (defun maybe-map-paredit-newline ()
+      (unless (or (memq major-mode '(inferior-emacs-lisp-mode nrepl-mode))
+                  (minibufferp))
+        (local-set-key (kbd "RET") 'paredit-newline)))
+
+    (add-hook 'paredit-mode-hook 'maybe-map-paredit-newline)
+
+    (eval-after-load 'paredit
+      '(progn
+         ;; These are handy everywhere, not just in lisp modes
+         (global-set-key (kbd "M-(") 'paredit-wrap-round)
+         (global-set-key (kbd "M-[") 'paredit-wrap-square)
+         (global-set-key (kbd "M-{") 'paredit-wrap-curly)
+
+         (global-set-key (kbd "M-)") 'paredit-close-round-and-newline)
+         (global-set-key (kbd "M-]") 'paredit-close-square-and-newline)
+         (global-set-key (kbd "M-}") 'paredit-close-curly-and-newline)
+
+         (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
+                                (kbd "C-M-<left>") (kbd "C-M-<right>")))
+           (define-key paredit-mode-map binding nil))
+
+         ;; Disable kill-sentence, which is easily confused with the kill-sexp
+         ;; binding, but doesn't preserve sexp structure
+         ;;     (define-key paredit-mode-map [remap kill-sentence] nil)
+         ;;     (define-key paredit-mode-map [remap backward-kill-sentence] nil)
+         ))
 
 
-(defun maybe-map-paredit-newline ()
-  (unless (or (memq major-mode '(inferior-emacs-lisp-mode nrepl-mode))
-              (minibufferp))
-    (local-set-key (kbd "RET") 'paredit-newline)))
-
-(add-hook 'paredit-mode-hook 'maybe-map-paredit-newline)
-
-(eval-after-load 'paredit
-  '(progn
-     ;; These are handy everywhere, not just in lisp modes
-     (global-set-key (kbd "M-(") 'paredit-wrap-round)
-     (global-set-key (kbd "M-[") 'paredit-wrap-square)
-     (global-set-key (kbd "M-{") 'paredit-wrap-curly)
-
-     (global-set-key (kbd "M-)") 'paredit-close-round-and-newline)
-     (global-set-key (kbd "M-]") 'paredit-close-square-and-newline)
-     (global-set-key (kbd "M-}") 'paredit-close-curly-and-newline)
-
-     (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
-                            (kbd "C-M-<left>") (kbd "C-M-<right>")))
-       (define-key paredit-mode-map binding nil))
-
-     ;; Disable kill-sentence, which is easily confused with the kill-sexp
-     ;; binding, but doesn't preserve sexp structure
-     ;;     (define-key paredit-mode-map [remap kill-sentence] nil)
-     ;;     (define-key paredit-mode-map [remap backward-kill-sentence] nil)
-     ))
+    ;; Compatibility with other modes
+    ;;(suspend-mode-during-cua-rect-selection 'paredit-mode)
 
 
-;; Compatibility with other modes
-;;(suspend-mode-during-cua-rect-selection 'paredit-mode)
+    ;; Use paredit in the minibuffer
+    (add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)
 
+    (defvar paredit-minibuffer-commands '(eval-expression
+                                          pp-eval-expression
+                                          eval-expression-with-eldoc
+                                          ibuffer-do-eval
+                                          ibuffer-do-view-and-eval)
+      "Interactive commands for which paredit should be enabled in the minibuffer.")
 
-;; Use paredit in the minibuffer
-(add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)
+    (defun conditionally-enable-paredit-mode ()
+      "Enable paredit during lisp-related minibuffer commands."
+      (if (memq this-command paredit-minibuffer-commands)
+          (enable-paredit-mode)))
 
-(defvar paredit-minibuffer-commands '(eval-expression
-                                      pp-eval-expression
-                                      eval-expression-with-eldoc
-                                      ibuffer-do-eval
-                                      ibuffer-do-view-and-eval)
-  "Interactive commands for which paredit should be enabled in the minibuffer.")
-
-(defun conditionally-enable-paredit-mode ()
-  "Enable paredit during lisp-related minibuffer commands."
-  (if (memq this-command paredit-minibuffer-commands)
-      (enable-paredit-mode)))
-
-
+    ))
 
 ;; ----------------------------------------------------------------------------
 ;; Hippie-expand
@@ -227,14 +235,16 @@ Kills existing SLIME session, if any."
 ;; Highlight current sexp
 ;; ----------------------------------------------------------------------------
 
-(require 'hl-sexp)
-
-;; Prevent flickery behaviour due to hl-sexp-mode unhighlighting before each command
-(eval-after-load 'hl-sexp
-  '(defadvice hl-sexp-mode (after unflicker (&optional turn-on) activate)
-     (when turn-on
-       (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))
-
+(use-package hl-sexp
+  :ensure t
+  :pin melpa-stable
+  :config
+  ;; Prevent flickery behaviour due to hl-sexp-mode unhighlighting before each command
+  (eval-after-load 'hl-sexp
+    '(defadvice hl-sexp-mode (after unflicker (&optional turn-on) activate)
+       (when turn-on
+         (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))
+  )
 
 
 ;; ----------------------------------------------------------------------------
@@ -264,7 +274,8 @@ Kills existing SLIME session, if any."
     (add-hook hook 'sanityinc/emacs-lisp-setup)))
 
 
-(require 'eldoc-eval)
+(use-package eldoc-eval
+  :ensure t)
 
 (define-key emacs-lisp-mode-map (kbd "C-x C-a") 'pp-macroexpand-last-sexp)
 
