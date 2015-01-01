@@ -1,23 +1,3 @@
-
-(require 'ac-math)
-
-(add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
-(add-to-list 'ac-modes 'org-mode)   ; make auto-complete aware of `org-mode`
-
-(defun ac-latex-mode-setup ()         ; add ac-sources to default ac-sources
-  (setq ac-sources
-        (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
-                ac-sources)))
-
-(add-hook 'latex-mode-hook 'ac-latex-mode-setup)
-(ac-flyspell-workaround)
-(setq ac-math-unicode-in-math-p t)
-
-(defun ac-org-mode-setup ()
-  (add-to-list 'ac-sources 'ac-source-math-unicode))
-
-(add-hook 'org-mode-hook 'ac-org-mode-setup)
-
 (setq LaTeX-math-abbrev-prefix "C-c m")
 
 ;;TeX-texify: Get everything done for a LaTeX-file
