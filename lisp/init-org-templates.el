@@ -1,5 +1,5 @@
-(require 'ox-latex)
-(require 'ox-beamer)
+(use-package ox-latex)
+(use-package ox-beamer)
 
 (add-to-list 'org-latex-classes
              ;; beamer class, for presentations
