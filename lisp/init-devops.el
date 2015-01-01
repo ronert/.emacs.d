@@ -6,6 +6,7 @@
   :pin melpa-stable)
 (use-package dockerfile-mode
   :ensure t
-  :pin melpa-stable)
+  :pin melpa-stable
+  :mode "Dockerfile\\'")
 
 (provide 'init-devops)
