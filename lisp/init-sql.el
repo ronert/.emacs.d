@@ -1,8 +1,7 @@
 (add-hook 'sql-mode-hook 'sql-highlight-postgres-keywords)
 
-(require-package 'sql-indent)
-(after-load 'sql
-  (require 'sql-indent))
+(use-package sql-indent
+  :ensure t)
 
 (defun sanityinc/pop-to-sqli-buffer ()
   "Switch to the corresponding sqli buffer."
@@ -59,7 +58,8 @@
 
 
 ;; Special PSQL commands
-(require 'pgsql-minor-mode)
+(use-package pgsql-minor-mode
+  :ensure t)
 
 (provide 'init-sql)
 ;;; init-sql ends here
