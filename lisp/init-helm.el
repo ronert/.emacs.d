@@ -1,12 +1,21 @@
-(require-package 'helm)
-(global-set-key (kbd "C-c h") 'helm-mini)
-;; activate helm-descbinds
-(require-package 'helm-descbinds)
-(helm-descbinds-mode)
-;; activate helm-R
-(require-package 'helm-R)
-;; activate helm-R
-(require-package 'helm-ack)
-(require-package 'helm-themes)
+(use-package helm
+  :ensure t
+  :pin melpa-stable
+  :bind ("C-c h" . helm-mini)
+  :config
+  ;; activate helm-descbinds
+  (use-package helm-descbinds
+    :ensure t
+    :pin melpa-stable
+    :init (helm-descbinds-mode))
+  ;; activate helm-R
+  (use-package helm-R
+    :ensure t)
+  ;; activate helm-R
+  (use-package helm-ack
+    :ensure t)
+  (use-package helm-themes
+    :ensure t
+    :pin melpa-stable))
 
 (provide 'init-helm)
