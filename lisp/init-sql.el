@@ -58,8 +58,7 @@
 
 
 ;; Special PSQL commands
-(use-package pgsql-minor-mode
-  :ensure t)
+(use-package pgsql-minor-mode)
 
 (provide 'init-sql)
 ;;; init-sql ends here
