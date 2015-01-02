@@ -88,7 +88,7 @@
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-irc org-mac-message org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mac-link-grabber)))
- '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex")
+ '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex" t)
  '(projectile-cache-file "/Users/ronert/.projectile.cache")
  '(projectile-known-projects-file "/Users/ronert/projectile-bookmarks.eld")
  '(projectile-remember-window-configs t)
@@ -152,6 +152,7 @@
  '(vr/default-regexp-modifiers (quote (:I t :M t :S nil :U nil)))
  '(warning-suppress-types (quote ((undo discard-info))))
  '(wg-morph-on nil)
+ '(wg-switch-on-load t)
  '(yas-fallback-behavior (quote call-other-command))
  '(yas-snippet-dirs "~/Dropbox/dotfiles/.emacs.d/snippets" nil (yasnippet))
  '(yas-triggers-in-field t))
