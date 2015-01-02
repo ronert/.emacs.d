@@ -236,9 +236,9 @@
             :config (add-to-list 'company-backends 'company-restclient)))
 
 ;; Browse Kill Ring
-(use-package browse-kill-ring
-  :ensure t
-  :pin melpa-stable)
+;; (use-package browse-kill-ring
+;;   :ensure t
+;;   :pin melpa-stable)
 
 
 (provide 'init-packages)
