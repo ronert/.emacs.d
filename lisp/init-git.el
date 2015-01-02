@@ -22,7 +22,7 @@
     (use-package fullframe
       :ensure t
       :init (after-load 'magit
-              (fullframe magit-status magit-mode-quit-window)))
+              (fullframe magit-status magit-mode-quit-window :magit-fullscreen nil)))
 
     (global-set-key [f16] 'magit-status)
     (global-set-key [f17] 'magit-init)
