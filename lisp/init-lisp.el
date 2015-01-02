@@ -376,4 +376,7 @@ Start `ielm' if it's not already running."
   (start-or-switch-to 'ielm "*ielm*"))
 (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'visit-ielm)
 
+;; Load .el if newer than corresponding .elc
+(setq load-prefer-newer t)
+
 (provide 'init-lisp)
