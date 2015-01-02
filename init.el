@@ -43,6 +43,7 @@
 
 (require 'init-bindings)
 (require 'init-misc)
+(require 'init-compile)
 
 ;; specific programming modes modes
 (require 'init-csv)
