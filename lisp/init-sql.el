@@ -52,13 +52,20 @@
 
 (add-hook 'sql-mode-hook
           '(lambda ()
-              (add-hook 'abbrev-expand-functions
-                        'sql-mode-abbrev-expand-function-bp
-                        nil t)))
+             (add-hook 'abbrev-expand-functions
+                       'sql-mode-abbrev-expand-function-bp
+                       nil t)))
 
 
 ;; Special PSQL commands
 (use-package pgsql-minor-mode)
+
+;; Font locking in sql-interactive-mode from purcell
+;; See my answer to https://emacs.stackexchange.com/questions/657/why-do-sql-mode-and-sql-interactive-mode-not-highlight-strings-the-same-way/673
+(defun sanityinc/font-lock-everything-in-sql-interactive-mode ()
+  (unless (eq 'oracle sql-product)
+    (sql-product-font-lock nil nil)))
+(add-hook 'sql-interactive-mode-hook 'sanityinc/font-lock-everything-in-sql-interactive-mode)
 
 (provide 'init-sql)
 ;;; init-sql ends here
