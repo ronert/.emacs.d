@@ -9,7 +9,11 @@
 (use-package ag
   :ensure t
   :pin melpa-stable
-  :config (setq ag-highlight-search t)
+  :config (progn
+            (setq ag-highlight-search t)
+            (use-package wgrep-ag
+              :ensure t)
+            )
   :bind (("C-c 5" . ag-regexp)
          ("C-c 6" . ag-project)
          ("C-c 7" . ag-project-at-point)
@@ -20,6 +24,8 @@
 (use-package ack-and-a-half
   :ensure t
   :pin melpa-stable
+  :config (use-package wgrep-ack
+            :ensure t)
   :bind
   (("C-c 1" . ack-and-a-half)
    ("C-c 2" . ack-and-a-half-same)
