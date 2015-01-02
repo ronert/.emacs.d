@@ -69,8 +69,10 @@ been saved."
      '(haskell-process-auto-import-loaded-modules t)
      '(haskell-process-log t))
 
-    ;;(require-package 'hi2)
-    ;;(add-hook 'haskell-mode-hook 'turn-on-hi2)
+    (use-package hi2
+      :ensure t
+      :pin melpa-stable
+      :init (add-hook 'haskell-mode-hook 'turn-on-hi2))
 
     (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
