@@ -12,71 +12,78 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 ;; Bootstrap config
-(require 'init-utils) ;; Must come before elpa, as it may provide package.el
-(require 'init-site-lisp)
-(require 'init-elpa)      ;; Machinery for installing required packages
-(require 'init-exec-path) ;; Set up $PATH
-;; Appearance
-(require 'init-appearance)
+(setq rr-initialization-errors nil)
+(require 'init-bootstrap)
 
+
+(defvar init-files
+  '(
+    init-utils ;; Must come before elpa, as it may provide package.el
+init-site-lisp
+init-elpa      ;; Machinery for installing required packages
+init-exec-path ;; Set up $PATH
+;; Appearance
+init-appearance
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
+    init-smartparens
+    init-yasnippet
+    init-hippie-expand
+    init-bookmarks
+    init-helm
+    init-eshell
+    init-dired
+    init-git
+    init-ido
+    init-search
+    init-guidekey
+    init-flycheck
 
-(require 'init-smartparens)
-(require 'init-yasnippet)
-(require 'init-hippie-expand)
-(require 'init-bookmarks)
-(require 'init-helm)
-(require 'init-eshell)
-(require 'init-dired)
-(require 'init-git)
-(require 'init-ido)
-(require 'init-search)
-(require 'init-guidekey)
-(require 'init-flycheck)
+    init-packages
 
-(require 'init-packages)
+    init-defuns
+    init-coding
 
-(require 'init-defuns)
-(require 'init-coding)
+    init-bindings
+    init-misc
+    init-compile
 
-(require 'init-bindings)
-(require 'init-misc)
-(require 'init-compile)
+    ;; specific programming modes modes
+    init-csv
+    init-ess
+    init-haskell
+    init-latex
+    init-reftex
+    init-lisp
+    init-markdown
+    init-python
+    init-stan
+    init-org
+    init-org-templates
+    init-scala
+    init-sql
+    init-css
+    init-javascript
+    init-html
+    init-hadoop
+    init-devops
 
-;; specific programming modes modes
-(require 'init-csv)
-(require 'init-ess)
-(require 'init-haskell)
-(require 'init-latex)
-(require 'init-reftex)
-(require 'init-lisp)
-(require 'init-markdown)
-(require 'init-python)
-(require 'init-stan)
-(require 'init-org)
-(require 'init-org-templates)
-(require 'init-scala)
-(require 'init-sql)
-(require 'init-css)
-(require 'init-javascript)
-(require 'init-html)
-(require 'init-hadoop)
-(require 'init-devops)
-
-;; company mode
-(require 'init-company)
+    ;; company mode
+    init-company
 
 
-;; diminish mode line
-(require 'init-diminish)
+    ;; diminish mode line
+    init-diminish
 
-;; Bindings
-(require 'init-bindings)
+    ;; Bindings
+    init-bindings
 
-;; Mode mappings
-(require 'init-mode-mapping)
+    ;; Mode mappings
+    init-mode-mapping
+    ))
+
+(rr-safe-load-init-files)
 
 ;; Mac-specific stuff
 (when *is-a-mac*
