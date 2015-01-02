@@ -2,7 +2,8 @@
   :ensure t
   :pin melpa-stable
   :bind (("M-x" . helm-M-x)
-         ("C-c h" . helm-mini))
+         ("C-c h" . helm-mini)
+         ("M-z" . helm-show-kill-ring))
   :config (progn
             ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
             ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
@@ -19,7 +20,9 @@
                   helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
                   helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
                   helm-ff-file-name-history-use-recentf t
-                  helm-M-x-fuzzy-match                  t)
+                  helm-M-x-fuzzy-match                  t
+                  helm-buffers-fuzzy-matching           t
+                  helm-recentf-fuzzy-match              t)
             (require 'helm-config)
             (helm-mode 1)
             ;; activate helm-descbinds
