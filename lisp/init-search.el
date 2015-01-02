@@ -5,6 +5,9 @@
   :init (google-this-mode 1)
   :bind ("C-c /" . google-this-mode-submap))
 
+(use-package wgrep
+  :ensure t)
+
 ;; Silver searcher
 (use-package ag
   :ensure t
