@@ -228,4 +228,18 @@
 (use-package template
   :load-path "~/.emacs.d/site-lisp/template/")
 
+;; Restclient
+(use-package restclient
+  :ensure t
+  :config (use-package company-restclient
+            :ensure t
+            :config (add-to-list 'company-backends 'company-restclient)))
+
+;; Browse Kill Ring
+(use-package browse-kill-ring
+  :ensure t
+  :pin melpa-stable)
+
+
+
 (provide 'init-packages)
