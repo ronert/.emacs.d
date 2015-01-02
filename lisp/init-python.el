@@ -41,4 +41,9 @@
     )
   )
 
+;; pip-requirements
+(use-package pip-requirements
+  :ensure t
+  :pin melpa-stable)
+
 (provide 'init-python)
