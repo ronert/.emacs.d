@@ -4,6 +4,9 @@
    nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\):"
           1 font-lock-warning-face t))))
 
+(use-package highlight-symbol
+  :ensure t)
+
 (defun coding-settings ()
   (font-lock-comment-annotations)
   (highlight-symbol-mode +1)
