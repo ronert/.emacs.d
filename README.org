@@ -1,6 +1,18 @@
-
+* Introduction
 This is my personal Emacs configuration. I used a lot of code from:
 - [[Steve Purcell]]
 - [[http://kieranhealy.org/resources/emacs-starter-kit.html][Kieran Healy]]
 - [[https://github.com/bbatsov/prelude][Bozhidar Batsov]]
 - [[https://github.com/magnars/.emacs.d][Magnar Sveen]]
+* Installation 
+Tested on Emacs 24.4.1 running on OS X
+1. Launch Emacs.App with the -q flag
+2. Add MELPA to your package archive:
+   #+begin_src elisp
+     (add-to-list 'package-archives
+                  '("melpa" . "http://melpa.org/packages/") t)
+   #+end_src
+3. Run =list-packages= and install use-package
+4. Close Emacs.App and run normally without the -q flag
+5. Configuration should bootstrap itself now and install all the
+   packages
