@@ -229,8 +229,10 @@
   :pin melpa-stable)
 
 ;; Template
+(use-package request
+  :ensure t)
 (use-package template
-  :load-path "~/.emacs.d/site-lisp/template/")
+  :load-path "~/.emacs.d/site-lisp/Template/")
 
 ;; Restclient
 (use-package restclient
