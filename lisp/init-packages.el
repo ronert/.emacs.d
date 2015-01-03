@@ -203,9 +203,6 @@
   :ensure t)
 (use-package recentf
   :ensure t)
-(use-package highlight-symbol
-  :ensure t
-  :pin melpa-stable)
 
 ;; show free bindings in current buffer
 (use-package free-keys
