@@ -1,6 +1,3 @@
 [submodule "snippets/shnippet"]
 	path = snippets/shnippet
 	url = git@github.com:LukeHoersten/shnippet.git
-[submodule "site-lisp/template"]
-	path = site-lisp/template
-	url = git@github.com:AmirHooshangi/Template.git
