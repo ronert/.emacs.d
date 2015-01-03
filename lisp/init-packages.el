@@ -35,7 +35,7 @@
             (smex-auto-update 30))
   :bind
   (
-   ("M-x" . smex)
+   ;;("M-x" . smex) using helm instead for now
    ("C-x C-m" . smex) ;; supersedes binding in starter-kit-bindings.org
    ("M-X" . smex-major-mode-commands)
    ("C-x C-M" . smex-major-mode-commands)
