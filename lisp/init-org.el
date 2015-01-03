@@ -139,7 +139,10 @@
         (insert (concat "[[" url "][" label "]]"))))
 
     ;; cdlatex for editing math
-    (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+    (use-package cdlatex
+                :ensure t
+                :init
+                (add-hook 'org-mode-hook 'turn-on-org-cdlatex))
 
 
     (setq org-startup-indented t)
@@ -478,7 +481,8 @@
                 (set-face-attribute 'org-level-4 nil :height 1.1)
                 (set-face-attribute 'org-level-5 nil :height 1.1)))
 
-    (add-hook 'org-mode-hook 'smart-quote-keys)
+    (use-package typopunct
+      :init (add-hook 'org-mode-hook 'smart-quote-keys))
 
     (setq org-src-window-setup 'current-window)
 
