@@ -43,6 +43,16 @@
               :ensure t)
             (use-package helm-themes
               :ensure t
-              :pin melpa-stable)))
+              :pin melpa-stable)
+            (use-package helm-c-yasnippet
+              :ensure t
+              :config
+              (setq helm-yas-space-match-any-greedy t)
+              :bind ("C-c y" . helm-yas-complete))
+            (use-package helm-dash
+              :ensure t
+              :pin melpa-stable)
+            )
+  )
 
 (provide 'init-helm)
