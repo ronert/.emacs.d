@@ -12,7 +12,7 @@ Tested on Emacs 24.4.1 running on OS X
      (add-to-list 'package-archives
                   '("melpa" . "http://melpa.org/packages/") t)
    #+end_src
-3. Run =list-packages= and install use-package
+3. Run =list-packages= and install =use-package= and =session=
 4. Close Emacs.App and run normally without the -q flag
 5. Configuration should bootstrap itself now and install all the
    packages
