@@ -22,7 +22,10 @@
 (add-hook 'coding-hook 'coding-settings)
 (add-hook 'coding-hook 'coding-keys)
 
-(add-hook 'coding-hook 'turn-on-diff-hl-mode)
+(use-package diff-hl
+  :ensure t
+  :init (add-hook 'coding-hook 'turn-on-diff-hl-mode)
+  )
 
 (defun run-coding-hook ()
   "Enable things that are convenient across all coding buffers."
