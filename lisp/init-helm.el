@@ -3,7 +3,8 @@
   :pin melpa-stable
   :bind (("M-x" . helm-M-x)
          ("C-c h" . helm-mini)
-         ("M-z" . helm-show-kill-ring))
+         ("M-z" . helm-show-kill-ring)
+         ("C-x f" . helm-find-files))
   :config (progn
             ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
             ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
@@ -22,9 +23,13 @@
                   helm-ff-file-name-history-use-recentf t
                   helm-M-x-fuzzy-match                  t
                   helm-buffers-fuzzy-matching           t
-                  helm-recentf-fuzzy-match              t)
+                  helm-recentf-fuzzy-match              t
+                  helm-semantic-fuzzy-match             t
+                  helm-imenu-fuzzy-match                t
+                  helm-apropos-function-list            t)
             (require 'helm-config)
             (helm-mode 1)
+            (semantic-mode 1)
             ;; activate helm-descbinds
             (use-package helm-descbinds
               :ensure t
