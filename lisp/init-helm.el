@@ -49,9 +49,6 @@
               :config
               (setq helm-yas-space-match-any-greedy t)
               :bind ("C-c y" . helm-yas-complete))
-            (use-package helm-dash
-              :ensure t
-              :pin melpa-stable)
             )
   )
 
