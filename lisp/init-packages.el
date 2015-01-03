@@ -169,7 +169,9 @@
   :pin melpa-stable
   :bind ("C-;" . projectile-helm-ag)
   :init
-  (projectile-global-mode t)
+  (progn
+    (projectile-global-mode t)
+    (helm-projectile-on))
   :config
   (defun projectile-helm-ag ()
     (interactive)
