@@ -33,7 +33,6 @@
             ;; activate helm-descbinds
             (use-package helm-descbinds
               :ensure t
-              :pin melpa-stable
               :init (helm-descbinds-mode))
             ;; activate helm-R
             (use-package helm-R
