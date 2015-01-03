@@ -55,11 +55,7 @@
   :config
   (setq gist-view-gist t))
 
-
-(use-package diff-hl
-  :ensure t
-  :init
-  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
+(add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
 
 (use-package git-timemachine
   :ensure t
