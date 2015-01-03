@@ -167,8 +167,13 @@
 (use-package projectile
   :ensure t
   :pin melpa-stable
+  :bind ("C-;" . projectile-helm-ag)
   :init
-  (projectile-global-mode t))
+  (projectile-global-mode t)
+  :config
+  (defun projectile-helm-ag ()
+    (interactive)
+    (helm-ag (projectile-project-root))))
 
 ;; saner regex syntax
 (use-package re-builder
