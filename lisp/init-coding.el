@@ -5,8 +5,7 @@
           1 font-lock-warning-face t))))
 
 (use-package highlight-symbol
-  :ensure t
-  :pin melpa-stable)
+  :ensure t)
 
 (defun coding-settings ()
   (font-lock-comment-annotations)
