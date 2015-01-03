@@ -62,7 +62,18 @@
    ("C-ö" . mc/mark-next-like-this)
    ("C-ü" . mc/mark-previous-like-this)
    ("C-ä" . mc/mark-all-like-this)
-   ))
+   ("C-c C-a" . mc/edit-beginnings-of-lines)
+   ("C-c C-e" . mc/edit-ends-of-lines)
+   ("C-:" . mc/edit-lines)
+   )
+  )
+
+;; phi search for multiple cursors
+(use-package phi-search
+  :ensure t
+  :bind (
+         ("C-c C-)" . phi-search)
+         ("C-c C-(" . phi-search-backward)))
 
 (use-package smart-forward
   :ensure t
