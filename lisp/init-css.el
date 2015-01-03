@@ -9,6 +9,7 @@
 
 ;;; Embedding in html
 (use-package mmm-mode
+  :ensure t
   :init
   (after-load 'mmm-vars
     (mmm-add-group
