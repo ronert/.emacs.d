@@ -36,7 +36,8 @@
             ;; activate helm-R
             (use-package helm-R
               :ensure t)
-            ;; activate helm-R
+            (use-package helm-ag
+              :ensure t)
             (use-package helm-ack
               :ensure t)
             (use-package helm-themes
