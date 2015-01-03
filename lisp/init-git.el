@@ -22,7 +22,7 @@
     (use-package fullframe
       :ensure t
       :init (after-load 'magit
-              (fullframe magit-status magit-mode-quit-window :magit-fullscreen nil)))
+              (fullframe magit-status magit-mode-quit-window)))
 
     (global-set-key [f16] 'magit-status)
     (global-set-key [f17] 'magit-init)
@@ -30,6 +30,8 @@
     (define-key global-map "\M-\C-g" 'magit-status)
     )
   )
+
+
 
 ;; Git Messenger
 (use-package git-messenger
