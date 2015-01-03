@@ -1,9 +1,12 @@
 (use-package pig-mode
+  :ensure t)
+
+(use-package pig-snippets
   :ensure t
-  :config
-  (progn
-    (autoload 'pig-snippets-initialize "pig-snippets" nil nil nil)
-    (eval-after-load 'yasnippet '(pig-snippets-initialize))))
+  :config (progn
+            (autoload 'pig-snippets-initialize "pig-snippets" nil nil nil)
+            (eval-after-load 'yasnippet '(pig-snippets-initialize))
+            ))
 
 (use-package hive
   :ensure t)
