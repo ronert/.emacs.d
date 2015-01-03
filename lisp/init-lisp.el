@@ -147,12 +147,13 @@ Kills existing SLIME session, if any."
                         '(("(\\|)" . 'esk-paren-face)))
 
 ;; Elisp go-to-definition with M-. and back again with M-,
-(autoload 'elisp-slime-nav-mode "elisp-slime-nav")
-(add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
-
 (use-package elisp-slime-nav
   :ensure t
-  :pin melpa-stable)
+  :pin melpa-stable
+  :init (progn
+          (autoload 'elisp-slime-nav-mode "elisp-slime-nav")
+          (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
+          ))
 (use-package lively
   :ensure t)
 
