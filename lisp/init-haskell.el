@@ -6,7 +6,7 @@
   (add-to-list 'completion-ignored-extensions ".hi")
 
   (after-load 'haskell-mode
-    (define-key haskell-mode-map (kbd "C-c h") 'hoogle))
+    (define-key haskell-mode-map (kbd "C-?") 'hoogle))
 
   (add-hook 'haskell-mode-hook 'run-coding-hook)
 
@@ -49,6 +49,10 @@ been saved."
     (when (> emacs-major-version 23)
       (use-package hayoo
         :ensure t))
+
+    (use-package helm-hayoo
+              :ensure t
+              :init (define-key haskell-mode-map (kbd "C-*") 'helm-hayoo))
 
     (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook))
       (add-hook hook 'turn-on-haskell-doc-mode)
