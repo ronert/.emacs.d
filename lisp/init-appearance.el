@@ -1,3 +1,8 @@
+;; solarized
+(use-package solarized-theme
+  :ensure t
+  :pin melpa-stable)
+
 ;; Set default font. First one found is selected.
 (defun font-existsp (font)
   "Check to see if the named FONT is available."
