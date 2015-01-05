@@ -45,8 +45,6 @@
               (ibuffer-do-sort-by-alphabetic))))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-;; Ido find recent file
-(global-set-key (kbd "C-x f") 'recentf-ido-find-file)
 
 (use-package imenu)
 
