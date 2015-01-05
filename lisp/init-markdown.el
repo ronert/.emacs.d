@@ -12,6 +12,8 @@
 
     ))
 
+(use-package livedown
+  :load-path "~/.emacs.d/site-lisp/emacs-livedown")
 
 ;;; markdown.el ends here
 
