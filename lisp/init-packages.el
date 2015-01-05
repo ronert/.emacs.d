@@ -262,4 +262,8 @@
 ;;   :pin melpa-stable)
 
 
+;; Enhance package.el
+(use-package paradox
+  :ensure t)
+
 (provide 'init-packages)
