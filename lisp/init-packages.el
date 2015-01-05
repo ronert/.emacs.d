@@ -1,3 +1,7 @@
+(use-package idle-highlight
+  :ensure t
+  :pin melpa-stable)
+
 ;; Whole-line or region
 (use-package whole-line-or-region
   :ensure t
