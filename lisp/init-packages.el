@@ -1,4 +1,4 @@
-(use-package idle-highlight
+(use-package idle-highlight-mode
   :ensure t
   :pin melpa-stable)
 
