@@ -7,7 +7,7 @@
       :init (add-hook 'python-mode-hook 'anaconda-mode))
     (add-hook 'python-mode-hook 'my-python-customizations)
     (defun my-python-customizations ()
-      "set up my personal customizations for python mode"
+      "set up my personal customizations for python mode"in
       ;; put other customizations in here
       (define-key python-mode-map (kbd "C-c d") 'add-docstring))
     (defun add-docstring (&optional arg)
@@ -33,7 +33,6 @@
   :ensure t)
 (use-package ein
   :ensure t
-  :pin melpa-stable
   :config
   (progn
     (setq ein:connect-default-notebook "8888/ipythonNotebook")
