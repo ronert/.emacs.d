@@ -29,6 +29,7 @@
   )
 
 ;; ein
+(use-package ewoc)
 (use-package websocket
   :ensure t)
 (use-package ein
