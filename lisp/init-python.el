@@ -7,7 +7,7 @@
       :init (add-hook 'python-mode-hook 'anaconda-mode))
     (add-hook 'python-mode-hook 'my-python-customizations)
     (defun my-python-customizations ()
-      "set up my personal customizations for python mode"in
+      "set up my personal customizations for python mode"
       ;; put other customizations in here
       (define-key python-mode-map (kbd "C-c d") 'add-docstring))
     (defun add-docstring (&optional arg)
