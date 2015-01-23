@@ -46,4 +46,8 @@
   :ensure t
   :pin melpa-stable)
 
+;; sort imports
+(use-package pyimpsort
+  :ensure t)
+
 (provide 'init-python)
