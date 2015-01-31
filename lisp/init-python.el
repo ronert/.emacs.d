@@ -25,7 +25,8 @@
   :init
   (progn
     (elpy-enable)
-    (elpy-use-ipython))
+    (elpy-use-ipython)
+    (setq lycheck-flake8-maximum-line-length "120"))
   )
 
 ;; ein
