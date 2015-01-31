@@ -26,7 +26,7 @@
   (progn
     (elpy-enable)
     (elpy-use-ipython)
-    (setq lycheck-flake8-maximum-line-length "120"))
+    (setq flycheck-flake8-maximum-line-length "120"))
   )
 
 ;; ein
