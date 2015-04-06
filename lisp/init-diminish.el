@@ -4,7 +4,7 @@
   :config
   (diminish 'anzu-mode)
   (diminish 'guide-key-mode)
-  (diminish 'google-this-mode)
+;;  (diminish 'google-this-mode)
   (diminish 'projectile-mode)
   (diminish 'eldoc-mode)
   (diminish 'auto-complete-mode)
