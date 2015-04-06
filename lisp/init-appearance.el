@@ -68,7 +68,7 @@
                                   ((control))))
 
 (use-package linum
-  :init
+  :config
   global-linum-mode 1)
 
 (when (fboundp 'global-prettify-symbols-mode)
