@@ -27,7 +27,7 @@
 
 (use-package diff-hl
   :ensure t
-  :init (add-hook 'coding-hook 'turn-on-diff-hl-mode)
+  :config (add-hook 'coding-hook 'turn-on-diff-hl-mode)
   )
 
 (defun run-coding-hook ()
