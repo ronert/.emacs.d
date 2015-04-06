@@ -45,7 +45,7 @@
 (use-package popwin
   :ensure t
   :pin melpa-stable
-  :init
+  :config
   (popwin-mode 1))
 
 (use-package project-explorer
