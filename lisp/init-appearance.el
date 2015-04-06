@@ -54,7 +54,7 @@
 (use-package theme-changer
   :ensure t
   :pin melpa-stable
-  :init (progn
+  :config (progn
                (setq calendar-latitude 52.49)
                (setq calendar-longitude 13.34)
                (require-package 'theme-changer)
