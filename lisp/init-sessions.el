@@ -70,7 +70,7 @@
 ;; Workgroups
 (use-package workgroups
   :ensure t
-  :init (progn
+  :config (progn
           (global-unset-key (kbd "C-y"))
           (setq wg-prefix-key (kbd "C-y"))
           (workgroups-mode 1)
