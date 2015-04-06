@@ -2,7 +2,7 @@
   :ensure t)
 (use-package csv-nav
   :ensure t
-  :init
+  :config
   (autoload 'csv-nav-mode "csv-nav" "Major mode for navigating comma-separated value files." t)
   :config
   (setq csv-separators '("," ";" "|" " ")))
