@@ -4,7 +4,7 @@
   (use-package stripe-buffer
     :ensure t
     :pin melpa-stable
-    :init
+    :config
     (progn
       (add-hook 'org-mode-hook 'org-table-stripes-enable)
       (add-hook 'dired-mode-hook 'stripe-listify-buffer))

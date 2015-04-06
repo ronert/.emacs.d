@@ -2,7 +2,7 @@
 (use-package markdown-mode
   :ensure t
   :pin melpa-stable
-  :init
+  :config
   (progn
     (autoload 'markdown-mode "markdown-mode.el"
       "Major mode for editing Markdown files" t)

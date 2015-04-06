@@ -141,7 +141,7 @@
     ;; cdlatex for editing math
     (use-package cdlatex
                 :ensure t
-                :init
+                :config
                 (add-hook 'org-mode-hook 'turn-on-org-cdlatex))
 
 
@@ -482,7 +482,7 @@
                 (set-face-attribute 'org-level-5 nil :height 1.1)))
 
     (use-package typopunct
-      :init (add-hook 'org-mode-hook 'smart-quote-keys))
+      :config (add-hook 'org-mode-hook 'smart-quote-keys))
 
     (setq org-src-window-setup 'current-window)
 

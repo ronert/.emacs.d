@@ -1,7 +1,7 @@
 (use-package ess
   :ensure t
   :pin melpa-stable
-  :init
+  :config
   (progn
     (load "ess-site.el")
     (add-hook 'ess-mode-hook 'run-coding-hook)

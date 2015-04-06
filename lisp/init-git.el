@@ -21,7 +21,7 @@
 
     (use-package fullframe
       :ensure t
-      :init (after-load 'magit
+      :config (after-load 'magit
               (fullframe magit-status magit-mode-quit-window)))
 
     (global-set-key [f16] 'magit-status)

@@ -2,7 +2,7 @@
 (use-package google-this
   :ensure t
   :pin melpa-stable
-  :init (google-this-mode 1)
+  :config (google-this-mode 1)
   :bind ("C-c /" . google-this-mode-submap))
 
 (use-package wgrep
@@ -31,7 +31,7 @@
 (use-package anzu
   :ensure t
   :pin melpa-stable
-  :init
+  :config
   (global-anzu-mode t))
 
 (provide 'init-search)

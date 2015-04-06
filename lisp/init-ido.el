@@ -1,12 +1,11 @@
 ;; ido
 (use-package ido
   :ensure t
-  :init
   :config
   (progn
     (use-package ido-sort-mtime
       :ensure t
-      :init (ido-sort-mtime-mode 1))
+      :config (ido-sort-mtime-mode 1))
     ;; filecache
     (use-package filecache
       :ensure t
@@ -109,7 +108,7 @@
 (use-package ido-vertical-mode
   :ensure t
   :pin melpa-stable
-  :init (ido-vertical-mode t))
+  :config (ido-vertical-mode t))
 
 ;; up down arrows to navigate
 ;;(define-key ido-completion-map (kbd "<down>") 'ido-next-match)

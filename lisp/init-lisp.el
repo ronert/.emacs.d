@@ -4,9 +4,9 @@
 (use-package paredit
   :ensure t
   :pin melpa-stable
-  :init (autoload 'enable-paredit-mode "paredit")
   :config
   (progn
+    (autoload 'enable-paredit-mode "paredit")
     (defun maybe-map-paredit-newline ()
       (unless (or (memq major-mode '(inferior-emacs-lisp-mode nrepl-mode))
                   (minibufferp))
@@ -210,7 +210,7 @@ Kills existing SLIME session, if any."
 (use-package elisp-slime-nav
   :ensure t
   :pin melpa-stable
-  :init (progn
+  :config (progn
           (autoload 'elisp-slime-nav-mode "elisp-slime-nav")
           (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
           ))
@@ -220,7 +220,7 @@ Kills existing SLIME session, if any."
 (use-package pretty-mode
   :ensure
   :pin melpa-stable
-  :init (autoload 'turn-on-pretty-mode "pretty-mode"))
+  :config (autoload 'turn-on-pretty-mode "pretty-mode"))
 
 
 

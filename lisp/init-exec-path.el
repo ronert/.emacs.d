@@ -1,7 +1,7 @@
 (use-package exec-path-from-shell
   :ensure t
   :pin melpa-stable
-  :init
+  :config
   (progn
     (when (memq window-system '(mac ns))
       (exec-path-from-shell-initialize))

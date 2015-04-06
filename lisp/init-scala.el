@@ -11,12 +11,12 @@
     ;; ensime
     (use-package ensime
       :ensure t
-      :init (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
+      :config (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
     ;; sbt-mode
     (use-package sbt-mode
       :ensure t
-      :init
+      :config
       (progn
         (add-hook 'scala-mode-hook '(lambda ()
                                       ;; sbt-find-definitions is a command that tries to find (with grep)

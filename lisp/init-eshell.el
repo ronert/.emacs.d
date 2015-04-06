@@ -30,7 +30,7 @@
 (global-set-key (kbd "C-x M") (lambda () (interactive) (eshell t)))
 
 (use-package helm-eshell
-  :init (add-hook 'eshell-mode-hook
+  :config (add-hook 'eshell-mode-hook
                   #'(lambda ()
                       (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)))
   )

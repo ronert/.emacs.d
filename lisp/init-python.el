@@ -1,10 +1,10 @@
 (use-package python
-  :init
+  :config
   (progn
     (add-hook 'python-mode-hook 'run-coding-hook)
     (use-package anaconda-mode
       :ensure t
-      :init (add-hook 'python-mode-hook 'anaconda-mode))
+      :config (add-hook 'python-mode-hook 'anaconda-mode))
     (add-hook 'python-mode-hook 'my-python-customizations)
     (defun my-python-customizations ()
       "set up my personal customizations for python mode"
@@ -22,7 +22,7 @@
 (use-package elpy
   :ensure t
   :pin elpy
-  :init
+  :config
   (progn
     (elpy-enable)
     (elpy-use-ipython)

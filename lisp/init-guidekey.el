@@ -3,10 +3,9 @@
 (use-package guide-key
   :ensure t
   :pin melpa-stable
-  :init
-  (guide-key-mode 1)
   :config
   (progn
+    (guide-key-mode 1)
     (setq guide-key/guide-key-sequence '("C-x r" "C-x v" "C-c p" "C-x 4" "C-h" "C-y" "C-x 5" "C-c" "C-x" "C-x n"))
 
     (setq guide-key/recursive-key-sequence-flag t)

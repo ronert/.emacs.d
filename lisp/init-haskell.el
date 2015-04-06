@@ -1,7 +1,6 @@
 (use-package haskell-mode
   :ensure t
   :pin melpa-stable
-  :init
   :config
   (add-to-list 'completion-ignored-extensions ".hi")
 
@@ -21,7 +20,7 @@
     (use-package flycheck-haskell
       :ensure t
       :pin melpa-stable
-      :init
+      :config
       (progn
         (after-load 'flycheck
           (add-hook 'haskell-mode-hook #'flycheck-haskell-setup)
@@ -52,7 +51,7 @@ been saved."
 
     (use-package helm-hayoo
               :ensure t
-              :init (define-key haskell-mode-map (kbd "C-*") 'helm-hayoo))
+              :config (define-key haskell-mode-map (kbd "C-*") 'helm-hayoo))
 
     (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook haskell-interactive-mode-hook))
       (add-hook hook 'turn-on-haskell-doc-mode)
@@ -76,7 +75,7 @@ been saved."
     (use-package hi2
       :ensure t
       :pin melpa-stable
-      :init (add-hook 'haskell-mode-hook 'turn-on-hi2))
+      :config (add-hook 'haskell-mode-hook 'turn-on-hi2))
 
     (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
@@ -88,7 +87,7 @@ been saved."
     (when (eval-when-compile (>= emacs-major-version 24))
       (use-package ghci-completion
         :ensure t
-        :init
+        :config
         (add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion))
       )
 

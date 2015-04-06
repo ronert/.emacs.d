@@ -6,7 +6,7 @@
     :ensure t
     :pin melpa-stable
     :mode "\\.js$"
-    :init
+    :config
     (progn
       (defcustom preferred-javascript-mode
         (first (remove-if-not #'fboundp '(js2-mode js-mode)))
@@ -67,7 +67,7 @@
 (use-package rainbow-delimiters
   :ensure t
   :pin melpa-stable
-  :init
+  :config
   (dolist (hook '(js2-mode-hook js-mode-hook json-mode-hook))
     (add-hook hook 'rainbow-delimiters-mode)))
 
@@ -109,7 +109,7 @@
   (use-package skewer-mode
     :ensure t
     :pin melpa-stable
-    :init
+    :config
     (after-load 'skewer-mode
       (add-hook 'skewer-mode-hook
                 (lambda () (inferior-js-keys-mode -1)))))

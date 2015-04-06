@@ -2,7 +2,7 @@
 ;; save the desktop file automatically if it already exists
 (use-package desktop
   :ensure t
-  :init (progn
+  config (progn
           (desktop-save-mode 1)
           (defun my-desktop-save ()
             (interactive)
@@ -29,7 +29,7 @@
 (use-package session
   :ensure t
   :pin melpa-stable
-  :init
+  config
   (progn
     (setq session-save-file (expand-file-name "~/.session"))
     (add-hook 'after-init-hook 'session-initialize)
@@ -61,9 +61,8 @@
 ;; Save point position between sessions
 (use-package saveplace
   :ensure t
-  :init
-  (setq-default save-place t)
   :config
+  (setq-default save-place t)
   (setq save-place-file (expand-file-name "~/.places"))
   )
 

@@ -6,9 +6,9 @@
 (use-package whole-line-or-region
   :ensure t
   :pin melpa-stable
-  :init (whole-line-or-region-mode t)
   :config
   (progn
+    (whole-line-or-region-mode t)
     (defun duplicate-region (beg end)
       "Insert a copy of the current region after the region."
       (interactive "r")
@@ -33,8 +33,8 @@
 (use-package smex
   :ensure t
   :pin melpa-stable
-  :init (smex-initialize)
   :config (progn
+            (smex-initialize)
             (setq smex-show-unbound-commands t)
             (smex-auto-update 30))
   :bind
@@ -54,7 +54,7 @@
 (use-package goto-last-change
   :ensure t
   :pin melpa-stable
-  :init (progn  (global-unset-key (kbd "C-+"))
+  :config (progn  (global-unset-key (kbd "C-+"))
                 (global-set-key (kbd "C-+") 'goto-last-change)))
 
 (use-package multiple-cursors
@@ -103,9 +103,9 @@
 
 (use-package key-chord
   :ensure t
-  :init (key-chord-mode 1)
   :config
   (progn
+    (key-chord-mode 1)
     (key-chord-define-global "xc" "[")
     (key-chord-define-global "bn" "]")
     (key-chord-define-global "yx" "{")
@@ -147,7 +147,7 @@
 ;; Visual regexp
 (use-package visual-regexp
   :ensure t
-  :init (define-key global-map (kbd "M-&") 'vr/query-replace))
+  :config (define-key global-map (kbd "M-&") 'vr/query-replace))
 (use-package visual-regexp-steroids
   :ensure t)
 
@@ -183,14 +183,14 @@
   :ensure t
   :pin melpa-stable
   :bind ("C-;" . projectile-helm-ag)
-  :init
+  :config
   (progn
     (projectile-global-mode t)
-    (helm-projectile-on))
-  :config
-  (defun projectile-helm-ag ()
-    (interactive)
-    (helm-ag (projectile-project-root))))
+    (helm-projectile-on)
+    (defun projectile-helm-ag ()
+      (interactive)
+      (helm-ag (projectile-project-root)))))
+
 
 ;; saner regex syntax
 (use-package re-builder
@@ -200,7 +200,7 @@
 ;; fasd in emacs
 (use-package fasd
   :ensure t
-  :init (global-fasd-mode 1)
+  :config (global-fasd-mode 1)
   :bind ("C-c f" . fasd-find-file)
   )
 
@@ -232,11 +232,11 @@
 (use-package ace-link
   :ensure t
   :pin melpa-stable
-  :init (ace-link-setup-default))
+  config (ace-link-setup-default))
 
 (use-package hungry-delete
   :ensure t
-  :init (global-hungry-delete-mode))
+  config (global-hungry-delete-mode))
 
 ;; Dash
 (use-package dash

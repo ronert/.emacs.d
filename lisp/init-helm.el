@@ -33,7 +33,7 @@
             ;; activate helm-descbinds
             (use-package helm-descbinds
               :ensure t
-              :init (helm-descbinds-mode)
+              :config (helm-descbinds-mode)
               :bind ("C-c C-h" . helm-descbinds))
             ;; activate helm-R
             (use-package helm-R

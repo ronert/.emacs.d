@@ -1,15 +1,13 @@
 (use-package smartparens
   :ensure t
   :pin melpa-stable
-  :init
-  (progn
-    (use-package smartparens-config)
-    (use-package smartparens-latex)
-    (smartparens-global-mode t))
   ;; highlights matching pairs
   (show-smartparens-global-mode t)
   :config
   (progn
+    (use-package smartparens-config)
+    (use-package smartparens-latex)
+    (smartparens-global-mode t)
     ;; do not autoinsert ' pair if the point is preceeded by word.  This
     ;; will handle the situation when ' is used as a contraction symbol in
     ;; natural language.  Nil for second argument means to keep the

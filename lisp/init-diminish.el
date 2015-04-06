@@ -1,7 +1,7 @@
 (use-package diminish
   :ensure t
   :pin melpa-stable
-  :init
+  :config
   (diminish 'anzu-mode)
   (diminish 'guide-key-mode)
   (diminish 'google-this-mode)
