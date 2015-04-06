@@ -96,6 +96,7 @@
  '(hippie-expand-try-functions-list
    (quote
     (try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-list try-expand-line try-complete-lisp-symbol-partially try-complete-lisp-symbol yas/hippie-try-expand)))
+ '(magit-diff-use-overlays nil)
  '(magit-restore-window-configuration t)
  '(magit-use-overlays nil)
  '(max-specpdl-size 10000)
@@ -113,6 +114,7 @@
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-irc org-mac-message org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mac-link-grabber)))
+ '(paradox-github-token t)
  '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex")
  '(projectile-cache-file "/Users/ronert/.projectile.cache")
  '(projectile-known-projects-file "/Users/ronert/projectile-bookmarks.eld")
