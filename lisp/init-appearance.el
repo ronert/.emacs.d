@@ -67,10 +67,6 @@
                                   ((shift) . 5)
                                   ((control))))
 
-(use-package linum
-  :config
-  global-linum-mode 1)
-
 (when (fboundp 'global-prettify-symbols-mode)
   (global-prettify-symbols-mode))
 
