@@ -36,6 +36,7 @@ init-appearance
     init-dired
     init-git
     init-ido
+    init-ibuffer
     init-search
     init-guidekey
     init-flycheck
