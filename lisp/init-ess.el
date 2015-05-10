@@ -165,4 +165,33 @@
   (use-package lintr)
   )
 
+;; format magrittr chains
+(add-to-list 'ess-style-alist
+             '(my-style
+               (ess-indent-level . 4)
+               (ess-first-continued-statement-offset . 2)
+               (ess-continued-statement-offset . 0)
+               (ess-brace-offset . -4)
+               (ess-expression-offset . 4)
+               (ess-else-offset . 0)
+               (ess-close-brace-offset . 0)
+               (ess-brace-imaginary-offset . 0)
+               (ess-continued-brace-offset . 0)
+               (ess-arg-function-offset . 4)
+               (ess-arg-function-offset-new-line . '(4))
+               ))
+
+(setq ess-default-style 'my-style)
+
+(setq gcr/ess-style
+      (copy-alist
+       (assoc 'RRR ess-style-alist)))
+(setf (nth 0 gcr/ess-style) 'GCR)
+(setf (cdr
+       (assoc 'ess-continued-statement-offset
+              (cdr gcr/ess-style)))
+      0)
+(add-to-list 'ess-style-alist gcr/ess-style)
+(setq ess-default-style 'GCR)
+
 (provide 'init-ess)
