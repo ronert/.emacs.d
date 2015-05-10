@@ -36,41 +36,7 @@
     ))
 
 
-;; Ibuffer
-(add-hook 'ibuffer-hook
-          (lambda ()
-            (ibuffer-vc-set-filter-groups-by-vc-root)
-            (unless (eq ibuffer-sorting-mode 'alphabetic)
-              (ibuffer-do-sort-by-alphabetic))))
-
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
 (use-package imenu)
-
-(setq ibuffer-saved-filter-groups
-      '(("home"
-         ("emacs-config" (or (filename . ".emacs.d")
-                             (filename . "emacs-config")))
-         ("Org" (or (mode . org-mode)
-                    (filename . "OrgMode")))
-         ("Web Dev" (or (mode . html-mode)
-                        (mode . css-mode)))
-         ("Magit" (name . "\*magit"))
-         ("ESS" (mode . ess-mode))
-         ("LaTeX" (mode . latex-mode))
-         ("Help" (or (name . "\*Help\*")
-                     (name . "\*Apropos\*")
-                     (name . "\*info\*"))))))
-
-(add-hook 'ibuffer-mode-hook
-          '(lambda ()
-             (ibuffer-switch-to-saved-filter-groups "home")))
-(setq ibuffer-show-empty-filter-groups nil)
-(setq ibuffer-expert t)
-(add-hook 'ibuffer-mode-hook
-          '(lambda ()
-             (ibuffer-auto-mode 1)
-             (ibuffer-switch-to-saved-filter-groups "home")))
 
 (ido-mode t)
 (setq ido-enable-prefix nil
