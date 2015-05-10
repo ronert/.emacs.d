@@ -236,7 +236,7 @@ might be bad."
   (prelude-untabify-buffer)
   (whitespace-cleanup))
 
-(defun prelude-sudo-edit (&optional arg)
+(defun sudo-edit (&optional arg)
   (interactive "p")
   (if (or arg (not buffer-file-name))
       (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
