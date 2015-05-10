@@ -86,17 +86,24 @@
          ("s-<left>" . smart-backward)
          ("s-<right>" . smart-forward)))
 
-(use-package ace-jump-buffer
-  :ensure t
-  :pin melpa-stable)
-;;(global-set-key [?\S- ] 'ace-jump-buffer)
+;; (use-package ace-jump-buffer
+;;   :ensure t
+;;   :pin melpa-stable)
+;; ;;(global-set-key [?\S- ] 'ace-jump-buffer)
 
-(use-package ace-jump-mode
-  :ensure t
-  :pin melpa-stable)
+;; (use-package ace-jump-mode
+;;   :ensure t
+;;   :pin melpa-stable)
 
-(use-package jump-char
-  :ensure t)
+;; (use-package jump-char
+;;   :ensure t)
+
+(use-package avy
+  :ensure t
+  :config (progn
+            (setq avy-background t)
+            (setq avy-goto-char-style 'at-full)
+            (setq avy-goto-word-style 'at-full)))
 
 (use-package expand-region
   :bind ("C-#" . er/expand-region))
@@ -113,13 +120,14 @@
     (key-chord-define-global "nm" "}")
     (key-chord-define-global "qw" "/")
     (key-chord-define-global "ü+" "\\")
-    (key-chord-define-global "hh" 'jump-char-forward)
-    (key-chord-define-global "aa" 'jump-char-backward)
-    (key-chord-define-global "öö" 'iy-go-to-char)
+    ;;(key-chord-define-global "aa" 'jump-char-backward)
     (key-chord-define-global ",," 'hippie-expand)
     (key-chord-define-global ",." 'auto-complete)
-    (key-chord-define-global "jj" 'ace-jump-line-mode)
-    (key-chord-define-global "kk" 'ace-jump-word-mode)
+    ;; avy
+    (key-chord-define-global "hh" 'avy-goto-char)
+    (key-chord-define-global "jj" 'avy-goto-line)
+    (key-chord-define-global "kk" 'avy-goto-word-1)
+    ;; lines
     (key-chord-define-global "ii" 'smart-open-line-above)
     (key-chord-define-global "uu" 'open-line-below)
     (key-chord-define-global "zz" 'just-one-space)
