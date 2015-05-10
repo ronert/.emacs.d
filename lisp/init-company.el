@@ -1,7 +1,6 @@
 (use-package company
   :ensure t
   :pin melpa-stable
-  :idle (add-hook 'after-init-hook 'global-company-mode)
   :config (progn
             ;; latex completion
             (use-package company-auctex
@@ -34,6 +33,8 @@
             (use-package company-ess
               :ensure t
               :config (add-to-list 'company-backends 'company-ess-backend))
+
+            (add-hook 'after-init-hook 'global-company-mode)
             )
   ;; Set a global completion hotkey
   :bind ("C-." . company-complete)
