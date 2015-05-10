@@ -232,11 +232,11 @@
 (use-package ace-link
   :ensure t
   :pin melpa-stable
-  config (ace-link-setup-default))
+  :config (ace-link-setup-default))
 
 (use-package hungry-delete
   :ensure t
-  config (global-hungry-delete-mode))
+  :config (global-hungry-delete-mode))
 
 ;; Dash
 (use-package dash
