@@ -86,18 +86,6 @@
          ("s-<left>" . smart-backward)
          ("s-<right>" . smart-forward)))
 
-;; (use-package ace-jump-buffer
-;;   :ensure t
-;;   :pin melpa-stable)
-;; ;;(global-set-key [?\S- ] 'ace-jump-buffer)
-
-;; (use-package ace-jump-mode
-;;   :ensure t
-;;   :pin melpa-stable)
-
-;; (use-package jump-char
-;;   :ensure t)
-
 (use-package avy
   :ensure t
   :config (progn
