@@ -79,6 +79,7 @@ init-appearance
 
     ;; Bindings
     init-bindings
+    init-hydra
 
     ;; Mode mappings
     init-mode-mapping
