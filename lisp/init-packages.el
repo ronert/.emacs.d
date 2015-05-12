@@ -239,6 +239,11 @@
   :ensure t
   :pin melpa-stable)
 
+;; Dash-at-point
+(use-package dash-at-point
+  :ensure t)
+
+
 ;; Template
 (use-package request
   :ensure t)
