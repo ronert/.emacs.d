@@ -78,4 +78,19 @@
   '(define-key magit-mode-map "V"
      #'endless/visit-pull-request-url))
 
+;; set up ediff
+(defmacro csetq (variable value)
+  `(funcall (or (get ',variable 'custom-set)
+                'set-default)
+            ',variable ,value))
+(csetq ediff-window-setup-function 'ediff-setup-windows-plain)
+(csetq ediff-split-window-function 'split-window-horizontally)
+(defun ora-ediff-hook ()
+  (ediff-setup-keymap)
+  (define-key ediff-mode-map "j" 'ediff-next-difference)
+  (define-key ediff-mode-map "k" 'ediff-previous-difference))
+
+(add-hook 'ediff-mode-hook 'ora-ediff-hook)
+(add-hook 'ediff-after-quit-hook-internal 'winner-undo)
+
 (provide 'init-git)
