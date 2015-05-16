@@ -12,6 +12,10 @@
   ;; identation setup
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
+  (when (executable-find "ghci-ng")
+    (setq-default haskell-process-args-cabal-repl
+                  e '("--ghc-option=-ferror-spans" "--with-ghc=ghci-ng")))
+
 ;;; Flycheck specifics
   (when (> emacs-major-version 23)
     (use-package flycheck-hdevtools
