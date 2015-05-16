@@ -217,6 +217,8 @@ If there is still something left do do start the next latex-command."
             )
           )
 
+(use-package latex-wrap)
+
 
 (provide 'init-latex)
 ;;; latex.el ends here
