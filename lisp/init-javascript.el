@@ -14,7 +14,7 @@
         :type 'symbol
         :group 'programming
         :options '(js2-mode js-mode))
-      (defvar preferred-javascript-indent-level 2)
+      (defconst preferred-javascript-indent-level 2)
       ;; Need to first remove from list if present, since elpa adds entries too, which
       ;; may be in an arbitrary order
       (eval-when-compile (require 'cl))
@@ -26,6 +26,8 @@
     :config
     (progn
       ;; js2-mode
+      (setq-default js2-basic-offset 2
+                    js2-bounce-indent-p nil)
       (after-load 'js2-mode
         ;; Disable js2 mode's syntax error highlighting by default...
         (setq-default js2-mode-show-parse-errors nil
@@ -40,15 +42,8 @@
 
         (add-hook 'js2-mode-hook (lambda () (setq mode-name "JS2")))
 
-        (setq-default
-         js2-basic-offset preferred-javascript-indent-level
-         js2-bounce-indent-p nil)
-
         (after-load 'js2-mode
           (js2-imenu-extras-setup)))
-
-      ;; js-mode
-      (setq-default js-indent-level preferred-javascript-indent-level)
 
       (add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))))
   ;; (use-package ac-js2) using company
@@ -57,11 +52,6 @@
     :pin melpa-stable))
 (use-package js-comint
   :ensure t)
-
-
-
-
-
 
 ;; Javascript nests {} and () a lot, so I find this helpful
 (use-package rainbow-delimiters
