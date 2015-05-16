@@ -5,7 +5,11 @@
           1 font-lock-warning-face t))))
 
 (use-package highlight-symbol
-  :ensure t)
+  :ensure t
+  :config
+  (defadvice highlight-symbol-temp-highlight (around sanityinc/maybe-suppress activate)
+    "Suppress symbol highlighting while isearching."
+    (unless isearch-mode ad-do-it)))
 
 (defun coding-settings ()
   (font-lock-comment-annotations)
