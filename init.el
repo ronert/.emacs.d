@@ -20,6 +20,7 @@
   '(
     init-utils ;; Must come before elpa, as it may provide package.el
 init-site-lisp
+;; Calls (package-initialize)
 init-elpa      ;; Machinery for installing required packages
 init-exec-path ;; Set up $PATH
 ;; Appearance
