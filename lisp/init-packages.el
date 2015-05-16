@@ -119,6 +119,7 @@
     (key-chord-define-global "ii" 'smart-open-line-above)
     (key-chord-define-global "uu" 'open-line-below)
     (key-chord-define-global "zz" 'just-one-space)
+    (key-chord-define-global "aa" 'delete-horizontal-space)
     ;; add some neat keychords
     (key-chord-define-global "0o" "=")
     (key-chord-define-global "1q" "!")
