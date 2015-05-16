@@ -45,7 +45,7 @@
   :bind
   (
    ("C-=" . git-gutter:toggle)
-   ("C-M-=" . git-gutter:popup-diff))
+   ("C-M-=" . git-gutter:popup-hunk))
   )
 
 
