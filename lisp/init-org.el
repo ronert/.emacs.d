@@ -25,6 +25,8 @@
                          '(apply ,original-command))
                    (local-set-key [tab] 'yas-expand))))
 
+    (add-hook 'org-mode-hook 'highlight-symbol-nav-mode)
+
     ;; (defun yas/org-very-safe-expand ()
     ;;   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
     ;; (add-hook 'org-mode-hook
