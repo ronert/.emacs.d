@@ -268,4 +268,7 @@
 (use-package paradox
   :ensure t)
 
+(use-package bug-hunter
+  :ensure t)
+
 (provide 'init-packages)
