@@ -35,9 +35,9 @@
               :config (add-to-list 'company-backends 'company-ess-backend))
 
             ;; company-quickhelp
-            (use-package company-quickhelp
-              :ensure t
-              :config (company-quickhelp-mode 1))
+            ;; (use-package company-quickhelp
+            ;;   :ensure t
+            ;;   :config (company-quickhelp-mode 1))
 
             (add-hook 'after-init-hook 'global-company-mode)
             )
