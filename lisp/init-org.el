@@ -18,12 +18,12 @@
     (add-hook 'org-shiftdown-final-hook 'windmove-down)
     (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-    (add-hook 'org-mode-hook
-              (let ((original-command (lookup-key org-mode-map [tab])))
-                `(lambda ()
-                   (setq yas-fallback-behavior
-                         '(apply ,original-command))
-                   (local-set-key [tab] 'yas-expand))))
+    ;; (add-hook 'org-mode-hook
+    ;;           (let ((original-command (lookup-key org-mode-map [tab])))
+    ;;             `(lambda ()
+    ;;                (setq yas-fallback-behavior
+    ;;                      '(apply ,original-command))
+    ;;                (local-set-key [tab] 'yas-expand))))
 
     (add-hook 'org-mode-hook 'highlight-symbol-nav-mode)
 
