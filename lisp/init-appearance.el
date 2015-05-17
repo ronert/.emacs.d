@@ -70,10 +70,4 @@
 (when (fboundp 'global-prettify-symbols-mode)
   (global-prettify-symbols-mode))
 
-(use-package smart-mode-line
-  :ensure t
-  :config (progn
-            (sml/setup)
-                 ))
-
 (provide 'init-appearance)
