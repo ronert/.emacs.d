@@ -11,7 +11,6 @@
 ;; Silver searcher
 (use-package ag
   :ensure t
-  :pin melpa-stable
   :config (progn
             (setq ag-highlight-search t)
             (use-package wgrep-ag
