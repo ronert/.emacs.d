@@ -33,12 +33,4 @@
   :config
   (global-anzu-mode t))
 
-;; sqiper
-(use-package swiper
-  :ensure t
-  :pin melpa-stable
-  :bind (("C-s" . swiper)
-         ("C-r" . swiper)
-         ))
-
 (provide 'init-search)
