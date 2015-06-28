@@ -4,7 +4,6 @@
 (when (>= emacs-major-version 24)
   (use-package js2-mode
     :ensure t
-    :pin melpa-stable
     :mode "\\.js$"
     :config
     (progn
