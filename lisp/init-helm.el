@@ -26,7 +26,8 @@
                   helm-recentf-fuzzy-match              t
                   helm-semantic-fuzzy-match             t
                   helm-imenu-fuzzy-match                t
-                  helm-apropos-function-list            t)
+                  helm-apropos-function-list            t
+                  helm-exit-idle-delay                  0)
             (require 'helm-config)
             (helm-mode 1)
             (semantic-mode 1)
