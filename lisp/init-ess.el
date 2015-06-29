@@ -162,7 +162,7 @@
   (add-hook 'ess-mode-hook
             (lambda () (flycheck-mode t)))
 
-  (use-package lintr)
+  ;;(use-package lintr)
   )
 
 ;; format magrittr chains
