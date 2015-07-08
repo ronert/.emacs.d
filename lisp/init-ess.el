@@ -159,11 +159,11 @@
   (ess-toggle-underscore nil)
 
   ;; enable lintr
-  (add-hook 'ess-mode-hook
-            (lambda () (flycheck-mode t)))
+  ;; (add-hook 'ess-mode-hook
+  ;;           (lambda () (flycheck-mode t)))
 
-  ;;(use-package lintr)
-  )
+  ;; (use-package lintr)
+  ;; )
 
 ;; format magrittr chains
 (add-to-list 'ess-style-alist
