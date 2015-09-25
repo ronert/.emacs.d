@@ -147,4 +147,8 @@
 (setq cua-enable-cua-keys nil)
 (cua-mode)
 
+;; Macro bindings
+(global-set-key (kbd "<f11>") 'kmacro-start-macro)
+(global-set-key (kbd "<f12>") 'kmacro-end-or-call-macro)
+
 (provide 'init-bindings)
