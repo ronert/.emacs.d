@@ -22,8 +22,6 @@
 ;; dired - reuse current buffer by pressing 'a'
 (put 'dired-find-alternate-file 'disabled nil)
 
-(global-set-key (kbd "<f12>") 'wdired-change-to-wdired-mode)
-
 ;; find-name-dired
 (global-set-key (kbd "C-c s") 'find-name-dired)
 ;; Dired jump
