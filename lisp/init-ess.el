@@ -6,9 +6,6 @@
     (load "ess-site.el")
     (add-hook 'ess-mode-hook 'run-coding-hook)
     (add-hook 'ess-mode-hook 'turn-on-orgstruct)
-    )
-  :config
-  (progn
     (defun ess-mode-is-intrusive ()
       (local-unset-key (kbd "C-y"))
       (local-set-key (kbd "C-z") 'ess-yank)
@@ -71,127 +68,119 @@
               '(lambda()
                  (local-set-key [(shift return)] 'my-ess-eval)))
 
-    )
+    ;; turn off fancy comments in ess
+    (setq ess-fancy-comments nil)
 
-  ;; turn off fancy comments in ess
-  (setq ess-fancy-comments nil)
-
-  ;; shortcuts for setting break points and dplyr
-  (add-hook 'R-mode-hook
-            (lambda ()
-              (local-set-key (kbd "<f5>") 'ess-bp-set)
-              (local-set-key (kbd "<f6>") 'ess-bp-kill)
-              (local-set-key (kbd "C-?") " %>% ")
+    ;; shortcuts for setting break points and dplyr
+    (add-hook 'R-mode-hook
+              (lambda ()
+                (local-set-key (kbd "<f5>") 'ess-bp-set)
+                (local-set-key (kbd "<f6>") 'ess-bp-kill)
+                (local-set-key (kbd "C-?") " %>% ")
+                )
               )
-            )
 
-  ;; set up r-process with correct minor modes
-  (add-hook 'inferior-ess-mode-hook 'smartparens-mode +1)
-  (add-hook 'inferior-ess-mode-hook 'ess-mode-is-intrusive)
-  (add-hook 'ess-mode-hook 'ess-mode-is-intrusive)
+    ;; set up r-process with correct minor modes
+    (add-hook 'inferior-ess-mode-hook 'smartparens-mode +1)
+    (add-hook 'inferior-ess-mode-hook 'ess-mode-is-intrusive)
+    (add-hook 'ess-mode-hook 'ess-mode-is-intrusive)
 
-  ;; Prefer auto-fill to visual line wrap in ESS mode
-  (add-hook 'ess-mode-hook 'turn-on-auto-fill)
-  (add-hook 'ess-mode-hook 'highlight-indentation-mode)
-  (add-hook 'inferior-ess-mode-hook 'turn-on-auto-fill)
+    ;; Prefer auto-fill to visual line wrap in ESS mode
+    (add-hook 'ess-mode-hook 'turn-on-auto-fill)
+    (add-hook 'ess-mode-hook 'highlight-indentation-mode)
+    (add-hook 'inferior-ess-mode-hook 'turn-on-auto-fill)
 
-  ;; Dont save .Rhistory eveywhere
-  (setq ess-history-file nil)
-  ;; r-autoyas
-  (require-package 'r-autoyas)
+    ;; Dont save .Rhistory eveywhere
+    (setq ess-history-file nil)
+    ;; r-autoyas
+    (require-package 'r-autoyas)
 
-  ;; font lock in R
-  (defgroup ess-jb-faces nil
-    "Faces used by cutomized ess-mode"
-    :group 'faces)
+    ;; font lock in R
+    (defgroup ess-jb-faces nil
+      "Faces used by cutomized ess-mode"
+      :group 'faces)
 
-  (defface ess-jb-comment-face
-    '((t ( ;;:background "gray25"
-          :foreground "#93a1a1"
-                      :inherit font-lock-comment-face)))
-    "Face used to highlight comments."
-    :group 'ess-jb-faces)
+    (defface ess-jb-comment-face
+      '((t ( ;;:background "gray25"
+            :foreground "#93a1a1"
+                        :inherit font-lock-comment-face)))
+      "Face used to highlight comments."
+      :group 'ess-jb-faces)
 
-  (defface ess-jb-comment-bold-face
-    '((t (:weight bold
-                  :inherit ess-jb-comment-face)))
-    "Face used to highlight bold in comments."
-    :group 'ess-jb-faces)
+    (defface ess-jb-comment-bold-face
+      '((t (:weight bold
+                    :inherit ess-jb-comment-face)))
+      "Face used to highlight bold in comments."
+      :group 'ess-jb-faces)
 
-  (defface ess-jb-h1-face
-    '((t (:height 1.6
-                  :weight bold
-                  :foreground "#dc322f"
-                  :inherit ess-jb-comment-face)))
-    "Face used to highlight h1 headers."
-    :group 'ess-jb-faces)
+    (defface ess-jb-h1-face
+      '((t (:height 1.6
+                    :weight bold
+                    :foreground "#dc322f"
+                    :inherit ess-jb-comment-face)))
+      "Face used to highlight h1 headers."
+      :group 'ess-jb-faces)
 
-  (defface ess-jb-h2-face
-    '((t (:height 1.2
-                  :weight bold
-                  :foreground "#859900"
-                  :inherit ess-jb-comment-face)))
-    "Face used to highlight h2 headers."
-    :group 'ess-jb-faces)
+    (defface ess-jb-h2-face
+      '((t (:height 1.2
+                    :weight bold
+                    :foreground "#859900"
+                    :inherit ess-jb-comment-face)))
+      "Face used to highlight h2 headers."
+      :group 'ess-jb-faces)
 
-  (defface ess-jb-h3-face
-    '((t (:height 1.0
-                  :weight bold
-                  :foreground "#268bd2"
-                  :inherit ess-jb-comment-face)))
-    "Face used to highlight h3 headers."
-    :group 'ess-jb-faces)
+    (defface ess-jb-h3-face
+      '((t (:height 1.0
+                    :weight bold
+                    :foreground "#268bd2"
+                    :inherit ess-jb-comment-face)))
+      "Face used to highlight h3 headers."
+      :group 'ess-jb-faces)
 
-  (font-lock-add-keywords 'ess-mode
-                          '(("^###\\( \\*\\)\\([^*].*\\)$" (1 'ess-jb-hide-face t)(2 'ess-jb-h1-face t))
-                            ("^###\\( \\*\\*\\)\\([^*].*\\)$" (1 'ess-jb-hide-face t)(2 'ess-jb-h2-face t))
-                            ("^###\\( \\*\\*\\*\\)\\([^*].*\\)$" (1 'ess-jb-hide-face t)(2 'ess-jb-h3-face t))
-                            ;; ("^###\\( .*\\|$\\)" 1 'ess-jb-comment-face t)
-                            ("^###" "\\*.*?\\*" nil nil (0 'ess-jb-comment-bold-face append))
-                            ))
+    (font-lock-add-keywords 'ess-mode
+                            '(("^###\\( \\*\\)\\([^*].*\\)$" (1 'ess-jb-hide-face t)(2 'ess-jb-h1-face t))
+                              ("^###\\( \\*\\*\\)\\([^*].*\\)$" (1 'ess-jb-hide-face t)(2 'ess-jb-h2-face t))
+                              ("^###\\( \\*\\*\\*\\)\\([^*].*\\)$" (1 'ess-jb-hide-face t)(2 'ess-jb-h3-face t))
+                              ;; ("^###\\( .*\\|$\\)" 1 'ess-jb-comment-face t)
+                              ("^###" "\\*.*?\\*" nil nil (0 'ess-jb-comment-bold-face append))
+                              ))
 
-  ;; Add orgstruct headings
-  (setq orgstruct-heading-prefix-regexp "^### ")
+    ;; Add orgstruct headings
+    (setq orgstruct-heading-prefix-regexp "^### ")
 
-  (setq ess-S-assign-key (kbd "C-="))
-  (ess-toggle-S-assign-key t) ; enable above key definition
-  ;; leave my underscore key alone!
-  (ess-toggle-underscore nil)
+    (setq ess-S-assign-key (kbd "C-="))
+    (ess-toggle-S-assign-key t) ; enable above key definition
+    ;; leave my underscore key alone!
+    (ess-toggle-underscore nil)
 
-  ;; enable lintr
-  ;; (add-hook 'ess-mode-hook
-  ;;           (lambda () (flycheck-mode t)))
 
-  ;; (use-package lintr)
-  ;; )
+    ;; format magrittr chains
+    (add-to-list 'ess-style-alist
+                 '(my-style
+                   (ess-indent-level . 4)
+                   (ess-first-continued-statement-offset . 2)
+                   (ess-continued-statement-offset . 0)
+                   (ess-brace-offset . -4)
+                   (ess-expression-offset . 4)
+                   (ess-else-offset . 0)
+                   (ess-close-brace-offset . 0)
+                   (ess-brace-imaginary-offset . 0)
+                   (ess-continued-brace-offset . 0)
+                   (ess-arg-function-offset . 4)
+                   (ess-arg-function-offset-new-line . '(4))
+                   ))
+    (setq ess-default-style 'my-style)
 
-;; format magrittr chains
-(add-to-list 'ess-style-alist
-             '(my-style
-               (ess-indent-level . 4)
-               (ess-first-continued-statement-offset . 2)
-               (ess-continued-statement-offset . 0)
-               (ess-brace-offset . -4)
-               (ess-expression-offset . 4)
-               (ess-else-offset . 0)
-               (ess-close-brace-offset . 0)
-               (ess-brace-imaginary-offset . 0)
-               (ess-continued-brace-offset . 0)
-               (ess-arg-function-offset . 4)
-               (ess-arg-function-offset-new-line . '(4))
-               ))
-
-(setq ess-default-style 'my-style)
-
-(setq gcr/ess-style
-      (copy-alist
-       (assoc 'RRR ess-style-alist)))
-(setf (nth 0 gcr/ess-style) 'GCR)
-(setf (cdr
-       (assoc 'ess-continued-statement-offset
-              (cdr gcr/ess-style)))
-      0)
-(add-to-list 'ess-style-alist gcr/ess-style)
-(setq ess-default-style 'GCR)
+    (setq gcr/ess-style
+          (copy-alist
+           (assoc 'RRR ess-style-alist)))
+    (setf (nth 0 gcr/ess-style) 'GCR)
+    (setf (cdr
+           (assoc 'ess-continued-statement-offset
+                  (cdr gcr/ess-style)))
+          0)
+    (add-to-list 'ess-style-alist gcr/ess-style)
+    (setq ess-default-style 'GCR))
+  )
 
 (provide 'init-ess)
