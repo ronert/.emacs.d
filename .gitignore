@@ -67,3 +67,5 @@ src/org-mode/*
 lisp/flycheck_init-misc.el
 semanticdb
 recentf
+.RData
+.Rhistory
