@@ -170,17 +170,7 @@
                    (ess-arg-function-offset-new-line . '(4))
                    ))
     (setq ess-default-style 'my-style)
-
-    (setq gcr/ess-style
-          (copy-alist
-           (assoc 'RRR ess-style-alist)))
-    (setf (nth 0 gcr/ess-style) 'GCR)
-    (setf (cdr
-           (assoc 'ess-continued-statement-offset
-                  (cdr gcr/ess-style)))
-          0)
-    (add-to-list 'ess-style-alist gcr/ess-style)
-    (setq ess-default-style 'GCR))
+    )
   )
 
 (provide 'init-ess)
