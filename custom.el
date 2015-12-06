@@ -71,7 +71,7 @@
  '(flymake-no-changes-timeout 120)
  '(foreground-color "#52676f")
  '(free-keys-modifiers (quote ("C" "M" "C-M")))
- '(haskell-mode-hook (quote (turn-on-haskell-indentation)))
+ '(haskell-mode-hook (quote (turn-on-haskell-indentation)) t)
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
@@ -113,10 +113,11 @@
  '(org-export-with-todo-keywords nil)
  '(org-modules (quote (org-bbdb org-bibtex org-docview org-info)))
  '(paradox-github-token t)
- '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex")
+ '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex" t)
  '(projectile-cache-file "/Users/ronert/.projectile.cache")
  '(projectile-known-projects-file "/Users/ronert/projectile-bookmarks.eld")
  '(projectile-remember-window-configs t)
+ '(python-indent-guess-indent-offset t)
  '(r-autoyas-auto-expand-with-paren t)
  '(reftex-cite-format
    (quote
