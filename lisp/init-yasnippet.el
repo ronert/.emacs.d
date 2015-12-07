@@ -2,7 +2,6 @@
              :ensure t
              :pin melpa-stable
              :mode ("\\.yasnippet$" . snippet-mode)
-             :bind ("C--" . yas-expand)
              :config
              (progn
                (setq yas-snippet-dirs
@@ -40,7 +39,9 @@
                ;; Unbind yas from tab
                (define-key yas-minor-mode-map [(tab)] nil)
                (define-key yas-minor-mode-map (kbd "TAB") nil)
+               (define-key yas-minor-mode-map (kbd "C--") #'yas-expand)
                (yas-global-mode 1)
                ))
+
 
 (provide 'init-yasnippet)
