@@ -2,57 +2,56 @@
   :ensure t
   :pin melpa-stable)
 
-(when (>= emacs-major-version 24)
-  (use-package js2-mode
-    :ensure t
-    :mode "\\.js$"
-    :config
-    (progn
-      (defcustom preferred-javascript-mode
-        (first (remove-if-not #'fboundp '(js2-mode js-mode)))
-        "Javascript mode to use for .js files."
-        :type 'symbol
-        :group 'programming
-        :options '(js2-mode js-mode))
-      (defconst preferred-javascript-indent-level 2)
-      ;; Need to first remove from list if present, since elpa adds entries too, which
-      ;; may be in an arbitrary order
-      (eval-when-compile (require 'cl))
-      (setq auto-mode-alist (cons `("\\.js\\(\\.erb\\)?\\'" . ,preferred-javascript-mode)
-                                  (loop for entry in auto-mode-alist
-                                        unless (eq preferred-javascript-mode (cdr entry))
-                                        collect entry)))
-      ;; js2-mode
-      (setq-default js2-basic-offset 2
-                    js2-bounce-indent-p nil)
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js$"
+  :config
+  (progn
+    (defcustom preferred-javascript-mode
+      (first (remove-if-not #'fboundp '(js2-mode js-mode)))
+      "Javascript mode to use for .js files."
+      :type 'symbol
+      :group 'programming
+      :options '(js2-mode js-mode))
+    (defconst preferred-javascript-indent-level 2)
+    ;; Need to first remove from list if present, since elpa adds entries too, which
+    ;; may be in an arbitrary order
+    (eval-when-compile (require 'cl))
+    (setq auto-mode-alist (cons `("\\.js\\(\\.erb\\)?\\'" . ,preferred-javascript-mode)
+                                (loop for entry in auto-mode-alist
+                                      unless (eq preferred-javascript-mode (cdr entry))
+                                      collect entry)))
+    ;; js2-mode
+    (setq-default js2-basic-offset 2
+                  js2-bounce-indent-p nil)
+    (after-load 'js2-mode
+      ;; Disable js2 mode's syntax error highlighting by default...
+      (setq-default js2-mode-show-parse-errors nil
+                    js2-mode-show-strict-warnings nil)
+      ;; ... but enable it if flycheck can't handle javascript
+      (autoload 'flycheck-get-checker-for-buffer "flycheck")
+      (defun sanityinc/disable-js2-checks-if-flycheck-active ()
+        (unless (flycheck-get-checker-for-buffer)
+          (set (make-local-variable 'js2-mode-show-parse-errors) t)
+          (set (make-local-variable 'js2-mode-show-strict-warnings) t)))
+      (add-hook 'js2-mode-hook 'sanityinc/disable-js2-checks-if-flycheck-active)
+
+      (add-hook 'js2-mode-hook (lambda () (setq mode-name "JS2")))
+
       (after-load 'js2-mode
-        ;; Disable js2 mode's syntax error highlighting by default...
-        (setq-default js2-mode-show-parse-errors nil
-                      js2-mode-show-strict-warnings nil)
-        ;; ... but enable it if flycheck can't handle javascript
-        (autoload 'flycheck-get-checker-for-buffer "flycheck")
-        (defun sanityinc/disable-js2-checks-if-flycheck-active ()
-          (unless (flycheck-get-checker-for-buffer)
-            (set (make-local-variable 'js2-mode-show-parse-errors) t)
-            (set (make-local-variable 'js2-mode-show-strict-warnings) t)))
-        (add-hook 'js2-mode-hook 'sanityinc/disable-js2-checks-if-flycheck-active)
+        (js2-imenu-extras-setup)))
 
-        (add-hook 'js2-mode-hook (lambda () (setq mode-name "JS2")))
+    (add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))
 
-        (after-load 'js2-mode
-          (js2-imenu-extras-setup)))
-
-      (add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))
-
-      ;; Tern.JS
-      (add-to-list 'load-path (expand-file-name "tern/emacs" site-lisp-dir))
-      (autoload 'tern-mode "tern.el" nil t)
-      )
+    ;; Tern.JS
+    (add-to-list 'load-path (expand-file-name "tern/emacs" site-lisp-dir))
+    (autoload 'tern-mode "tern.el" nil t)
     )
-  ;; (use-package ac-js2) using company
-  (use-package coffee-mode
-    :ensure t
-    :pin melpa-stable))
+  )
+
+(use-package coffee-mode
+  :ensure t
+  :pin melpa-stable)
 
 (use-package js-comint
   :ensure t)
