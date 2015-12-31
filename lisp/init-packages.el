@@ -64,7 +64,9 @@
   (
    ;;When you want to add multiple cursors not based on continuous lines, but based on keywords in the buffer, use:
    ("C-ö" . mc/mark-next-like-this)
+   ("C-Ö" . mc/umark-next-like-this)
    ("C-ü" . mc/mark-previous-like-this)
+   ("C-Ü" . mc/umark-previous-like-this)
    ("C-ä" . mc/mark-all-like-this)
    ("C-c C-a" . mc/edit-beginnings-of-lines)
    ("C-c C-e" . mc/edit-ends-of-lines)
