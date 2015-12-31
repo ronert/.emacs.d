@@ -49,7 +49,9 @@
             (use-package helm-c-yasnippet
               :ensure t
               :config
-              (setq helm-yas-space-match-any-greedy t)
+              (progn
+                (setq helm-yas-space-match-any-greedy t)
+                (yas-load-directory "/Users/ronert/Dropbox/dotfiles/.emacs.d/snippets"))
               :bind ("C-c y" . helm-yas-complete))
             )
   )
