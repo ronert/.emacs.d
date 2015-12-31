@@ -1,7 +1,10 @@
 (add-hook 'sql-mode-hook 'sql-highlight-postgres-keywords)
 
 (use-package sql-indent
-  :ensure t)
+  :ensure t
+  :config
+  (eval-after-load "sql"
+    '(load-library "sql-indent")))
 
 (defun sanityinc/pop-to-sqli-buffer ()
   "Switch to the corresponding sqli buffer."
@@ -66,6 +69,12 @@
   (unless (eq 'oracle sql-product)
     (sql-product-font-lock nil nil)))
 (add-hook 'sql-interactive-mode-hook 'sanityinc/font-lock-everything-in-sql-interactive-mode)
+
+(use-package sqlup-mode
+  :ensure t)
+
+(add-hook 'sql-mode-hook 'sqlup-mode)
+(add-hook 'sql-interactive-mode-hook 'sqlup-mode)
 
 (provide 'init-sql)
 ;;; init-sql ends here
