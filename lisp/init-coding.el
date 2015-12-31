@@ -9,7 +9,9 @@
   :config
   (defadvice highlight-symbol-temp-highlight (around sanityinc/maybe-suppress activate)
     "Suppress symbol highlighting while isearching."
-    (unless isearch-mode ad-do-it)))
+    (unless (or isearch-mode
+                (and (boundp 'multiple-cursors-mode) multiple-cursors-mode))
+      ad-do-it)))
 
 (defun coding-settings ()
   (font-lock-comment-annotations)
