@@ -6,7 +6,7 @@
 
 ;; Set path to dependencies
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'load-path "~/.emacs.d/src/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
 ;; Is a mac?
 (defconst *is-a-mac* (eq system-type 'darwin))
