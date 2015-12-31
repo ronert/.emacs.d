@@ -3,24 +3,24 @@
 (use-package desktop
   :ensure t
   :config (progn
-          (desktop-save-mode 1)
-          (defun my-desktop-save ()
-            (interactive)
-            ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
-            (if (eq (desktop-owner) (emacs-pid))
-                (desktop-save desktop-dirname)))
-          (add-hook 'auto-save-hook 'my-desktop-save)
+            (desktop-save-mode 1)
+            (defun my-desktop-save ()
+              (interactive)
+              ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
+              (if (eq (desktop-owner) (emacs-pid))
+                  (desktop-save desktop-dirname)))
+            (add-hook 'auto-save-hook 'my-desktop-save)
 
-          (run-at-time 3600 3600 'my-desktop-save)
+            (run-at-time 3600 3600 'my-desktop-save)
 
-          (setq desktop-path '("~/"))
-          (setq desktop-save 'if-exists)
-          (desktop-save-mode 1)
-          (defadvice desktop-read (around trace-desktop-errors)
-            (let ((debug-on-error t))
-              ad-do-it))
-          (desktop-save-mode 1)
-          )
+            (setq desktop-path '("~/"))
+            (setq desktop-save 'if-exists)
+            (desktop-save-mode 1)
+            (defadvice desktop-read (around trace-desktop-errors)
+              (let ((debug-on-error t))
+                ad-do-it))
+            (desktop-save-mode 1)
+            )
   )
 
 
@@ -67,15 +67,25 @@
   )
 
 ;; Workgroups
-(use-package workgroups
+(use-package workgroups2
   :ensure t
   :config (progn
-          (global-unset-key (kbd "C-y"))
-          (setq wg-prefix-key (kbd "C-y"))
-          (workgroups-mode 1)
-          (wg-load "~/workgroups")
-          (run-at-time 3600 3600 'wg-update-all-workgroups-and-save)
-          )
+            (global-unset-key (kbd "C-y"))
+            (setq wg-prefix-key (kbd "C-y"))
+            (setq wg-session-file "~/.emacs.d/.emacs_workgroups")
+            (workgroups-mode 1)
+            ;; What to do on Emacs exit / workgroups-mode exit?
+            (setq wg-emacs-exit-save-behavior           'save)      ; Options: 'save 'ask nil
+            (setq wg-workgroups-mode-exit-save-behavior 'save)      ; Options: 'save 'ask nil
+
+            ;; Mode Line changes
+            ;; Display workgroups in Mode Line?
+            (setq wg-mode-line-display-on t)          ; Default: (not (featurep 'powerline))
+            (setq wg-flag-modified t)                 ; Display modified flags as well
+            (setq wg-mode-line-decor-left-brace "["
+                  wg-mode-line-decor-right-brace "]"  ; how to surround it
+                  wg-mode-line-decor-divider ":")
+            )
   )
 
 (provide 'init-sessions)

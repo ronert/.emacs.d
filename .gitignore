@@ -72,3 +72,4 @@ recentf
 anaconda-mode
 site-lisp/node_modules
 company-statistics-cache.el
+.emacs_workgroups
