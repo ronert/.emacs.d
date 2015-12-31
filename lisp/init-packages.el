@@ -96,6 +96,9 @@
 (use-package expand-region
   :bind ("C-#" . er/expand-region))
 
+(use-package general-close
+  :ensure t)
+
 (use-package key-chord
   :ensure t
   :config
@@ -105,6 +108,7 @@
 
     (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode)
     (key-chord-mode 1)
+    (key-chord-define-global "cc" 'general-close)
     (key-chord-define-global "xc" "[")
     (key-chord-define-global "bn" "]")
     (key-chord-define-global "yx" "{")
