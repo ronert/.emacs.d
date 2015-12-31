@@ -6,6 +6,7 @@
               "zoom"
               ("+" text-scale-increase "in")
               ("-" text-scale-decrease "out"))
+            (global-set-key (kbd "<f2>") 'hydra-zoom/body)
 
             ;; hydra git-gutter
             (defhydra hydra-git-gutter (:body-pre (git-gutter-mode 1)
