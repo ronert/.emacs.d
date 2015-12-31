@@ -13,6 +13,7 @@
                 (add-to-list 'company-backend 'company-math-symbols-latex)
                 (add-to-list 'company-backend 'company-latex-commands)))
 
+
             ;; haskell completion
             (use-package company-ghc
               :ensure t
@@ -29,17 +30,33 @@
               :ensure t
               :config (add-to-list 'company-backends 'company-ess-backend))
 
-            (setq company-etags-everywhere '(php-mode html-mode web-mode nxml-mode))
+            ;; web completion
+            (use-package company-web
+              :ensure t
+              :config
+              (progn
+                (add-to-list 'company-backends 'company-web-html)
+                (add-to-list 'company-backends 'company-web-jade)
+                (add-to-list 'company-backends 'company-web-slim)
+                )
+              )
 
-            ;; company-quickhelp
-            ;; (use-package company-quickhelp
-            ;;   :ensure t
-            ;;   :config (company-quickhelp-mode 1))
+            ;; sort complections by usage statistics
+            (use-package company-statistics
+              :ensure t
+              :config (company-statistics-mode))
 
-            (add-hook 'after-init-hook 'global-company-mode)
+              (setq company-etags-everywhere '(php-mode html-mode web-mode nxml-mode))
+
+              ;; company-quickhelp
+              ;; (use-package company-quickhelp
+              ;;   :ensure t
+              ;;   :config (company-quickhelp-mode 1))
+
+              (add-hook 'after-init-hook 'global-company-mode)
+              )
+            ;; Set a global completion hotkey
+            :bind ("C-." . company-complete)
             )
-  ;; Set a global completion hotkey
-  :bind ("C-." . company-complete)
-  )
 
-(provide 'init-company)
+  (provide 'init-company)
