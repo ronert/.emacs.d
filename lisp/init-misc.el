@@ -212,4 +212,13 @@ indent yanked text (with prefix arg don't indent)."
      (add-to-list 'grep-find-ignored-directories "elpa")))
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
 
+;; Faster pop-to-mark-command
+;; When popping the mark, continue popping until the cursor
+;; actually moves
+(defadvice pop-to-mark-command (around ensure-new-position activate)
+  (let ((p (point)))
+    (dotimes (i 10)
+      (when (= p (point)) ad-do-it))))
+(setq set-mark-command-repeat-pop t)
+
 (provide 'init-misc)
