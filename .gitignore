@@ -70,3 +70,4 @@ recentf
 .RData
 .Rhistory
 anaconda-mode
+site-lisp/node_modules
