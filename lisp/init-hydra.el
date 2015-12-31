@@ -73,6 +73,26 @@ _h_   _l_   _o_k        _y_ank
               ("o" nil nil))
             (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
 
+            ;; latex-math-preview
+            (defhydra hydra-latex-math-preview (:color blue :hint nil)
+              "
+              ^math-preview^
+  ^_p_^     _p_review expression
+  ^_i_^     _i_nsert symbol
+  ^_s_^     _s_save image
+
+"
+              ("p" latex-math-preview-expression)
+              ("i" latex-math-preview-insert-symbol)
+              ("s" latex-math-preview-save-image-file)
+              )
+
+            (add-hook 'LaTeX-mode-hook
+                      (lambda ()
+                        (local-set-key (kbd "C-?") 'hydra-latex-math-preview/body)
+                        )
+                      )
+
             ;; YASnippet
             (defhydra hydra-yasnippet (:color blue :hint nil)
               "
@@ -97,5 +117,7 @@ _h_   _l_   _o_k        _y_ank
               ("a" yas-reload-all))
             (global-set-key (kbd "C-c C-y") 'hydra-yasnippet/body)
             ))
+
+
 
 (provide 'init-hydra)

@@ -219,6 +219,10 @@ If there is still something left do do start the next latex-command."
 
 (use-package latex-wrap)
 
+(use-package latex-math-preview
+  :ensure t
+  )
+
 
 (provide 'init-latex)
 ;;; latex.el ends here
