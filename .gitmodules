@@ -1,3 +1,6 @@
 [submodule "snippets/shnippet"]
 	path = snippets/shnippet
 	url = git@github.com:LukeHoersten/shnippet.git
+[submodule "site-lisp/tern"]
+	path = site-lisp/tern
+	url = git@github.com:ternjs/tern.git
