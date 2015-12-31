@@ -76,5 +76,8 @@
 (add-hook 'sql-mode-hook 'sqlup-mode)
 (add-hook 'sql-interactive-mode-hook 'sqlup-mode)
 
+(use-package format-sql
+  :ensure t)
+
 (provide 'init-sql)
 ;;; init-sql ends here
