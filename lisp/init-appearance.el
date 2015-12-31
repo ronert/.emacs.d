@@ -62,6 +62,16 @@
                ))
 
 
+;;change theme according to time of day
+(use-package beacon
+  :ensure t
+  :config (progn
+            (beacon-mode 1)
+            (setq beacon-push-mark 35)
+            (setq beacon-color "#666600")
+            )
+
+
 ;; Make mouse wheel / trackpad scrolling less jerky
 (setq mouse-wheel-scroll-amount '(1
                                   ((shift) . 5)
