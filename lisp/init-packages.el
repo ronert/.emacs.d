@@ -213,6 +213,11 @@
   :bind ("C-c f" . fasd-find-file)
   )
 
+;; Make a scratch buffer for any major mode
+(use-package scratch
+  :ensure t
+  :config)
+
 (use-package thingatpt
   :ensure t)
 (use-package imenu
