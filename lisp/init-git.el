@@ -28,6 +28,9 @@
     (global-set-key [f17] 'magit-init)
     (global-set-key (kbd "C-x g") 'magit-status)
     (define-key global-map "\M-\C-g" 'magit-status)
+
+    (add-to-list 'magit-no-confirm 'stage-all-changes)
+    (setq magit-push-always-verify nil)
     )
   )
 
