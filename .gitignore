@@ -71,3 +71,4 @@ recentf
 .Rhistory
 anaconda-mode
 site-lisp/node_modules
+company-statistics-cache.el
