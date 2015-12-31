@@ -214,6 +214,8 @@ If there is still something left do do start the next latex-command."
             (local-set-key (kbd "C-c C-o") 'TeX-view)
             (local-unset-key (kbd "C-c C-c"))
             (local-set-key (kbd "C-c C-c") 'run-latexmk)
+            (local-unset-key (kbd "RET"))
+            (local-set-key (kbd "RET") 'sanityinc/newline-at-end-of-line)
             )
           )
 
