@@ -170,6 +170,11 @@
                    (ess-arg-function-offset-new-line . '(4))
                    ))
     (setq ess-default-style 'my-style)
+
+    ;; Enable lintr through flycheck
+    (add-hook 'after-init-hook #'global-flycheck-mode)
+    (add-hook 'ess-mode-hook
+              (lambda () (flycheck-mode t)))
     )
   )
 
