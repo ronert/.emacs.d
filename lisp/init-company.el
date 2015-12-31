@@ -29,6 +29,8 @@
               :ensure t
               :config (add-to-list 'company-backends 'company-ess-backend))
 
+            (setq company-etags-everywhere '(php-mode html-mode web-mode nxml-mode))
+
             ;; company-quickhelp
             ;; (use-package company-quickhelp
             ;;   :ensure t
