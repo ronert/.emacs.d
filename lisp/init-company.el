@@ -41,6 +41,10 @@
                 )
               )
 
+            (use-package company-tern
+              :ensure t
+              :config (add-to-list 'company-backends 'company-tern))
+
             ;; sort complections by usage statistics
             (use-package company-statistics
               :ensure t
