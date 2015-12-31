@@ -2,9 +2,6 @@
   :config
   (progn
     (add-hook 'python-mode-hook 'run-coding-hook)
-    (use-package anaconda-mode
-      :ensure t
-      :config (add-hook 'python-mode-hook 'anaconda-mode))
     (add-hook 'python-mode-hook 'my-python-customizations)
     (defun my-python-customizations ()
       "set up my personal customizations for python mode"

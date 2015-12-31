@@ -19,11 +19,6 @@
               :pin melpa-stable
               :config (add-to-list 'company-backends 'company-ghc))
 
-            ;; python completion
-            (use-package company-anaconda
-              :ensure t
-              :config (add-to-list 'company-backends 'company-anaconda))
-
             ;; sql completion
             (use-package company-edbi
               :ensure t
