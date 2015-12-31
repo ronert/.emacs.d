@@ -55,7 +55,7 @@
   :ensure t
   :pin melpa-stable
   :config (progn  (global-unset-key (kbd "C-+"))
-                (global-set-key (kbd "C-+") 'goto-last-change)))
+                  (global-set-key (kbd "C-+") 'goto-last-change)))
 
 (use-package multiple-cursors
   :ensure t
@@ -100,6 +100,10 @@
   :ensure t
   :config
   (progn
+    (defun disable-key-chord-mode ()
+      (set (make-local-variable 'input-method-function) nil))
+
+    (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode)
     (key-chord-mode 1)
     (key-chord-define-global "xc" "[")
     (key-chord-define-global "bn" "]")
@@ -186,7 +190,9 @@
     (helm-projectile-on)
     (defun projectile-helm-ag ()
       (interactive)
-      (helm-ag (projectile-project-root)))))
+      (helm-ag (projectile-project-root)))
+    (setq projectile-completion-system 'helm)
+    ))
 
 
 ;; saner regex syntax
