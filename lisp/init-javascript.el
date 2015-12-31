@@ -1,6 +1,7 @@
 (use-package json-mode
   :ensure t
   :pin melpa-stable)
+
 (when (>= emacs-major-version 24)
   (use-package js2-mode
     :ensure t
@@ -21,9 +22,6 @@
                                   (loop for entry in auto-mode-alist
                                         unless (eq preferred-javascript-mode (cdr entry))
                                         collect entry)))
-      )
-    :config
-    (progn
       ;; js2-mode
       (setq-default js2-basic-offset 2
                     js2-bounce-indent-p nil)
@@ -44,11 +42,18 @@
         (after-load 'js2-mode
           (js2-imenu-extras-setup)))
 
-      (add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))))
+      (add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))
+
+      ;; Tern.JS
+      (add-to-list 'load-path (expand-file-name "tern/emacs" site-lisp-dir))
+      (autoload 'tern-mode "tern.el" nil t)
+      )
+    )
   ;; (use-package ac-js2) using company
   (use-package coffee-mode
     :ensure t
     :pin melpa-stable))
+
 (use-package js-comint
   :ensure t)
 
