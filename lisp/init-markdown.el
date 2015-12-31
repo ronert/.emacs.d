@@ -12,9 +12,6 @@
 
     ))
 
-(use-package livedown
-  :load-path "~/.emacs.d/site-lisp/emacs-livedown")
-
 ;; This function will open Marked.app and monitor the current markdown document
 ;; for anything changes.  In other words, it will live reload and convert the
 ;; markdown documment
