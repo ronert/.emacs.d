@@ -5,8 +5,8 @@
       ("org"         . "http://orgmode.org/elpa/")
       ("gnu"          . "http://elpa.gnu.org/packages/")
       ("elpy"         . "http://jorgenschaefer.github.io/packages/")
-      ("melpa"        . "http://melpa.org/packages/")
-      ("melpa-stable" . "http://stable.melpa.org/packages/")
+      ("melpa"        . "https://melpa.org/packages/")
+      ("melpa-stable" . "https://stable.melpa.org/packages/")
       ))
 
 ;;; On-demand installation of packages
