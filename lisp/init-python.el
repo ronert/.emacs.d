@@ -53,4 +53,7 @@
   :ensure t
   :config)
 
+(use-package pytest
+  :ensure t)
+
 (provide 'init-python)

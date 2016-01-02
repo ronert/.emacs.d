@@ -119,6 +119,14 @@ _h_   _l_   _o_k        _y_ank
             (global-set-key (kbd "C-c C-y") 'hydra-yasnippet/body)
             ))
 
+;; pytest
+(define-key python-mode-map (kbd "C-c C--")
+  (defhydra hydra-pytest (:color blue)
+    "pytest"
+    ("a" pytest-all "all")
+    ("m" pytest-module "module")
+    ("o" pytest-one "one")
+    ("d" pytest-directory "directory")))
 
 
 (provide 'init-hydra)
