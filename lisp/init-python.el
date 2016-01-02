@@ -49,4 +49,8 @@
 (use-package pyimpsort
   :ensure t)
 
+(use-package live-py-mode
+  :ensure t
+  :config)
+
 (provide 'init-python)
