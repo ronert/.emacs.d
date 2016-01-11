@@ -120,7 +120,7 @@
     (key-chord-define-global "ü+" "\\")
     ;;(key-chord-define-global "aa" 'jump-char-backward)
     (key-chord-define-global ",," 'hippie-expand)
-    (key-chord-define-global ",." 'auto-complete)
+    (key-chord-define-global ",." 'company-complete)
     ;; avy
     (key-chord-define-global "hh" 'avy-goto-char)
     (key-chord-define-global "jj" 'avy-goto-line)
