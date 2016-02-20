@@ -2,23 +2,23 @@
 (use-package solarized-theme
   :ensure t)
 
-;; Set default font. First one found is selected.
+;;Set default font. First one found is selected.
 (defun font-existsp (font)
   "Check to see if the named FONT is available."
   (if (null (x-list-fonts font))
       nil t))
 
-;; (cond
-;;  ((eq window-system nil) nil)
-;;  ((font-existsp "Menlo")
-;;   (set-face-attribute 'default nil :height 141 :font "Menlo"))
-;;  ((font-existsp "Source Code Pro")
-;;   (set-face-attribute 'default nil :height 141 :font "Source Code Pro"))
-;;  ((font-existsp "Consolas")
-;;   (set-face-attribute 'default nil :height 141 :font "Consolas"))
-;;  ((font-existsp "Inconsolata")
-;;   (set-face-attribute 'default nil :height 141 :font "Inconsolata"))
-;;  )
+(cond
+ ((eq window-system nil) nil)
+ ((font-existsp "Menlo")
+  (set-face-attribute 'default nil :height 141 :font "Menlo"))
+ ((font-existsp "Source Code Pro")
+  (set-face-attribute 'default nil :height 141 :font "Source Code Pro"))
+ ((font-existsp "Consolas")
+  (set-face-attribute 'default nil :height 141 :font "Consolas"))
+ ((font-existsp "Inconsolata")
+  (set-face-attribute 'default nil :height 141 :font "Inconsolata"))
+ )
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
@@ -61,14 +61,13 @@
                ))
 
 
-;;change theme according to time of day
 (use-package beacon
   :ensure t
   :config (progn
             (beacon-mode 1)
             (setq beacon-push-mark 35)
-            (setq beacon-color "#666600")
-            )
+            (setq beacon-color "#666600")))
+
 
 
 ;; Make mouse wheel / trackpad scrolling less jerky
