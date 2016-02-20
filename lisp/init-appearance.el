@@ -1,7 +1,6 @@
 ;; solarized
 (use-package solarized-theme
-  :ensure t
-  :pin melpa-stable)
+  :ensure t)
 
 ;; Set default font. First one found is selected.
 (defun font-existsp (font)
@@ -9,17 +8,17 @@
   (if (null (x-list-fonts font))
       nil t))
 
-(cond
- ((eq window-system nil) nil)
- ((font-existsp "Menlo")
-  (set-face-attribute 'default nil :height 141 :font "PragmataPro"))
- ((font-existsp "Source Code Pro")
-  (set-face-attribute 'default nil :height 141 :font "Menlo"))
- ((font-existsp "Consolas")
-  (set-face-attribute 'default nil :height 141 :font "Consolas"))
- ((font-existsp "Inconsolata")
-  (set-face-attribute 'default nil :height 141 :font "Inconsolata"))
- )
+;; (cond
+;;  ((eq window-system nil) nil)
+;;  ((font-existsp "Menlo")
+;;   (set-face-attribute 'default nil :height 141 :font "Menlo"))
+;;  ((font-existsp "Source Code Pro")
+;;   (set-face-attribute 'default nil :height 141 :font "Source Code Pro"))
+;;  ((font-existsp "Consolas")
+;;   (set-face-attribute 'default nil :height 141 :font "Consolas"))
+;;  ((font-existsp "Inconsolata")
+;;   (set-face-attribute 'default nil :height 141 :font "Inconsolata"))
+;;  )
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
@@ -79,5 +78,9 @@
 
 (when (fboundp 'global-prettify-symbols-mode)
   (global-prettify-symbols-mode))
+
+;; Disable visual bell
+(setq visible-bell nil) ;; The default
+(setq ring-bell-function 'ignore)
 
 (provide 'init-appearance)
