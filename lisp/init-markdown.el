@@ -19,10 +19,12 @@
        (format "open -a /Applications/Marked\\ 2.app %s"
                (shell-quote-argument (buffer-file-name))))
       )
-    (global-set-key (kbd "C-c C-o") 'markdown-preview-file)
+    (add-hook 'markdown-mode-hook
+              (lambda ()
+                (local-set-key (kbd "C-c C-o") 'markdown-preview-file)))
+
     ))
 
 
 ;;; markdown.el ends here
-
 (provide 'init-markdown)
