@@ -121,8 +121,7 @@ indent yanked text (with prefix arg don't indent)."
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(setq visible-bell t
-      echo-keystrokes 0.1
+(setq echo-keystrokes 0.1
       font-lock-maximum-decoration t
       font-lock-verbose nil
       inhibit-startup-message t
