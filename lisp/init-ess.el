@@ -43,15 +43,19 @@
 
     (defun my-ess-start-R ()
       (interactive)
-      (if (not (member "*R*" (mapcar (function buffer-name) (buffer-list))))
+      (or (assq 'inferior-ess-mode
+                (mapcar
+                 (lambda (buff) (list (buffer-local-value 'major-mode buff)))
+                 (buffer-list)))
           (progn
             (delete-other-windows)
             (setq w1 (selected-window))
             (setq w1name (buffer-name))
-            (setq w2 (split-window w1))
+            (setq w2 (split-window w1 nil t))
             (R)
             (set-window-buffer w2 "*R*")
             (set-window-buffer w1 w1name))))
+
 
     (defun my-ess-eval ()
       (interactive)
