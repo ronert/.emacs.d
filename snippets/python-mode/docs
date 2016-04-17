@@ -1,0 +1,16 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Python Google Docstring
+# key: docs
+# --
+"""
+$1
+
+Args:
+        $2
+
+Returns:
+        $3
+
+Raises:
+        $4
+"""
