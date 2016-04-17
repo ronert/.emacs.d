@@ -25,11 +25,6 @@
               :ensure t
               :config (add-to-list 'company-backends 'company-edbi))
 
-            ;; r completion
-            (use-package company-ess
-              :ensure t
-              :config (add-to-list 'company-backends 'company-ess-backend))
-
             ;; web completion
             (use-package company-web
               :ensure t
