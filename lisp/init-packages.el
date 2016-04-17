@@ -186,6 +186,8 @@
   :ensure t)
 
 ;; Projectile
+(use-package helm-projectile
+  :ensure t)
 (use-package projectile
   :ensure t
   :pin melpa-stable
