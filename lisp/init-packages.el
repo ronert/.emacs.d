@@ -110,7 +110,7 @@
 
     (add-hook 'minibuffer-setup-hook #'disable-key-chord-mode)
     (key-chord-mode 1)
-    (key-chord-define-global "cc" 'general-close)
+    ;; (key-chord-define-global "cc" 'general-close)
     (key-chord-define-global "xc" "[")
     (key-chord-define-global "bn" "]")
     (key-chord-define-global "yx" "{")
