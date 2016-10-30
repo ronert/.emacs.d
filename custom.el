@@ -112,8 +112,11 @@
  '(org-export-run-in-background nil)
  '(org-export-with-todo-keywords nil)
  '(org-modules (quote (org-bbdb org-bibtex org-docview org-info)))
+ '(package-selected-packages
+   (quote
+    (use-package yaml-mode writegood-mode workgroups2 window-jump whole-line-or-region wgrep-ag visual-regexp-steroids vagrant use-package-chords theme-changer tagedit swiper stripe-buffer stan-snippets ssh sqlup-mode sql-indent solarized-theme smooth-scrolling smex smartparens smart-forward skewer-less session scss-mode scratch scala-mode2 sass-mode rainbow-mode rainbow-delimiters r-autoyas pytest pyimpsort puppet-mode project-explorer pretty-mode pip-requirements pig-snippets pig-mode phi-search paredit paradox multiple-cursors mmm-mode markdown-mode magit lively live-py-mode less-css-mode latex-pretty-symbols latex-math-preview latex-extra json-mode js-comint ido-vertical-mode ido-ubiquitous ido-sort-mtime idle-highlight-mode ibuffer-vc hungry-delete hl-sexp hive highlight-symbol hi2 helm-themes helm-projectile helm-hayoo helm-descbinds helm-c-yasnippet helm-ag helm-ack helm-R hayoo guide-key goto-last-change google-this git-timemachine git-messenger git-gutter gist ghci-completion general-close fullframe free-keys format-sql flycheck-tip flycheck-hdevtools flycheck-haskell fasd exec-path-from-shell ensime elisp-slime-nav eldoc-eval ein dockerfile-mode discover-my-major dired+ diff-hl dash-at-point csv-nav csv-mode css-eldoc crontab-mode company-web company-tern company-statistics company-restclient company-math company-ghc company-edbi company-auctex coffee-mode cdlatex bug-hunter beacon anzu alert ag ace-link)))
  '(paradox-github-token t)
- '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex" t)
+ '(preview-TeX-style-dir "/Users/ronert/.emacs.d/elpa/auctex-11.87.2/latex")
  '(projectile-cache-file "/Users/ronert/.projectile.cache")
  '(projectile-known-projects-file "/Users/ronert/projectile-bookmarks.eld")
  '(projectile-remember-window-configs t)
@@ -129,10 +132,10 @@
      (102 . "\\footcite[][]{%l}")
      (70 . "\\fullcite[]{%l}")
      (120 . "[]{%l}")
-     (88 . "{%l}"))))
+     (88 . "{%l}"))) t)
  '(reftex-default-bibliography
    (quote
-    ("/Users/ronert/Dropbox/bib/library.bib" "/Users/ronert/Dropbox/bib/rpackages.bib" "/Users/ronert/Dropbox/bib/websites.bib")))
+    ("/Users/ronert/Dropbox/bib/library.bib" "/Users/ronert/Dropbox/bib/rpackages.bib" "/Users/ronert/Dropbox/bib/websites.bib")) t)
  '(reftex-ref-style-alist
    (quote
     (("Default" t
@@ -208,11 +211,10 @@
  '(wg-morph-on nil)
  '(wg-switch-on-load t)
  '(yas-fallback-behavior (quote call-other-command))
- '(yas-snippet-dirs "~/Dropbox/dotfiles/.emacs.d/snippets" nil (yasnippet))
  '(yas-triggers-in-field t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ein:cell-input-area ((t nil))))
+ )

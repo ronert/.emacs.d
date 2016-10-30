@@ -24,6 +24,9 @@
     (elpy-enable)
     (elpy-use-ipython)
     (setq-default flycheck-flake8-maximum-line-length 160)
+    (setq elpy-rpc-python-command "~/anaconda/bin/python")
+    (setq python-shell-exec-path "~/anaconda/bin")
+    (setq python-shell-interpreter "ipython")
     )
   )
 
