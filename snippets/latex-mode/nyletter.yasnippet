@@ -1,0 +1,27 @@
+# key: nyletter
+# name: nyletter
+# group: classes
+# --
+\documentclass[german]{nyletter}
+\begin{document}
+\firsthead{\centering\usekomavar{fromlogo}\begin{flushright}\vspace{-27pt}
+    \sffamily{\textbf{\usekomavar{fromname}}\\
+      \usekomavar{fromaddress}\\ \usekomavar{fromphone}\\ \usekomavar{fromemail}}
+  \end{flushright}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Brief %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setkomavar{subject}{\bfseries{${1:Betreff}}}
+\begin{letter}{\sffamily{%
+      ${2:Adressat} \\
+      ${3:Adresse} \\
+      ${4:Ort und PLZ}}
+  }
+
+  \opening{${5:Sehr geehrte Damen und Herren},}
+
+  ${6:Text}
+  
+  \closing{${7:Mit freundlichen Grüßen}\vspace{16pt}}
+
+\end{letter}
+\end{document}
