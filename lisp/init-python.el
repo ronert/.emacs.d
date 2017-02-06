@@ -13,9 +13,11 @@
       (kmacro-exec-ring-item `(,(kbd "C-r def C-n C-a C-m C-p C-i C-u 6 \" C-u 3 C-b") 0 "%d")
                              arg)
       )
+    (setq python-shell-exec-path "~/anaconda3/bin/")
+    (setq python-shell-interpreter "ipython")
     ))
 
-;; elpy
+elpy
 (use-package elpy
   :ensure t
   :pin elpy
@@ -24,9 +26,7 @@
     (elpy-enable)
     (elpy-use-ipython)
     (setq-default flycheck-flake8-maximum-line-length 160)
-    (setq elpy-rpc-python-command "~/anaconda/bin/python")
-    (setq python-shell-exec-path "~/anaconda/bin")
-    (setq python-shell-interpreter "ipython")
+    (setq elpy-rpc-python-command "~/anaconda3/bin/python")
     )
   )
 
