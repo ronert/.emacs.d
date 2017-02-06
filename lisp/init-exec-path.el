@@ -9,12 +9,12 @@
     (progn
       (setenv "PATH" (concat "/usr/texbin:/usr/local/bin:" (getenv "PATH")))
       (setenv "PATH" (concat "~/.local/bin:" (getenv "PATH")))
-      (setenv "PATH" (concat "~/anaconda/bin:" (getenv "PATH")))
-      (setenv "PYTHONPATH" (concat "~/anaconda/bin:" (getenv "PYTHONPATH")))
+      (setenv "PATH" (concat "~/anaconda3/bin:" (getenv "PATH")))
+      (setenv "PYTHONPATH" (concat "~/anaconda3/bin:" (getenv "PYTHONPATH")))
       (setq-default ispell-program-name "/usr/local/bin/aspell"))
 
     (add-to-list 'exec-path "/usr/texbin:/usr/local/bin")
-    (add-to-list 'exec-path "~/anaconda/bin")
+    (add-to-list 'exec-path "~/anaconda3/bin")
     (add-to-list 'exec-path "~/.local/bin")
     )
   )
