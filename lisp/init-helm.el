@@ -30,7 +30,7 @@
                   helm-exit-idle-delay                  0)
             (require 'helm-config)
             (helm-mode 1)
-            (semantic-mode 1)
+            ;; (semantic-mode 1)
             ;; activate helm-descbinds
             (use-package helm-descbinds
               :ensure t
