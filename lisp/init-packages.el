@@ -256,8 +256,7 @@
 
 ;; Dash
 (use-package dash
-  :ensure t
-  :pin melpa-stable)
+  :ensure t)
 
 ;; Dash-at-point
 (use-package dash-at-point
