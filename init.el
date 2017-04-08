@@ -109,3 +109,13 @@ init-appearance
 
 (require 'init-sessions)
 ;;; init.el ends here
+
+
+;; Added by Kite
+(load-file "~/.emacs.d/kite.el")
+
+;; Added by Kite
+(load-file "~/.emacs.d/kite.el")
+
+;; Added by Kite
+(load-file "~/.emacs.d/kite.el")
