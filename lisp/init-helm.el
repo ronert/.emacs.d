@@ -1,5 +1,6 @@
 (use-package helm
   :ensure t
+  :pin melpa-stable
   :bind (("M-x" . helm-M-x)
          ("C-c h" . helm-mini)
          ("M-z" . helm-show-kill-ring)
