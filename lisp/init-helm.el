@@ -37,9 +37,6 @@
               :ensure t
               :config (helm-descbinds-mode)
               :bind ("C-c C-h" . helm-descbinds))
-            ;; activate helm-R
-            (use-package helm-R
-              :ensure t)
             (use-package helm-ag
               :ensure t)
             (use-package helm-ack

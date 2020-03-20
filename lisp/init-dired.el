@@ -1,16 +1,3 @@
-(use-package dired+
-  :ensure t
-  :config
-  (use-package stripe-buffer
-    :ensure t
-    :pin melpa-stable
-    :config
-    (progn
-      (add-hook 'org-mode-hook 'org-table-stripes-enable)
-      (add-hook 'dired-mode-hook 'stripe-listify-buffer))
-    )
-)
-
 ;; Also auto refresh dired
 (setq global-auto-revert-non-file-buffers t)
 

@@ -257,13 +257,6 @@
 (use-package dash-at-point
   :ensure t)
 
-
-;; Template
-(use-package request
-  :ensure t)
-(use-package template
-  :load-path "~/.emacs.d/site-lisp/Template/")
-
 ;; Restclient
 (use-package restclient
   :ensure t
