@@ -1,3 +1,7 @@
+;;; init-site-lisp.el --- Support elisp manually installed in the site-lisp dir -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;;; Set load path
 
 (eval-when-compile (require 'cl))
@@ -7,15 +11,15 @@
     (progn
       (setq load-path
             (append
-             (loop for dir in (directory-files parent-dir)
-                   unless (string-match "^\\." dir)
-                   collecting (expand-file-name dir))
+             (remove-if-not
+              (lambda (dir) (file-directory-p dir))
+              (directory-files (expand-file-name parent-dir) t "^[^\\.]"))
              load-path)))))
 
 (sanityinc/add-subdirs-to-load-path
  (expand-file-name "site-lisp/" user-emacs-directory))
 
-;; Utilities for grabbing upstream libs
+;;; Utilities for grabbing upstream libs
 
 (defun site-lisp-dir-for (name)
   (expand-file-name (format "site-lisp/%s" name) user-emacs-directory))
@@ -43,4 +47,6 @@ source file under ~/.emacs.d/site-lisp/name/"
   (let ((f (locate-library (symbol-name name))))
     (and f (string-prefix-p (file-name-as-directory (site-lisp-dir-for name)) f))))
 
+
 (provide 'init-site-lisp)
+;;; init-site-lisp.el ends here
