@@ -16,20 +16,21 @@
 ;; Bootstrap config
 (setq rr-initialization-errors nil)
 (require 'init-bootstrap)
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(require 'init-utils)
+(require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
+;; Calls (package-initialize)
+(require 'init-elpa)      ;; Machinery for installing required packages
+(require 'init-exec-path) ;; Set up $PATH
 
 
 (defvar init-files
   '(
-    init-utils ;; Must come before elpa, as it may provide package.el
-init-site-lisp
-;; Calls (package-initialize)
-init-elpa      ;; Machinery for installing required packages
-init-exec-path ;; Set up $PATH
-;; Appearance
-init-appearance
-;;----------------------------------------------------------------------------
-;; Load configs for specific features and modes
-;;----------------------------------------------------------------------------
+    ;; Appearance
+    init-appearance
+    ;;----------------------------------------------------------------------------
+    ;; Load configs for specific features and modes
+    ;;----------------------------------------------------------------------------
     init-smartparens
     init-yasnippet
     init-hippie-expand
@@ -97,18 +98,16 @@ init-appearance
 
 ;;----------------------------------------------------------------------------;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+(add-hook 'after-init-hook
+          (lambda ()
+            (require 'server)
+            (unless (server-running-p)
+              (server-start))))
 
 ;;----------------------------------------------------------------------------;; Variables configured via the interactive 'customize' interface
 ;;----------------------------------------------------------------------------
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
 
 (require 'init-sessions)
 ;;; init.el ends here
-
-
-
