@@ -4,7 +4,6 @@
       '(
       ("org"         . "http://orgmode.org/elpa/")
       ("gnu"          . "http://elpa.gnu.org/packages/")
-      ("elpy"         . "http://jorgenschaefer.github.io/packages/")
       ("melpa"        . "https://melpa.org/packages/")
       ("melpa-stable" . "https://stable.melpa.org/packages/")
       ))

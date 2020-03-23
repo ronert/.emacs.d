@@ -68,20 +68,20 @@
 
     (setq org-use-speed-commands t)
 
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((emacs-lisp . t)
-       (sh . t)
-       (R . t)
-       (perl . t)
-       (ruby . t)
-       (python . t)
-       (js . t)
-       (haskell . t)
-       (clojure . t)
-       (sql . t)
-       (haskell . t)
-       (ditaa . t)))
+    ;; (org-babel-do-load-languages
+    ;;  'org-babel-load-languages
+    ;;  '((emacs-lisp . t)
+    ;;    (sh . t)
+    ;;    (R . t)
+    ;;    (perl . t)
+    ;;    (ruby . t)
+    ;;    (python . t)
+    ;;    (js . t)
+    ;;    (haskell . t)
+    ;;    (clojure . t)
+    ;;    (sql . t)
+    ;;    (haskell . t)
+    ;;    (ditaa . t)))
 
     (add-to-list 'org-src-lang-modes
                  '("r" . ess-mode))

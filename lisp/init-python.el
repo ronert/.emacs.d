@@ -15,9 +15,10 @@
       )
     (setq python-shell-exec-path "~/anaconda3/bin/")
     (setq python-shell-interpreter "ipython")
-    ))
+    )
+  )
 
-elpy
+;; elpy
 (use-package elpy
   :ensure t
   :pin elpy
