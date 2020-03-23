@@ -194,10 +194,10 @@ If there is still something left do do start the next latex-command."
        ("~/Dropbox/bib/library.bib")))
 
 ;; latex-extra
-(use-package latex-extra
-  :ensure t
-  :pin melpa-stable)
-(eval-after-load 'latex '(latex/setup-keybinds))
+;; (use-package latex-extra
+;;   :ensure t
+;;   :hook (LaTeX-mode . latex-extra-mode))
+;; (eval-after-load 'latex '(latex/setup-keybinds))
 
 ;; define latexmk command
 (defun run-latexmk ()
