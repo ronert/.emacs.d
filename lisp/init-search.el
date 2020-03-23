@@ -31,6 +31,8 @@
   :ensure t
   :pin melpa-stable
   :config
-  (global-anzu-mode t))
+  (global-anzu-mode t)
+  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
+  (global-set-key [remap query-replace] 'anzu-query-replace)))
 
 (provide 'init-search)

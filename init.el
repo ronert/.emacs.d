@@ -53,6 +53,8 @@
     init-bindings
     init-misc
     init-compile
+    init-folding
+    init-ivy
 
     ;; specific programming modes modes
     init-csv
@@ -74,7 +76,8 @@
     init-hadoop
     init-devops
     init-crontab
-    init-docker.el
+    init-docker
+    init-http
 
     ;; company mode
     init-company
