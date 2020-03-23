@@ -73,6 +73,8 @@
     init-html
     init-hadoop
     init-devops
+    init-crontab
+    init-docker.el
 
     ;; company mode
     init-company

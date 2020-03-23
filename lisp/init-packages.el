@@ -250,8 +250,9 @@
   :config (global-hungry-delete-mode))
 
 ;; Dash
-(use-package dash
-  :ensure t)
+(when *is-a-mac*
+  (require-package 'dash-at-point)
+  (global-set-key (kbd "C-c D") 'dash-at-point))
 
 ;; Dash-at-point
 (use-package dash-at-point
