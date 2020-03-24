@@ -1,15 +1,24 @@
-(add-hook 'sql-mode-hook 'sql-highlight-postgres-keywords)
+;;; init-sql.el --- Support for SQL -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
-(use-package sql-indent
-  :ensure t
-  :config
-  (eval-after-load "sql"
-    '(load-library "sql-indent")))
+(after-load 'sql
+  ;; sql-mode pretty much requires your psql to be uncustomised from stock settings
+  (push "--no-psqlrc" sql-postgres-options))
+
+(defun sanityinc/fix-postgres-prompt-regexp ()
+  "Work around https://debbugs.gnu.org/cgi/bugreport.cgi?bug=22596.
+Fix for the above hasn't been released as of Emacs 25.2."
+  (when (eq sql-product 'postgres)
+    (setq-local sql-prompt-regexp "^[[:alnum:]_]*=[#>] ")
+    (setq-local sql-prompt-cont-regexp "^[[:alnum:]_]*[-(][#>] ")))
+
+(add-hook 'sql-interactive-mode-hook 'sanityinc/fix-postgres-prompt-regexp)
 
 (defun sanityinc/pop-to-sqli-buffer ()
   "Switch to the corresponding sqli buffer."
   (interactive)
-  (if sql-buffer
+  (if (and sql-buffer (buffer-live-p sql-buffer))
       (progn
         (pop-to-buffer sql-buffer)
         (goto-char (point-max)))
@@ -19,65 +28,93 @@
 
 (after-load 'sql
   (define-key sql-mode-map (kbd "C-c C-z") 'sanityinc/pop-to-sqli-buffer)
-  (add-hook 'sql-interactive-mode-hook 'sanityinc/never-indent)
   (when (package-installed-p 'dash-at-point)
-    (defun sanityinc/maybe-set-dash-db-docset ()
+    (defun sanityinc/maybe-set-dash-db-docset (&rest _)
       (when (eq sql-product 'postgres)
-        (set (make-local-variable 'dash-at-point-docset) "psql")))
+        (setq-local dash-at-point-docset "psql")))
 
     (add-hook 'sql-mode-hook 'sanityinc/maybe-set-dash-db-docset)
     (add-hook 'sql-interactive-mode-hook 'sanityinc/maybe-set-dash-db-docset)
-    (defadvice sql-set-product (after set-dash-docset activate)
-      (sanityinc/maybe-set-dash-db-docset))))
+    (advice-add 'sql-set-product :after 'sanityinc/maybe-set-dash-db-docset)))
 
 (setq-default sql-input-ring-file-name
               (expand-file-name ".sqli_history" user-emacs-directory))
 
-(after-load 'page-break-lines
-  (push 'sql-mode page-break-lines-modes))
-
-;; add coding hook
-(add-hook 'sql-mode-hook 'run-coding-hook)
-
-;; (define-abbrev-table 'sql-mode-abbrev-table
-;; (mapcar #'(lambda (v) (list v (upcase v) nil 1))
-;; '("limit" "absolute" "action" "add" "after" "all" "allocate" "alter" "and" "any" "are" "as" "asc" "asensitive" "assertion" "asymmetric" "at" "atomic" "authorization" "avg" "before" "begin" "between" "binary" "bit" "bitlength" "blob" "boolean" "both" "breadth" "by" "call" "called" "cascade" "cascaded" "case" "catalog" "char" "char_length" "character" "character_length" "check" "clob" "close" "coalesce" "collate" "collation" "column" "commit" "condition" "connect" "connection" "constraint" "constraints" "constructor" "contains" "continue" "convert" "corresponding" "count" "create" "cross" "cube" "current" "current_date" "current_default_transform_group" "current_path" "current_role" "current_time" "current_timestamp" "current_transform_group_for_type" "current_user" "cursor" "cycle" "data" "date" "day" "deallocate" "dec" "decimal" "declare" "default" "deferrable" "deferred" "delete" "depth" "deref" "desc" "describe" "descriptor" "deterministic" "diagnostics" "disconnect" "distinct" "do" "domain" "double" "drop" "dynamic" "each" "element" "else" "elseif" "end" "equals" "escape" "except" "exception" "exec" "execute" "exists" "exit" "external" "extract" "false" "fetch" "filter" "for" "foreign" "found" "free" "from" "full" "function" "general" "get" "global" "go" "goto" "grant" "group" "grouping" "handler" "having" "hold" "hour" "identity" "if" "immediate" "in" "indicator" "initially" "inner" "inout" "input" "insensitive" "insert" "intersect" "interval" "into" "is" "isolation" "iterate" "join" "key" "language" "large" "last" "lateral" "leading" "leave" "left" "level" "like" "local" "localtime" "localtimestamp" "locator" "loop" "lower" "map" "match" "map" "member" "merge" "method" "min" "minute" "modifies" "module" "month" "multiset" "names" "national" "natural" "nchar" "nclob" "new" "next" "no" "none" "not" "null" "nullif" "numeric" "object" "octet_length" "of" "old" "on" "only" "open" "option" "or" "order" "ordinality" "out" "outer" "output" "over" "overlaps" "pad" "parameter" "partial" "partition" "path" "position" "precision" "prepare" "preserve" "primary" "prior" "privileges" "procedure" "public" "range" "read" "reads" "real" "recursive" "ref" "references" "referencing" "relative" "release" "repeat" "resignal" "restrict" "result" "return" "returns" "revoke" "right" "role" "rollback" "rollup" "routine" "row" "rows" "savepoint" "schema" "scope" "scroll" "search" "second" "section" "select" "sensitive" "session" "session_user" "set" "sets" "signal" "similar" "size" "smallint" "some" "space" "specific" "specifictype" "sql" "sqlcode" "sqlerror" "sqlexception" "sqlstate" "sqlwarning" "start" "state" "static" "submultiset" "substring" "sum" "symmetric" "system" "system_user" "table" "tablesample" "temporary" "then" "time" "timestamp" "timezone_hour" "timezone_minute" "trailing" "transaction" "translate" "translation" "treat" "trigger" "trim" "true" "under" "undo" "union" "unique" "unknown" "unnest" "until" "update" "upper" "usage" "user" "using" "varchar" "varying" "view" "when" "whenever" "where" "while" "window" "with" "within" "without" "work" "write" "year" "zone" "distributed" "copy" "text")
-;; ))
-
-;; Do not expand abbrevs in comments
-(defun sql-mode-abbrev-expand-function-bp (expand)
-  (if (not (save-excursion (forward-line 0) (eq (char-after) ?*)))
-      ;; Performs normal expansion.
-      (funcall expand)
-    ;; We're inside a comment: use the text-mode abbrevs.
-    (let ((local-abbrev-table text-mode-abbrev-table))
-      (funcall expand))))
-
-(add-hook 'sql-mode-hook
-          '(lambda ()
-             (add-hook 'abbrev-expand-functions
-                       'sql-mode-abbrev-expand-function-bp
-                       nil t)))
-
-
-;; Special PSQL commands
-(use-package pgsql-minor-mode)
-
-;; Font locking in sql-interactive-mode from purcell
 ;; See my answer to https://emacs.stackexchange.com/questions/657/why-do-sql-mode-and-sql-interactive-mode-not-highlight-strings-the-same-way/673
 (defun sanityinc/font-lock-everything-in-sql-interactive-mode ()
   (unless (eq 'oracle sql-product)
     (sql-product-font-lock nil nil)))
 (add-hook 'sql-interactive-mode-hook 'sanityinc/font-lock-everything-in-sql-interactive-mode)
 
-(use-package sqlup-mode
-  :ensure t)
 
-(add-hook 'sql-mode-hook 'sqlup-mode)
-(add-hook 'sql-interactive-mode-hook 'sqlup-mode)
+(require-package 'sqlformat)
+(after-load 'sql
+  (define-key sql-mode-map (kbd "C-c C-f") 'sqlformat))
 
-(use-package format-sql
-  :ensure t)
+;; Package ideas:
+;;   - PEV
+(defun sanityinc/sql-explain-region-as-json (beg end &optional copy)
+  "Explain the SQL between BEG and END in detailed JSON format.
+This is suitable for pasting into tools such as
+http://tatiyants.com/pev/.
+When the prefix argument COPY is non-nil, do not display the
+resulting JSON, but instead copy it to the kill ring.
+If the region is not active, uses the current paragraph, as per
+`sql-send-paragraph'.
+Connection information is taken from the special sql-* variables
+set in the current buffer, so you will usually want to start a
+SQLi session first, or otherwise set `sql-database' etc.
+This command currently blocks the UI, sorry."
+  (interactive "rP")
+  (unless (eq sql-product 'postgres)
+    (user-error "This command is for PostgreSQL only"))
+  (unless (use-region-p)
+    (setq beg (save-excursion (backward-paragraph) (point))
+          end (save-excursion (forward-paragraph) (point))))
+  (let ((query (buffer-substring-no-properties beg end)))
+    (with-current-buffer (if (sql-buffer-live-p sql-buffer)
+                             sql-buffer
+                           (current-buffer))
+      (let* ((process-environment
+              (append (list (concat "PGDATABASE=" sql-database)
+                            (concat "PGHOST=" sql-server)
+                            (concat "PGUSER=" sql-user))
+                      process-environment))
+             (args (list "--no-psqlrc"
+                         "-qAt"
+                         "-w"             ; Never prompt for password
+                         "-E"
+                         "-c" (concat "EXPLAIN (ANALYZE, COSTS, VERBOSE, BUFFERS, FORMAT JSON) " query ";")
+                         ))
+             (err-file (make-temp-file "sql-explain-json")))
+        (with-current-buffer (get-buffer-create "*sql-explain-json*")
+          (setq buffer-read-only nil)
+          (delete-region (point-min) (point-max))
+          (let ((retcode (apply 'call-process sql-postgres-program nil (list (current-buffer) err-file) nil args)))
+            (if (zerop retcode)
+                (progn
+                  (json-mode)
+                  (read-only-mode 1)
+                  (if copy
+                      (progn
+                        (kill-ring-save (buffer-substring-no-properties (point-min) (point-max)))
+                        (message "EXPLAIN output copied to kill-ring."))
+                    (display-buffer (current-buffer))))
+              (with-current-buffer (get-buffer-create "*sql-explain-errors*")
+                (let ((inhibit-read-only t))
+                  (insert-file-contents err-file nil nil nil t))
+                (display-buffer (current-buffer))
+                (user-error "EXPLAIN failed")))))))))
+
+
+;; Submitted upstream as https://github.com/stanaka/dash-at-point/pull/28
+(after-load 'sql
+  (after-load 'dash-at-point
+    (add-to-list 'dash-at-point-mode-alist '(sql-mode . "psql,mysql,sqlite,postgis"))))
+
+
+(after-load 'page-break-lines
+  (push 'sql-mode page-break-lines-modes))
 
 (provide 'init-sql)
-;;; init-sql ends here
+;;; init-sql.el ends here
