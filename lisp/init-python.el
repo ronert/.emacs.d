@@ -15,6 +15,7 @@
       )
     (setq python-shell-exec-path "~/anaconda3/bin/")
     (setq python-shell-interpreter "ipython")
+    (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
     )
   )
 
