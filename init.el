@@ -2,7 +2,7 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; No splash screen please ... jeez
-(setq inhibit-startup-message t)
+(setq inhibit-startupmessage t)
 
 ;; Set path to dependencies
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
@@ -27,6 +27,7 @@
 (defvar init-files
   '(
     ;; Appearance
+    init-locales
     init-appearance
     ;;----------------------------------------------------------------------------
     ;; Load configs for specific features and modes
@@ -104,10 +105,10 @@
 ;;----------------------------------------------------------------------------;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
 (add-hook 'after-init-hook
-          (lambda ()
-            (require 'server)
-            (unless (server-running-p)
-              (server-start))))
+	  (lambda ()
+	    (require 'server)
+	    (unless (server-running-p)
+	      (server-start))))
 
 ;;----------------------------------------------------------------------------;; Variables configured via the interactive 'customize' interface
 ;;----------------------------------------------------------------------------

@@ -16,6 +16,7 @@
     (add-to-list 'exec-path "/usr/texbin:/usr/local/bin")
     (add-to-list 'exec-path "~/anaconda3/bin")
     (add-to-list 'exec-path "~/.local/bin")
+    (exec-path-from-shell-copy-envs '("LANG" "LC_ALL" "LC_CTYPES"))
     )
   )
 

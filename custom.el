@@ -133,10 +133,10 @@
      (102 . "\\footcite[][]{%l}")
      (70 . "\\fullcite[]{%l}")
      (120 . "[]{%l}")
-     (88 . "{%l}"))) t)
+     (88 . "{%l}"))))
  '(reftex-default-bibliography
    (quote
-    ("/Users/ronert/Dropbox/bib/library.bib" "/Users/ronert/Dropbox/bib/rpackages.bib" "/Users/ronert/Dropbox/bib/websites.bib")) t)
+    ("/Users/ronert/Dropbox/bib/library.bib" "/Users/ronert/Dropbox/bib/rpackages.bib" "/Users/ronert/Dropbox/bib/websites.bib")))
  '(reftex-ref-style-alist
    (quote
     (("Default" t
